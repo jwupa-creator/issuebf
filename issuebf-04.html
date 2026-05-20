@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 시대, 교수는 무엇을 두려워하고 어떻게 바꿔야 하는가 - JWU 이슈브리프</title>
+    <!-- Pretendard Font CDN -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        jwuBlue: '#192f72',
+                        jwuRed: '#94243a',
+                        jwuYellow: '#f6b544',
+                        jwuGray: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #192f72;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94243a;
+        }
+        .text-glow {
+            text-shadow: 0 0 15px rgba(246, 181, 68, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 leading-relaxed antialiased">
+
+    <!-- Top Premium Accent Bar -->
+    <div class="h-2 w-full bg-gradient-to-r from-jwuBlue via-jwuRed to-jwuYellow"></div>
+
+    <!-- Quick Navigation (Sticky Header) -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-jwuBlue/10 text-jwuBlue border border-jwuBlue/20">
+                    JWU 성과감사실 이슈분석
+                </span>
+                <span class="text-slate-300 hidden md:inline">|</span>
+                <span class="text-xs text-slate-500 font-medium hidden md:inline">내부 참고자료</span>
+            </div>
+            <nav class="hidden md:flex space-x-6 text-sm font-semibold">
+                <a href="#scqa" class="text-slate-600 hover:text-jwuBlue transition">SCQA 진단</a>
+                <a href="#crises" class="text-slate-600 hover:text-jwuBlue transition">4대 위기</a>
+                <a href="#evidence" class="text-slate-600 hover:text-jwuBlue transition">실증 데이터</a>
+                <a href="#benchmarks" class="text-slate-600 hover:text-jwuBlue transition">글로벌 벤치마크</a>
+                <a href="#action" class="text-slate-600 hover:text-jwuBlue transition">실천 가이드</a>
+                <a href="#selfcheck" class="text-slate-600 hover:text-jwuBlue transition">자가진단</a>
+            </nav>
+            <div class="flex items-center space-x-2">
+                <button onclick="adjustFontSize(1)" class="p-1.5 text-xs font-bold border border-slate-200 rounded hover:bg-slate-50" title="글자 크게">A+</button>
+                <button onclick="adjustFontSize(-1)" class="p-1.5 text-xs font-bold border border-slate-200 rounded hover:bg-slate-50" title="글자 작게">A-</button>
+                <button onclick="window.print()" class="p-1.5 text-slate-600 hover:text-jwuRed rounded hover:bg-slate-100 hidden sm:inline-flex" title="프린트">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container with dynamic sizing -->
+    <main id="main-container" class="transition-all duration-200">
+
+        <!-- Hero Section -->
+        <section class="relative bg-gradient-to-br from-jwuBlue via-[#1f377e] to-[#0d1c47] text-white py-16 px-4 overflow-hidden">
+            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#f6b544_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            <div class="max-w-4xl mx-auto text-center relative z-10">
+                <div class="inline-flex items-center space-x-2 bg-jwuYellow/20 border border-jwuYellow/40 px-4 py-1.5 rounded-full text-jwuYellow text-xs font-bold mb-6 tracking-wide uppercase">
+                    <span>이슈브리프 2026-04</span>
+                    <span>•</span>
+                    <span>AI · 에듀테크 / 교수학습혁신</span>
+                </div>
+                
+                <h1 class="text-3xl sm:text-5xl font-black tracking-tight leading-tight mb-6">
+                    AI 시대, 교수는 무엇을 <span class="text-jwuYellow">두려워하고</span><br class="hidden sm:inline"> 어떻게 <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-200 to-jwuYellow border-b-4 border-jwuYellow">바꿔야 하는가</span>
+                </h1>
+                
+                <p class="text-lg sm:text-xl text-slate-200 font-medium max-w-2xl mx-auto leading-relaxed mb-8">
+                    배상훈 교수 칼럼 분석 • 인지과학 실증 • 국내외 거버넌스 벤치마크 • 중원대학교 실제 현장 적용 시사점
+                </p>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto pt-6 border-t border-white/10 text-sm">
+                    <div class="bg-white/5 p-3 rounded-lg backdrop-blur">
+                        <span class="block text-slate-400 text-xs">작성부서</span>
+                        <strong class="text-slate-100">성과감사실</strong>
+                    </div>
+                    <div class="bg-white/5 p-3 rounded-lg backdrop-blur">
+                        <span class="block text-slate-400 text-xs">발행일</span>
+                        <strong class="text-slate-100">2026. 05. 19</strong>
+                    </div>
+                    <div class="bg-white/5 p-3 rounded-lg backdrop-blur">
+                        <span class="block text-slate-400 text-xs">분석 대상</span>
+                        <strong class="text-slate-100">배상훈 교수 칼럼 외</strong>
+                    </div>
+                    <div class="bg-white/5 p-3 rounded-lg backdrop-blur">
+                        <span class="block text-slate-400 text-xs">배포구분</span>
+                        <strong class="text-jwuYellow">내부 참고 (배포 금지)</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCQA Summary section -->
+        <section id="scqa" class="py-12 bg-white border-b border-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <!-- S -->
+                    <div class="relative bg-slate-50 p-6 rounded-2xl border-l-4 border-jwuBlue shadow-sm hover:shadow-md transition">
+                        <div class="absolute -top-3 left-6 px-3 py-0.5 bg-jwuBlue text-white text-xs font-black rounded-full uppercase tracking-wider">Situation</div>
+                        <h4 class="font-bold text-slate-900 mt-2 mb-2 text-base">파괴적 수업 재편</h4>
+                        <p class="text-sm text-slate-600">AI가 대학의 수업·평가·교수자 고유 역할 전반을 파괴적으로 재설정하고 있습니다.</p>
+                    </div>
+                    <!-- C -->
+                    <div class="relative bg-slate-50 p-6 rounded-2xl border-l-4 border-jwuRed shadow-sm hover:shadow-md transition">
+                        <div class="absolute -top-3 left-6 px-3 py-0.5 bg-jwuRed text-white text-xs font-black rounded-full uppercase tracking-wider">Complication</div>
+                        <h4 class="font-bold text-slate-900 mt-2 mb-2 text-base">사고의 외주화 부작용</h4>
+                        <p class="text-sm text-slate-600">'표피적 학습', '인지적 표절' 등 실질적 사고력 감퇴 현상이 실증 데이터로 입증되었습니다.</p>
+                    </div>
+                    <!-- Q -->
+                    <div class="relative bg-slate-50 p-6 rounded-2xl border-l-4 border-jwuYellow shadow-sm hover:shadow-md transition">
+                        <div class="absolute -top-3 left-6 px-3 py-0.5 bg-jwuYellow text-slate-900 text-xs font-black rounded-full uppercase tracking-wider">Question</div>
+                        <h4 class="font-bold text-slate-900 mt-2 mb-2 text-base">우리의 핵심 과제</h4>
+                        <p class="text-sm text-slate-600">"중원대학교 교수진은 지금 무엇을, 그리고 어떻게 당장 혁신해야 하는가?"</p>
+                    </div>
+                    <!-- A -->
+                    <div class="relative bg-gradient-to-br from-jwuBlue to-slate-900 p-6 rounded-2xl border-l-4 border-jwuYellow text-white shadow-md hover:shadow-lg transition">
+                        <div class="absolute -top-3 left-6 px-3 py-0.5 bg-jwuYellow text-slate-900 text-xs font-black rounded-full uppercase tracking-wider">Answer</div>
+                        <h4 class="font-bold text-jwuYellow mt-2 mb-2 text-base">동시 3축 혁신</h4>
+                        <p class="text-sm text-slate-200">수업 설계, 평가 방식 다각화, 통합적 AI 거버넌스의 3박자 동시 혁신이 필수적입니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section I: 4대 위기 -->
+        <section id="crises" class="py-16 px-4 bg-slate-50">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <span class="text-xs font-extrabold text-jwuRed uppercase tracking-widest bg-jwuRed/10 px-3 py-1 rounded-full">Part I</span>
+                    <h2 class="text-3xl font-black text-slate-900 mt-3 mb-4">배상훈 교수가 경고하는 4대 위기 진단</h2>
+                    <p class="text-slate-600 max-w-2xl mx-auto text-sm sm:text-base">
+                        성균관대 교육학과 배상훈 교수의 2026년 5월 19일 머니투데이 오피니언을 입체적으로 해부하여 교육 시스템 전반의 무너지는 신뢰 구조와 대안을 짚어봅니다.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- 위기 1 -->
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:border-jwuBlue/20 transition group">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-jwuBlue/10 rounded-2xl flex items-center justify-center text-jwuBlue font-black text-xl group-hover:bg-jwuBlue group-hover:text-white transition">01</div>
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-jwuBlue transition">대학 존재 이유의 흔들림</h3>
+                                <p class="text-slate-600 text-sm mb-4">
+                                    AI가 보고서 작성, 공모전 디자인, 진로 설계까지 원스톱으로 대행하면서 학생들은 "비싼 등록금을 내며 굳이 대학을 다녀야 하는가" 자문하기 시작했습니다. 지식 전수 공간으로서의 전통적 위상은 소멸 중입니다.
+                                </p>
+                                <div class="bg-slate-50 p-3.5 rounded-xl border-l-4 border-jwuYellow text-xs text-slate-700">
+                                    <strong class="text-jwuBlue block mb-1">인지과학 관점: 인지적 오프로딩(Cognitive Offloading)</strong>
+                                    인간이 사고해야 할 고차원 인지 과정을 AI에 전부 위임하여 스스로 성찰하고 문제를 도출하는 훈련 자체를 누락시키는 치명적 현상.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 위기 2 -->
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:border-jwuRed/20 transition group">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-jwuRed/10 rounded-2xl flex items-center justify-center text-jwuRed font-black text-xl group-hover:bg-jwuRed group-hover:text-white transition">02</div>
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-jwuRed transition">교수 역할의 근본적 해체</h3>
+                                <p class="text-slate-600 text-sm mb-4">
+                                    AI 알고리즘이 MIT 월터 르윈 교수 수준의 최고급 명강의를 학습자의 현 수준에 맞춤형으로 큐레이션해주는 시대입니다. "르윈 교수보다 더 잘 가르칠 자신 없으면 소멸 대상"이라는 냉정한 진단이 현실화되었습니다.
+                                </p>
+                                <div class="bg-slate-50 p-3.5 rounded-xl border-l-4 border-jwuBlue text-xs text-slate-700">
+                                    <strong class="text-jwuRed block mb-1">교수의 미래 정체성 대변환</strong>
+                                    단순 지식 전달자(Lecturer)에서 개인 성장을 서포트하는 학습 코치(Learning Coach), 강력한 자극을 주는 질문 설계자, 정교한 평가자 및 멘토로의 전환.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 위기 3 -->
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:border-jwuBlue/20 transition group">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-jwuBlue/10 rounded-2xl flex items-center justify-center text-jwuBlue font-black text-xl group-hover:bg-jwuBlue group-hover:text-white transition">03</div>
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-jwuBlue transition">표피적 학습과 사고의 외주화</h3>
+                                <p class="text-slate-600 text-sm mb-4">
+                                    과제를 AI로 빠르게 수행한 학생들은 스스로 "매우 잘 알고 있다"고 착각하는 경향을 보이지만, 실제로는 단편적 정보만 축적할 뿐입니다. 스스로 가공하고 곱씹는 성찰의 시간이 사라져 구조적인 지식 확장이 어렵습니다.
+                                </p>
+                                <div class="bg-slate-50 p-3.5 rounded-xl border-l-4 border-jwuYellow text-xs text-slate-700">
+                                    <strong class="text-jwuBlue block mb-1">핵심 개념: 인지적 표절(Cognitive Plagiarism)</strong>
+                                    단순 문장 베끼기가 아니라, 스스로 고민해야 할 논리 구조와 생각의 전개 과정 자체를 AI에 통째로 위임하는 새로운 차원의 표절 양상.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 위기 4 -->
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:border-jwuRed/20 transition group">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-jwuRed/10 rounded-2xl flex items-center justify-center text-jwuRed font-black text-xl group-hover:bg-jwuRed group-hover:text-white transition">04</div>
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-jwuRed transition">교육 현장의 신뢰 위기</h3>
+                                <p class="text-slate-600 text-sm mb-4">
+                                    제출된 레포트를 채점하며 '이 과제는 정말 학생이 스스로 고민해 쓴 것일까?'라는 의심이 교수자들의 일상이 되었습니다. 변별력을 잃어버린 구태의연한 정답 찾기형 평가는 AI 무대에서 설 자리를 잃었습니다.
+                                </p>
+                                <div class="bg-slate-50 p-3.5 rounded-xl border-l-4 border-jwuBlue text-xs text-slate-700">
+                                    <strong class="text-jwuRed block mb-1">전국적 위기의식 통계</strong>
+                                    한국대학교육협의회 설문 결과, 국내 대학 총장 75% 이상이 "AI 활용 확대로 인한 성적 및 학생 평가 신뢰도 훼손"을 극도로 우려하고 있습니다.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 bg-gradient-to-r from-jwuBlue to-jwuRed text-white p-6 rounded-2xl text-center shadow-lg">
+                    <p class="text-base sm:text-lg font-medium italic">
+                        "AI에 대한 피상적 기대와 단순한 기술 낙관론에서 완전히 벗어나, 교육자·연구자·정책가가 긴밀히 협력해 지금 당장 대학 현장 중심의 실질적 'AI 임팩트 보고서(AI Impact Report)'를 작성해야 할 시점이다."
+                    </p>
+                    <span class="block mt-3 text-xs text-jwuYellow font-bold">- 배상훈 교수 머니투데이 칼럼 제언 중</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section II: 국내외 실증 근거 -->
+        <section id="evidence" class="py-16 px-4 bg-white border-y border-slate-100">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <span class="text-xs font-extrabold text-jwuBlue uppercase tracking-widest bg-jwuBlue/10 px-3 py-1 rounded-full">Part II</span>
+                    <h2 class="text-3xl font-black text-slate-900 mt-3 mb-4">우려는 데이터로 입증된다</h2>
+                    <p class="text-slate-600 max-w-xl mx-auto text-sm">
+                        단순한 우려가 아닌, 최근 글로벌 교육 조사 및 실험을 통해 백업되는 강력한 정량 데이터들을 시각화하여 공유합니다.
+                    </p>
+                </div>
+
+                <!-- 미국 AAC&U 설문조사 시각화 -->
+                <div class="mb-16">
+                    <h3 class="text-xl font-bold text-slate-950 mb-6 flex items-center space-x-2">
+                        <span class="w-3 h-6 bg-jwuBlue rounded-full inline-block"></span>
+                        <span>미국 전국 교수 대규모 설문 조사 결과 <span class="text-xs text-slate-500 font-normal">(AAC&U - Elon Univ, n=1,057)</span></span>
+                    </h3>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Stat 1 -->
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-between">
+                            <div>
+                                <span class="text-sm font-semibold text-slate-500 block mb-1">AI 과의존 및 비판력 약화 우려</span>
+                                <p class="text-slate-600 text-xs">"비판적 사고력이 훼손되고 과도하게 편의 위주로 AI에 기댈 것"</p>
+                            </div>
+                            <div class="mt-4">
+                                <div class="flex items-baseline justify-between mb-1">
+                                    <span class="text-xs text-jwuBlue font-bold">동의 비율</span>
+                                    <span class="text-3xl font-black text-jwuBlue">95%</span>
+                                </div>
+                                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-jwuBlue h-full rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Stat 2 -->
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-between">
+                            <div>
+                                <span class="text-sm font-semibold text-slate-500 block mb-1">학문적 진실성 및 윤리 훼손</span>
+                                <p class="text-slate-600 text-xs">"과제 및 학술 활동 중 대필 등 윤리 도덕적 훼손이 일어날 것"</p>
+                            </div>
+                            <div class="mt-4">
+                                <div class="flex items-baseline justify-between mb-1">
+                                    <span class="text-xs text-jwuRed font-bold">동의 비율</span>
+                                    <span class="text-3xl font-black text-jwuRed">75%↑</span>
+                                </div>
+                                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-jwuRed h-full rounded-full" style="width: 78%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Stat 3 -->
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-between">
+                            <div>
+                                <span class="text-sm font-semibold text-slate-500 block mb-1">학교 AI 대응 미비</span>
+                                <p class="text-slate-600 text-xs">"우리 대학은 아직 AI 환경을 통제하거나 활용할 준비가 안 되었다"</p>
+                            </div>
+                            <div class="mt-4">
+                                <div class="flex items-baseline justify-between mb-1">
+                                    <span class="text-xs text-slate-600 font-bold">동의 비율</span>
+                                    <span class="text-3xl font-black text-slate-700">59%</span>
+                                </div>
+                                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-slate-600 h-full rounded-full" style="width: 59%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Stat 4 -->
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-between">
+                            <div>
+                                <span class="text-sm font-semibold text-slate-500 block mb-1">졸업생 AI 활용 한계</span>
+                                <p class="text-slate-600 text-xs">"졸업생들이 실제 기업에 가서 정합하게 AI를 다룰 역량이 부족하다"</p>
+                            </div>
+                            <div class="mt-4">
+                                <div class="flex items-baseline justify-between mb-1">
+                                    <span class="text-xs text-jwuYellow font-bold">동의 비율</span>
+                                    <span class="text-3xl font-black text-jwuYellow">63%</span>
+                                </div>
+                                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-jwuYellow h-full rounded-full" style="width: 63%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 대학생 vs 교수진 AI 격차 분석 리포트 -->
+                <div>
+                    <h3 class="text-xl font-bold text-slate-950 mb-6 flex items-center space-x-2">
+                        <span class="w-3 h-6 bg-jwuRed rounded-full inline-block"></span>
+                        <span>교수 • 학생 간 AI 활용 인식 격차 비교 <span class="text-xs text-slate-500 font-normal">(독일 뒤스부르크-에센 대학 공동 연구, 5점 척도 표준)</span></span>
+                    </h3>
+
+                    <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
+                        <table class="w-full text-left border-collapse bg-white">
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-800 text-sm font-bold border-b border-slate-200">
+                                    <th class="p-4">분석 영역</th>
+                                    <th class="p-4 text-center">학생 집단 실태</th>
+                                    <th class="p-4 text-center">교수 집단 실태</th>
+                                    <th class="p-4">중원대 교수자용 핵심 시사점 (인지과학적 리포트)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm text-slate-600 divide-y divide-slate-100">
+                                <tr class="hover:bg-slate-50/50 transition">
+                                    <td class="p-4 font-bold text-slate-800">AI 사용 빈도</td>
+                                    <td class="p-4 text-center text-jwuRed font-semibold">
+                                        <span class="text-slate-800">교수 대비</span>
+                                        <span class="block mt-1 bg-red-50 text-jwuRed px-2 py-1 rounded text-xs font-bold border border-red-100">+0.35점 고빈도</span>
+                                    </td>
+                                    <td class="p-4 text-center">필요한 상황 시 가끔 제한적 사용</td>
+                                    <td class="p-4 text-xs">학생의 학업 및 일상 생활 전반에 깊게 스며들어 지적 독립성을 빠르게 상실 중입니다.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50 transition">
+                                    <td class="p-4 font-bold text-slate-800">과제 수행 위임도</td>
+                                    <td class="p-4 text-center text-jwuRed font-semibold">
+                                        <span class="text-slate-800">교수 대비</span>
+                                        <span class="block mt-1 bg-red-50 text-jwuRed px-2 py-1 rounded text-xs font-bold border border-red-100">+15.72점 위임</span>
+                                    </td>
+                                    <td class="p-4 text-center">단순 참고 및 제한적 교정 보조 도구</td>
+                                    <td class="p-4 text-xs font-medium text-jwuRed">학생은 AI를 '도우미'가 아닌 일 처리를 다 해주는 '대행자'로 전제합니다. 사고의 도약이 멈춥니다.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50 transition">
+                                    <td class="p-4 font-bold text-slate-800">정보검색 위임 격차</td>
+                                    <td class="p-4 text-center text-jwuRed font-semibold">
+                                        <span class="text-slate-800">격차 최대</span>
+                                        <span class="block mt-1 bg-red-50 text-jwuRed px-2 py-1 rounded text-xs font-bold border border-red-100">+24.09점 격차</span>
+                                    </td>
+                                    <td class="p-4 text-center">원문 및 팩트 체크 목적의 고도화 활용</td>
+                                    <td class="p-4 text-xs">스스로 탐색하며 배우는 능동적 탐구 단계를 뛰어넘고, 가공된 요약본만 표피적으로 소비합니다.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50 transition">
+                                    <td class="p-4 font-bold text-slate-800">글쓰기 위임 & 평가</td>
+                                    <td class="p-4 text-center text-slate-700 font-semibold">
+                                        <span class="text-slate-800">편의성 극대화</span>
+                                        <span class="block mt-1 bg-slate-100 text-slate-600 px-2 py-1 rounded text-[11px] font-medium">매우 관대한 긍정 평가</span>
+                                    </td>
+                                    <td class="p-4 text-center">독창적 서사 결핍 우려 (83% 역량 부족 우려)</td>
+                                    <td class="p-4 text-xs">
+                                        <span class="text-jwuRed font-bold block mb-1">인간 환각 (Human Hallucination) 현상 초래</span>
+                                        AI가 작성해준 부드럽고 매끄러운 답변을 학생 자신이 직접 지적으로 노력해 도출해낸 실력으로 무의식 중에 심각하게 착각하는 '메타인지 자기귀인 오류'가 만연합니다.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 국내 정책 트렌드 요약 -->
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 flex items-start space-x-3">
+                        <div class="text-2xl mt-1">💡</div>
+                        <div>
+                            <strong class="block text-slate-900 text-sm mb-1">정부 기조: 금지에서 '과정 명시'로</strong>
+                            <p class="text-xs text-slate-600">교육부·과기정통부 공동 방침(2025.12)에 따라 AI의 무조건적 제한 금지 대신 출처 표기 의무화 및 활용 영역 설정 표준안 구축 중입니다.</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 flex items-start space-x-3">
+                        <div class="text-2xl mt-1">🏫</div>
+                        <div>
+                            <strong class="block text-slate-900 text-sm mb-1">AI 기본교육과정 개발 확대</strong>
+                            <p class="text-xs text-slate-600">교육부 '대학 AI 기본교육과정 개발 지원사업'을 통해 20개 선정 대학에 평균 3억 원씩 집중 지원하며 재정 사업 전면에 배치되었습니다.</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 flex items-start space-x-3">
+                        <div class="text-2xl mt-1">📋</div>
+                        <div>
+                            <strong class="block text-slate-900 text-sm mb-1">가이드라인 제정 및 공표 가속</strong>
+                            <p class="text-xs text-slate-600">국내 대학 총장 설문 조사 결과, 전국 대학의 40%가 이미 AI 가이드라인을 최종 확정했으며, 40%가 추가 제정 절차에 착수했습니다.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section III: 국내외 AI 거버넌스 벤치마크 -->
+        <section id="benchmarks" class="py-16 px-4 bg-slate-50">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <span class="text-xs font-extrabold text-jwuRed uppercase tracking-widest bg-jwuRed/10 px-3 py-1 rounded-full">Part III</span>
+                    <h2 class="text-3xl font-black text-slate-900 mt-3 mb-4">선도 대학들의 AI 거버넌스 벤치마킹</h2>
+                    <p class="text-slate-600 max-w-xl mx-auto text-sm">
+                        선도적 대응에 나선 주요 대학 사례를 바탕으로 중원대학교 2026학년도 2학기 수업에 즉각 이식 가능한 실천 전략을 찾습니다.
+                    </p>
+                </div>
+
+                <!-- Tab interface for Benchmarks -->
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+                    <div class="flex border-b border-slate-100 bg-slate-50 overflow-x-auto">
+                        <button onclick="switchTab('pnu')" id="tab-pnu" class="flex-1 py-4 px-6 text-center text-sm font-bold border-b-2 border-jwuBlue text-jwuBlue whitespace-nowrap">
+                            부산대 (PNU-AX 마스터플랜)
+                        </button>
+                        <button onclick="switchTab('dsu')" id="tab-dsu" class="flex-1 py-4 px-6 text-center text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-800 whitespace-nowrap">
+                            동서대 (The Only One)
+                        </button>
+                        <button onclick="switchTab('ucl')" id="tab-ucl" class="flex-1 py-4 px-6 text-center text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-800 whitespace-nowrap">
+                            UCL (영국 런던대 모델)
+                        </button>
+                        <button onclick="switchTab('harvard')" id="tab-harvard" class="flex-1 py-4 px-6 text-center text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-800 whitespace-nowrap">
+                            하버드대 (보안 & 자율 규제)
+                        </button>
+                    </div>
+
+                    <div class="p-8">
+                        <!-- Pusan National Univ Content -->
+                        <div id="content-pnu" class="tab-content block">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                <div class="space-y-4">
+                                    <span class="inline-block px-3 py-1 bg-jwuBlue/10 text-jwuBlue text-xs font-bold rounded">핵심 철학</span>
+                                    <h4 class="text-2xl font-black text-slate-900 leading-tight">"지성 • 창의성 • 인간성" 기반 6대 윤리 원칙 정립</h4>
+                                    <p class="text-sm text-slate-600">국내 최초로 행정, 교육, 연구 전 영역을 통합하여 윤리 매뉴얼과 AI 마스터플랜 'A.U.R.A'를 동시 선언했습니다.</p>
+                                </div>
+                                <div class="bg-slate-50 p-6 rounded-2xl space-y-3">
+                                    <span class="inline-block px-3 py-1 bg-jwuRed/10 text-jwuRed text-xs font-bold rounded">주요 통제 장치</span>
+                                    <ul class="text-sm text-slate-700 space-y-2 list-disc list-inside">
+                                        <li>수업 자가검증 및 모니터링 표준 도입</li>
+                                        <li>중간·기말고사 AI 활용 적정성 사전 진단</li>
+                                        <li>평가 시 AI 채점 보조 도구 사용 규격 명시</li>
+                                        <li>연구자 대상 생성 AI 연구 윤리 사전 가이드</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-jwuBlue/5 p-6 rounded-2xl border border-jwuBlue/10 space-y-3">
+                                    <span class="inline-block px-3 py-1 bg-jwuYellow/20 text-slate-900 text-xs font-bold rounded">중원대 적용 시사점</span>
+                                    <p class="text-sm text-slate-700 font-medium">
+                                        단순 가이드라인 일회성 배포에 그치지 않고, 대학 행정-교육-연구 3개 영역을 통합 관리하는 "JWU AI 거버넌스 3축 구조도" 설계가 시급합니다.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Dongseo Univ Content -->
+                        <div id="content-dsu" class="tab-content hidden">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                <div class="space-y-4">
+                                    <span class="inline-block px-3 py-1 bg-jwuBlue/10 text-jwuBlue text-xs font-bold rounded">핵심 철학</span>
+                                    <h4 class="text-2xl font-black text-slate-900 leading-tight">교수와 학생 간 "신뢰와 자율적 합의" 최우선</h4>
+                                    <p class="text-sm text-slate-600">교수자용, 학습자용, 대학 공동 실천 협약 등 3대 맞춤형 가이드라인을 세분화하여 상호 신뢰를 높였습니다.</p>
+                                </div>
+                                <div class="bg-slate-50 p-6 rounded-2xl space-y-3">
+                                    <span class="inline-block px-3 py-1 bg-jwuRed/10 text-jwuRed text-xs font-bold rounded">주요 통제 장치</span>
+                                    <ul class="text-sm text-slate-700 space-y-2 list-disc list-inside">
+                                        <li>매 학기 강의계획서 상 AI 활용 명문화</li>
+                                        <li>부정행위 범위 명확한 예고제 운용</li>
+                                        <li>과제물 성적 평가 전 최종 책임 귀속 서약</li>
+                                        <li>과정 중심 학생 참여형 워크숍 결합</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-jwuBlue/5 p-6 rounded-2xl border border-jwuBlue/10 space-y-3">
+                                    <span class="inline-block px-3 py-1 bg-jwuYellow/20 text-slate-900 text-xs font-bold rounded">중원대 적용 시사점</span>
+                                    <p class="text-sm text-slate-700 font-medium">
+                                        교무처와 긴밀히 조율하여 2026학년도 2학기 강의계획서 표준 양식에 "생성 AI 활용 유의사항 및 기준"을 필수 기재 항목으로 정형화해 배포해야 합니다.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- UCL Content -->
+                        <div id="content-ucl" class="tab-content hidden">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                <div class="space-y-4">
+                                    <span class="inline-block px-3 py-1 bg-jwuBlue/10 text-jwuBlue text-xs font-bold rounded">핵심 철학</span>
+                                    <h4 class="text-2xl font-black text-slate-900 leading-tight">체계적인 "3단계 분류" 및 기여 명시</h4>
+                                    <p class="text-sm text-slate-600">AI 사용 기법을 명확히 명세화하고, 탐지 프로그램에 과도하게 의존하는 기법 대신 '과정의 투명한 입증'에 초점을 맞춥니다.</p>
+                                </div>
+                                <div class="bg-slate-50 p-6 rounded-2xl space-y-3">
+                                    <span class="inline-block px-3 py-1 bg-jwuRed/10 text-jwuRed text-xs font-bold rounded">주요 통제 장치</span>
+                                    <ul class="text-sm text-slate-700 space-y-2 list-disc list-inside">
+                                        <li>수업 및 평가의 3분류 적용 (① 금지, ② 보조 참고, ③ 통합 파트너)</li>
+                                        <li>의심 대작에 대해 구술 확인 면담(Viva) 실시</li>
+                                        <li>프롬프트 이력서 작성 제출 의무</li>
+                                        <li>학생 책임 표명 백업 파일 증빙 권장</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-jwuBlue/5 p-6 rounded-2xl border border-jwuBlue/10 space-y-3">
+                                    <span class="inline-block px-3 py-1 bg-jwuYellow/20 text-slate-900 text-xs font-bold rounded">중원대 적용 시사점</span>
+                                    <p class="text-sm text-slate-700 font-medium">
+                                        금지/보조/통합 3단 구조는 매우 직관적이고 즉시 적용 가능합니다. 특히 주요 평가 단계에서 구술 확인 면담을 약식 도입하는 방안은 대필 우려를 단번에 종식시킵니다.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Harvard Content -->
+                        <div id="content-harvard" class="tab-content hidden">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                <div class="space-y-4">
+                                    <span class="inline-block px-3 py-1 bg-jwuBlue/10 text-jwuBlue text-xs font-bold rounded">핵심 철학</span>
+                                    <h4 class="text-2xl font-black text-slate-900 leading-tight">"지적 무결성 및 민감 정보" 완벽 보호</h4>
+                                    <p class="text-sm text-slate-600">데이터 보안에 철저한 제재 장치를 우선적으로 깔고, 단과대학별 학문적 다양성에 근거한 자율 통제를 조화롭게 병행합니다.</p>
+                                </div>
+                                <div class="bg-slate-50 p-6 rounded-2xl space-y-3">
+                                    <span class="inline-block px-3 py-1 bg-jwuRed/10 text-jwuRed text-xs font-bold rounded">주요 통제 장치</span>
+                                    <ul class="text-sm text-slate-700 space-y-2 list-disc list-inside">
+                                        <li>학생 성적, 대입 개인정보 등 민감 데이터 공용 AI 입력 차단</li>
+                                        <li>미공개 연구 자료 외부 반출 상시 필터링</li>
+                                        <li>정기 교직원 대상 정보보호 훈련 연동</li>
+                                        <li>수준별 학습 커뮤니티 정기 운영</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-jwuBlue/5 p-6 rounded-2xl border border-jwuBlue/10 space-y-3">
+                                    <span class="inline-block px-3 py-1 bg-jwuYellow/20 text-slate-900 text-xs font-bold rounded">중원대 적용 시사점</span>
+                                    <p class="text-sm text-slate-700 font-medium">
+                                        학기말 성적 산출, 입시 채점, 신임교수 면접 자료 등 행정상의 중대 민감정보가 외산 범용 ChatGPT 등에 기입되어 유출되지 않도록 교직원 정보 보안 준칙을 공포해야 합니다.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section IV: 중원대학교를 위한 5대 제언 -->
+        <section id="action" class="py-16 px-4 bg-white">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-12">
+                    <span class="text-xs font-extrabold text-jwuBlue uppercase tracking-widest bg-jwuBlue/10 px-3 py-1 rounded-full">Part IV</span>
+                    <h2 class="text-3xl font-black text-slate-900 mt-3 mb-4">중원대학교를 위한 즉시 전파 실천 가이드</h2>
+                    <p class="text-slate-600 max-w-2xl mx-auto text-sm">
+                        2026학년도 2학기 수업 준비부터 바로 활용할 수 있는 현실적인 5가지 행동 지침을 소개합니다.
+                    </p>
+                </div>
+
+                <!-- 5 Actions cards -->
+                <div class="space-y-6">
+                    <!-- Action 1 -->
+                    <div class="border border-slate-200 rounded-3xl p-6 sm:p-8 hover:shadow-md transition">
+                        <div class="flex flex-col sm:flex-row sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
+                            <div class="flex-shrink-0 w-14 h-14 bg-jwuBlue text-white rounded-2xl flex items-center justify-center font-black text-2xl">01</div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">강의계획서에 AI 활용 범위 기준 명문화</h3>
+                                <p class="text-sm text-slate-600 mb-4">
+                                    학기 시작 전, 수업의 목표와 평가 지향점에 맞는 활용 한계를 UCL의 3분류 모델을 차용하여 사전 선언합니다. 이를 통해 상호 간 불필요한 의심을 배제할 수 있습니다.
+                                </p>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                                    <div class="bg-red-50/50 p-3 rounded-xl border border-red-100">
+                                        <span class="font-bold text-xs text-jwuRed block mb-1">① 완전 금지 (Forbidden)</span>
+                                        <p class="text-xs text-slate-600">기초 개념 숙지 및 독립 논증력 형성이 중점인 필수 기초 과목.</p>
+                                    </div>
+                                    <div class="bg-blue-50/50 p-3 rounded-xl border border-blue-100">
+                                        <span class="font-bold text-xs text-jwuBlue block mb-1">② 보조 참고 (Supportive)</span>
+                                        <p class="text-xs text-slate-600">AI를 단순 맞춤법 교정, 번역, 참고 문헌 교차 확인 도구로 제한 허용.</p>
+                                    </div>
+                                    <div class="bg-yellow-50/50 p-3 rounded-xl border border-yellow-200">
+                                        <span class="font-bold text-xs text-slate-800 block mb-1">③ 적극 통합 (Integrated)</span>
+                                        <p class="text-xs text-slate-600">고차원 기획, 대안 분석, 프로젝트 파트너로 인공지능을 전격 가동.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action 2 -->
+                    <div class="border border-slate-200 rounded-3xl p-6 sm:p-8 hover:shadow-md transition">
+                        <div class="flex flex-col sm:flex-row sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
+                            <div class="flex-shrink-0 w-14 h-14 bg-jwuRed text-white rounded-2xl flex items-center justify-center font-black text-2xl">02</div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">'AI가 즉시 수행 불가능한 고유 과제'로 전면 대체</h3>
+                                <p class="text-sm text-slate-600 mb-4">
+                                    지식의 요약 정리, 기존 학설 단순 나열, 광범위 정보 보고서 등은 AI가 몇 초 만에 가장 완벽하게 완수합니다. 이러한 과제를 철폐하고 ‘맥락과 실천’이 결합한 과제로 대전환합니다.
+                                </p>
+                                <div class="bg-slate-50 p-4 rounded-xl border-l-4 border-jwuRed space-y-3">
+                                    <div class="flex items-start space-x-2">
+                                        <span class="text-xs font-bold text-jwuRed bg-white border border-jwuRed/20 px-2 py-0.5 rounded">전환 방안 1</span>
+                                        <p class="text-xs text-slate-700 font-medium">학생 본인이 속한 특정 지역(예: 충북 괴산군 등)의 실제 현장 방문 관찰 및 인터뷰가 믹스된 '고유 서사 결합 보고서'</p>
+                                    </div>
+                                    <div class="flex items-start space-x-2">
+                                        <span class="text-xs font-bold text-jwuRed bg-white border border-jwuRed/20 px-2 py-0.5 rounded">전환 방안 2</span>
+                                        <p class="text-xs text-slate-700 font-medium">인공지능이 생성한 텍스트 답변 내부의 치명적 논리 결함, 편향성, 허위 출처(Citation Hallucination)를 학생이 파헤치고 수정하는 '비판적 검증 과제'</p>
+                                    </div>
+                                    <div class="flex items-start space-x-2">
+                                        <span class="text-xs font-bold text-jwuRed bg-white border border-jwuRed/20 px-2 py-0.5 rounded">전환 방안 3</span>
+                                        <p class="text-xs text-slate-700 font-medium">아이디어 스케치(1단계) → 데이터 정제(2단계) → AI 활용 최종 편집본(3단계)으로 이어지는 '생각의 흐름 궤적 히스토리 기록'</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action 3 -->
+                    <div class="border border-slate-200 rounded-3xl p-6 sm:p-8 hover:shadow-md transition">
+                        <div class="flex flex-col sm:flex-row sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
+                            <div class="flex-shrink-0 w-14 h-14 bg-jwuBlue text-white rounded-2xl flex items-center justify-center font-black text-2xl">03</div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">평가 방식을 '최종 결과물 단판'에서 '중간 과정 검증'으로 파격 전환</h3>
+                                <p class="text-sm text-slate-600 mb-4">
+                                    한 차례의 제출로 성적이 좌우되는 구조는 AI 대필의 가장 매력적인 표적입니다. 따라서 실시간 소통 중심의 형성평가로 평가 포커스를 이동합니다.
+                                </p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="bg-slate-50 p-4 rounded-xl">
+                                        <strong class="text-xs text-jwuBlue block mb-1">💬 약식 구술 면담(Viva) 결합</strong>
+                                        <p class="text-xs text-slate-600">제출된 레포트 중 무작위 선정 혹은 일대일 개별 피드백 시간 내 약 3~5분 동안 학생에게 "이 주장의 핵심 논리 전개 과정을 직접 설명해보라"고 요구하여 검증합니다.</p>
+                                    </div>
+                                    <div class="bg-slate-50 p-4 rounded-xl">
+                                        <strong class="text-xs text-jwuBlue block mb-1">📊 개방형 종합 토론 및 면대면 비중 확대</strong>
+                                        <p class="text-xs text-slate-600">변별력이 전무해진 5지선다형 시험 대신 현장 발표, 모의 토론, 실시간 개념 퀴즈 위주로 학업 성취도를 다원 측정합니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action 4 -->
+                    <div class="border border-slate-200 rounded-3xl p-6 sm:p-8 hover:shadow-md transition">
+                        <div class="flex flex-col sm:flex-row sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
+                            <div class="flex-shrink-0 w-14 h-14 bg-jwuRed text-white rounded-2xl flex items-center justify-center font-black text-2xl">04</div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">'AI 기여도 공개제' 적극 수용</h3>
+                                <p class="text-sm text-slate-600 mb-4">
+                                    AI를 아예 차단하기보다 투명하고 책임감 있게 양지로 끌어올려 사용하도록 가이드합니다. 과제물 귀퉁이에 학생이 사용한 도구를 공개 선언하게 합니다.
+                                </p>
+                                <div class="bg-slate-50 p-4 rounded-xl flex items-center justify-between">
+                                    <div class="text-xs text-slate-700 space-y-1">
+                                        <span class="block font-bold text-jwuRed">📝 레포트 필수 동반 작성 양식안:</span>
+                                        <span>① 활용한 AI 엔진 모델 이름, ② 질문했던 프롬프트 내용, ③ AI 결과에서 본인이 정제·가공한 근거 사유</span>
+                                    </div>
+                                    <div class="text-xs font-bold text-jwuBlue bg-jwuBlue/10 px-3 py-2 rounded-lg text-center hidden sm:block">
+                                        학생 스스로 인지 분리 능력을 키우는<br> <span class="text-jwuRed">'메타인지 발달'</span> 효과 기대
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action 5 -->
+                    <div class="border border-slate-200 rounded-3xl p-6 sm:p-8 hover:shadow-md transition">
+                        <div class="flex flex-col sm:flex-row sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
+                            <div class="flex-shrink-0 w-14 h-14 bg-jwuYellow text-slate-950 rounded-2xl flex items-center justify-center font-black text-2xl">05</div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">할루시네이션(환각) 및 정보 편향성을 교육 자산으로 활용</h3>
+                                <p class="text-sm text-slate-600 mb-3">
+                                    AI가 보인 대표 오류인 '가짜 참조문헌 생성', '문화적/성적 고정관념'을 골칫거리로 보지 않고, 팩트 체크 리터러시 훈련을 시킬 절호의 교재로 전향 배정합니다.
+                                </p>
+                                <span class="inline-flex items-center text-xs font-bold text-jwuBlue bg-jwuBlue/10 px-3 py-1.5 rounded-full">
+                                    "AI가 스스로 절대 던질 수 없는 거대한 근원적 질문(예: 역사 속에서 소외된 계층의 시선 등)을 강의실 내 메인 어젠다로 선정하고 탐색"
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Section: AI 강의 준비도 자가 진단 테스트 -->
+        <section id="selfcheck" class="py-16 px-4 bg-slate-100 border-t border-slate-200">
+            <div class="max-w-3xl mx-auto bg-white p-8 sm:p-10 rounded-3xl shadow-lg border border-slate-100">
+                <div class="text-center mb-8">
+                    <span class="inline-block px-3 py-1 bg-jwuYellow/30 text-slate-900 text-xs font-bold rounded-full mb-2">교수자 자가 체크리스트</span>
+                    <h3 class="text-2xl font-black text-slate-900">나의 수업은 AI 시대에 얼마나 준비되어 있을까?</h3>
+                    <p class="text-xs text-slate-500 mt-2">자가 테스트를 통해 현재 수업 설계가 새로운 교육 시대에 부합하는지 즉석에서 평가해보세요.</p>
+                </div>
+
+                <div class="space-y-4" id="quiz-container">
+                    <!-- Q1 -->
+                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/60 flex items-start space-x-3">
+                        <input type="checkbox" id="q1" class="w-5 h-5 rounded text-jwuBlue mt-1 accent-jwuBlue flex-shrink-0" onchange="calculateScore()">
+                        <label for="q1" class="text-sm text-slate-700 font-medium cursor-pointer">
+                            내 수업의 중간/기말 대체 과제물은 ChatGPT에 그대로 복사해서 붙여넣었을 때 즉시 통과할 만한 수준의 문서를 생성할 수 없는 맥락적 문제 위주다.
+                        </label>
+                    </div>
+                    <!-- Q2 -->
+                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/60 flex items-start space-x-3">
+                        <input type="checkbox" id="q2" class="w-5 h-5 rounded text-jwuBlue mt-1 accent-jwuBlue flex-shrink-0" onchange="calculateScore()">
+                        <label for="q2" class="text-sm text-slate-700 font-medium cursor-pointer">
+                            학기 첫 주 강의계획서에 '생성 AI 사용 가능 범위 규정(허용 한계, 금지 내역)'을 명문화하여 강의실 규율을 세워두었다.
+                        </label>
+                    </div>
+                    <!-- Q3 -->
+                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/60 flex items-start space-x-3">
+                        <input type="checkbox" id="q3" class="w-5 h-5 rounded text-jwuBlue mt-1 accent-jwuBlue flex-shrink-0" onchange="calculateScore()">
+                        <label for="q3" class="text-sm text-slate-700 font-medium cursor-pointer">
+                            단판 성적 평가를 벗어나, 과제 생성 이력 제출, 프롬프트 로그 검수, 혹은 3분간의 가벼운 대면 구술 확인 등의 과정 중심 평가 장치가 있다.
+                        </label>
+                    </div>
+                    <!-- Q4 -->
+                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/60 flex items-start space-x-3">
+                        <input type="checkbox" id="q4" class="w-5 h-5 rounded text-jwuBlue mt-1 accent-jwuBlue flex-shrink-0" onchange="calculateScore()">
+                        <label for="q4" class="text-sm text-slate-700 font-medium cursor-pointer">
+                            단순히 검색하여 지식을 습득하고 정리하는 역량보다, 인공지능이 도출한 결과물 중 ‘잘못된 논리와 팩트를 예리하게 필터링’하는 성찰 훈련 기회가 강의 중에 주어진다.
+                        </label>
+                    </div>
+                    <!-- Q5 -->
+                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/60 flex items-start space-x-3">
+                        <input type="checkbox" id="q5" class="w-5 h-5 rounded text-jwuBlue mt-1 accent-jwuBlue flex-shrink-0" onchange="calculateScore()">
+                        <label for="q5" class="text-sm text-slate-700 font-medium cursor-pointer">
+                            중요 행정 기밀 정보 및 학생 성적 등 민감 정보 데이터를 외부 범용 공용 AI(ChatGPT 등)에 기입해서는 안 된다는 보완 준칙을 명확히 이해하고 실행하고 있다.
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Result area -->
+                <div class="mt-8 pt-6 border-t border-slate-100 text-center" id="quiz-result-area">
+                    <p class="text-sm text-slate-600 mb-1">체크한 항목 수: <strong id="score-text" class="text-jwuRed text-xl">0</strong>개 / 5개</p>
+                    <div class="h-3 w-full bg-slate-100 rounded-full overflow-hidden mb-4 max-w-xs mx-auto">
+                        <div id="quiz-bar" class="h-full bg-jwuRed transition-all duration-300" style="width: 0%"></div>
+                    </div>
+                    <div id="feedback-message" class="text-sm font-semibold text-slate-700 bg-slate-50 p-4 rounded-xl">
+                        자가진단을 클릭해 진행해보세요! 강의 계획 혁신의 길잡이가 되어드립니다.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MoneyToday Original Column Expandable Section -->
+        <section class="py-16 px-4 bg-white border-t border-slate-100">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200/80">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center space-x-3">
+                            <span class="p-2 bg-jwuBlue/10 rounded-lg text-jwuBlue text-xl">📰</span>
+                            <div>
+                                <span class="text-xs text-slate-500 block">머니투데이 청계광장 (2026.05.19자 009면)</span>
+                                <strong class="text-slate-900 text-base">"AI 시대, 교육학자가 두려워하는 것" 칼럼 전문</strong>
+                            </div>
+                        </div>
+                        <button onclick="toggleColumn()" id="btn-toggle-column" class="px-4 py-2 bg-white border border-slate-300 hover:border-jwuBlue text-xs font-semibold rounded-full shadow-sm text-slate-700 hover:text-jwuBlue transition">
+                            원문 전문 펼치기
+                        </button>
+                    </div>
+
+                    <!-- Column main content -->
+                    <div id="column-content" class="hidden transition-all duration-300 text-slate-700 text-sm leading-relaxed space-y-4 pt-4 border-t border-slate-200/60 max-h-[500px] overflow-y-auto pr-2">
+                        <p class="font-bold text-slate-900 text-base mb-2">배상훈 성균관대 교육학과 교수 · 교무처장</p>
+                        
+                        <p class="italic bg-white p-4 rounded-xl border-l-4 border-jwuYellow mb-4">
+                            "비싼 등록금을 내면서 대학에 꼭 다녀야 하나요." 생성형 AI를 활용해 공부는 물론 공모전 포스터 디자인과 진로탐색까지 한다는 한 대학생이 건넨 말이다. 세상에 흩어져 있는 지식과 정보를 실시간으로 모으고 분석하는 AI를 경험하면서 대학에 다닐 필요가 있는지를 다시 생각하게 됐다고 한다. 물론 대학은 단순히 지식을 전달하는 곳만은 아니다. 그럼에도 보고서 초안 작성부터 발표 슬라이드와 이미지 제작까지 도와주는 AI를 보면 "이렇게까지 해준다고?"란 감탄이 절로 나온다. 교육기관으로서 대학의 존재가치를 성찰하고 혁신하지 못한다면 대학의 존립 자체가 흔들릴지도 모른다.
+                        </p>
+
+                        <p>
+                            AI는 교수의 역할에 대해서도 근본적인 질문을 한다. 한 물리학 교수는 동료들에게 "MIT의 괴짜 물리학자 월터 르윈 교수보다 더 재미있게, 더 잘 가르치지 못하면 당신은 이미 소멸대상"이라고 경고한다. AI 알고리즘이 르윈 교수의 강의콘텐츠를 학생의 수준에 맞춰 체계적으로 제공하는 시대다. 과거의 교안과 수업방식으론 버티기 어렵다는 의미다. 나아가 교수의 역할도 단순한 지식전달자를 넘어 학습코치이자 평가자며 멘토로 재정립되는 시대를 맞았다. 학교에서 가르치고 배우는 방식 역시 빠르게 변한다. 학생들은 자료탐색과 요약, 분석의 상당부분을 AI와 함께 수행한다. 
+                        </p>
+
+                        <p>
+                            교육현장에서 '신뢰의 위기'도 시작됐다. 학생이 제출한 과제를 보며 'AI가 대신 해준 것은 아닐까'라고 의심하는 일이 낯설지 않다. 정보검색과 요약, 회의록 작성까지 AI에 의존하면서 손으로 메모하고 사유하는 시간도 줄어든다. '사고의 외주화'로 편리함은 커졌지만 발표자가 순간적으로 던지는 한마디와 회의장의 반응을 보며 새로운 영감을 얻는 '성찰의 순간'은 사라진다. 지적 게으름에 빠질까 걱정된다.
+                        </p>
+
+                        <p class="font-semibold text-slate-950">
+                            교육현장 AI發 '파괴적 혁신' 진행중 / 효능감 높지만 '사고의 외주화' 우려 / 윤리·부작용 고려, 교육 재설계해야
+                        </p>
+
+                        <p>
+                            이처럼 AI는 교육 전반에 '파괴적 혁신'을 촉발했다. 문제는 충분한 준비와 성찰 없이 AI를 받아들이는데 있다. 많은 이가 AI 시대 핵심역량으로 '질문하는 능력'을 강조한다. 그러나 교육은 그리 단순하지 않다. AI로 과제 등을 수행한 학생은 많이 아는 것처럼 느끼지만 단편 정보만 축적한 채 체계적 개념형성이나 깊이 있는 사고로 이어지지 못하는 경우가 적지 않다. 기초지식 없이 AI가 제공하는 결과를 빠르게 소비하는 학습에 익숙하면 스스로 사고하기보다 AI에 끌려다니는 '표피적 학습'에 머물 가능성이 높다. 학습 효능감은 높아져도 사고의 밀도는 얕아지는 역설이다. 교육목표를 기억·이해·적용·분석·창조의 단계로 설명해온 전통적 학습모델이 여전히 유효한지 다시 묻게 된다. 평가방식의 전환도 불가피하다. AI를 활용해 최신 정보를 탐색하고 검증하는 시대에 5개 선택지 가운데 정답 하나를 찾는 평가는 점점 설득력을 잃어간다. AI가 과정 중심 평가의 시대를 앞당긴 셈이다.
+                        </p>
+
+                        <p>
+                            AI가 불러온 교육혁신은 계속될 것이다. 어떤 학자는 "한 세기에 한 번 올까 말까 한 혁신의 기회"라고 한다. 교육에서 AX의 핵심은 단순한 디지털 전환이 아니다. 학교의 교육력을 높이고 학생의 성장을 지원하는 새로운 교육시스템을 만드는 것이다. 거시적으론 대학과 학교의 존재의의, 교육자의 역할을 재정립하고 미시적으론 수업과 평가혁신, AI윤리, 새로운 학습격차에 대한 대응까지 포함한 교육 재설계를 할 때다. AI에 대한 피상적 기대와 기술 낙관론에서 벗어나 학생의 사고방식과 학습태도가 어떻게 변하는지, 부작용은 무엇인지, 새로운 기술체계에서 교사와 학생은 어떤 관계여야 하는지에 대한 심층분석과 교육적 논의가 시급하다. 교육자, 연구자, 정책가들이 모여 제대로 된 'AI 임팩트 보고서'부터 쓸 때다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Faculty Feedback Box -->
+        <section class="py-16 px-4 bg-slate-50 border-t border-slate-100">
+            <div class="max-w-xl mx-auto text-center">
+                <span class="text-xl">💬</span>
+                <h3 class="text-xl font-bold text-slate-900 mt-2 mb-2">중원대학교 동료 교수진 의견 수렴 방명록</h3>
+                <p class="text-xs text-slate-500 mb-6">수업 설계 혁신을 마주한 교수님의 소중한 다짐이나 아이디어를 자유롭게 공유해 주세요.</p>
+                
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-left space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 mb-1">소속 전공명 / 성함 <span class="text-slate-400 font-normal">(미입력시 익명)</span></label>
+                        <input id="feedback-name" type="text" placeholder="예: 스마트융합공학부 배교수" class="w-full text-sm border border-slate-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-jwuBlue outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 mb-1">나만의 수업 혁신 아이디어 및 의견</label>
+                        <textarea id="feedback-text" rows="3" placeholder="예: 다음 학기 전공 레포트 전부에 '구술 면담' 평가를 약식 적용해 보려고 합니다." class="w-full text-sm border border-slate-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-jwuBlue outline-none"></textarea>
+                    </div>
+                    <button onclick="addFeedback()" class="w-full py-2.5 bg-jwuBlue hover:bg-jwuBlue/90 text-white font-bold text-sm rounded-lg transition shadow-sm">
+                        의견 게시하기
+                    </button>
+                </div>
+
+                <!-- Feedbacks display -->
+                <div id="feedback-list" class="mt-6 text-left space-y-3">
+                    <!-- Default sample comment -->
+                    <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-xs">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-xs font-bold text-jwuBlue">경영전공 익명 교수자</span>
+                            <span class="text-[10px] text-slate-400">2026. 05. 20</span>
+                        </div>
+                        <p class="text-xs text-slate-700">"강의계획서에 AI 활용 범위를 3단계로 고지하는 방안은 즉시 도입할 수 있어 매우 유용한 제안이네요. 꼭 반영하겠습니다!"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Interactive Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 px-4 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between text-sm">
+            <div class="mb-4 md:mb-0 space-y-2">
+                <div class="flex items-center space-x-2 text-white font-bold text-base">
+                    <span class="text-jwuYellow">JWU</span>
+                    <span>중원대학교 성과감사실</span>
+                </div>
+                <p class="text-xs text-slate-500">본 분석 자료는 교내 교수자 역량 제고 및 교육 거버넌스 전파를 위한 내부 자료입니다.</p>
+                <p class="text-xs text-slate-600">무단 복제, 외부 배포 및 타인 전제를 엄중히 금합니다.</p>
+            </div>
+            <div class="flex space-x-6 text-xs font-semibold">
+                <a href="#" class="hover:text-white transition">맨 위로 가기</a>
+                <span>•</span>
+                <span class="text-slate-500">Issued by Office of Audit 2026</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Adjust Font Size Action
+        let currentFontSizeLevel = 0;
+        function adjustFontSize(delta) {
+            const container = document.getElementById('main-container');
+            if (delta === 1 && currentFontSizeLevel < 2) {
+                currentFontSizeLevel++;
+            } else if (delta === -1 && currentFontSizeLevel > -1) {
+                currentFontSizeLevel--;
+            }
+
+            if (currentFontSizeLevel === 2) {
+                container.style.fontSize = '1.15rem';
+            } else if (currentFontSizeLevel === 1) {
+                container.style.fontSize = '1.05rem';
+            } else if (currentFontSizeLevel === 0) {
+                container.style.fontSize = '1rem';
+            } else if (currentFontSizeLevel === -1) {
+                container.style.fontSize = '0.92rem';
+            }
+        }
+
+        // Toggle Expandable Original Column
+        function toggleColumn() {
+            const content = document.getElementById('column-content');
+            const btn = document.getElementById('btn-toggle-column');
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                btn.innerText = '원문 전문 접기';
+            } else {
+                content.classList.add('hidden');
+                btn.innerText = '원문 전문 펼치기';
+            }
+        }
+
+        // Switch Benchmarks tab
+        function switchTab(tabId) {
+            // Hide all contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.add('hidden'));
+
+            // Deactivate all tabs styling
+            const tabs = ['pnu', 'dsu', 'ucl', 'harvard'];
+            tabs.forEach(t => {
+                const el = document.getElementById(`tab-${t}`);
+                el.classList.remove('border-jwuBlue', 'text-jwuBlue');
+                el.classList.add('border-transparent', 'text-slate-500', 'hover:text-slate-800');
+            });
+
+            // Show and Activate requested
+            document.getElementById(`content-${tabId}`).classList.remove('hidden');
+            const activeTab = document.getElementById(`tab-${tabId}`);
+            activeTab.classList.remove('border-transparent', 'text-slate-500');
+            activeTab.classList.add('border-jwuBlue', 'text-jwuBlue');
+        }
+
+        // Calculate Score of Self Check Diagnostic Test
+        function calculateScore() {
+            let checkedCount = 0;
+            const qCount = 5;
+            for (let i = 1; i <= qCount; i++) {
+                if (document.getElementById(`q${i}`).checked) {
+                    checkedCount++;
+                }
+            }
+
+            const scoreText = document.getElementById('score-text');
+            const progress = document.getElementById('quiz-bar');
+            const feedback = document.getElementById('feedback-message');
+
+            scoreText.innerText = checkedCount;
+            const percentage = (checkedCount / qCount) * 100;
+            progress.style.width = `${percentage}%`;
+
+            let msg = "";
+            let colorClass = "text-slate-700 bg-slate-50";
+            if (checkedCount <= 1) {
+                msg = "⚠️ [AI 초기 단계] AI가 유발할 수 있는 교육 위기 극복을 위해, 즉시 강의계획서 AI 활용 가이드라인부터 작성해볼 것을 권고합니다.";
+            } else if (checkedCount <= 3) {
+                msg = "⚡ [AI 과도기 단계] 상당 부분 인지하고 변화에 동참 중이십니다! 약식 구술 면담이나 개방형 수업 과제를 확대해 평가 신뢰성을 강화해 보세요.";
+            } else {
+                msg = "🏆 [AI 혁신 선도 단계] 혁신적인 교육 리더십을 갖추셨습니다! 중원대학교의 훌륭한 AI 활용 우수 사례 교수로 동료 교수님들을 리드해주실 수 있습니다.";
+            }
+            feedback.innerHTML = msg;
+        }
+
+        // Handle dynamically added feedbacks (simulating back-end locally)
+        function addFeedback() {
+            const nameInput = document.getElementById('feedback-name');
+            const textInput = document.getElementById('feedback-text');
+            
+            const nameValue = nameInput.value.trim() || "익명 교수자";
+            const textValue = textInput.value.trim();
+
+            if (!textValue) {
+                alert("의견 내용을 작성해주세요.");
+                return;
+            }
+
+            const today = new Date();
+            const dateStr = `${today.getFullYear()}. ${String(today.getMonth() + 1).padStart(2, '0')}. ${String(today.getDate()).padStart(2, '0')}`;
+
+            const feedbackList = document.getElementById('feedback-list');
+            const newFeedback = document.createElement('div');
+            newFeedback.className = "bg-white p-4 rounded-xl border border-slate-100 shadow-xs animate-fade-in";
+            newFeedback.innerHTML = `
+                <div class="flex justify-between items-center mb-1">
+                    <span class="text-xs font-bold text-jwuRed">${nameValue}</span>
+                    <span class="text-[10px] text-slate-400">${dateStr}</span>
+                </div>
+                <p class="text-xs text-slate-700">${textValue}</p>
+            `;
+
+            feedbackList.insertBefore(newFeedback, feedbackList.firstChild);
+
+            // Reset inputs
+            textInput.value = "";
+            nameInput.value = "";
+        }
+    </script>
+</body>
+</html>
