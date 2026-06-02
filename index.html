@@ -1,991 +1,1495 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 시대, 교수는 무엇을 두려워하고 어떻게 바꿔야 하는가 - JWU 이슈브리프</title>
-    <!-- Pretendard Font CDN -->
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        jwuBlue: '#192f72',
-                        jwuRed: '#94243a',
-                        jwuYellow: '#f6b544',
-                        jwuGray: {
-                            50: '#f8fafc',
-                            100: '#f1f5f9',
-                            200: '#e2e8f0',
-                            700: '#334155',
-                            800: '#1e293b',
-                            900: '#0f172a',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            font-family: 'Pretendard', sans-serif;
-            scroll-behavior: smooth;
-        }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f5f9;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #192f72;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94243a;
-        }
-        .text-glow {
-            text-shadow: 0 0 15px rgba(246, 181, 68, 0.4);
-        }
-    </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>JWU 성과감사실 이슈브리프 웹진</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"/>
+<style>
+:root{
+  --M:#192f72;--R:#94243A;--Y:#f6b544;
+  --bg:#f2f4f8;--sf:#fff;--tx:#1a1a2e;--mu:#64748b;--bd:#e0e4ee;
+  --fn:"Pretendard Variable",Pretendard,-apple-system,sans-serif;
+  --ra:12px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fn);background:var(--bg);color:var(--tx);line-height:1.75;font-size:16px}
+a{text-decoration:none;color:inherit}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-thumb{background:var(--M);border-radius:3px}
+
+/* ── 읽기 진행 바 ── */
+#rp{position:fixed;top:0;left:0;height:3px;background:var(--Y);width:0%;z-index:9999;transition:width .08s}
+
+/* ── GNB ── */
+.gnb{background:var(--M);position:sticky;top:0;z-index:1000;box-shadow:0 2px 18px rgba(25,47,114,.4)}
+.gi{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.blogo{background:var(--Y);color:var(--M);font-weight:900;font-size:12px;padding:4px 9px;border-radius:6px}
+.btxt{color:#fff;font-size:13px;font-weight:700;line-height:1.3}
+.btxt small{display:block;font-size:10px;font-weight:400;opacity:.55}
+.gnav{display:flex;gap:4px}
+.gtb{background:rgba(255,255,255,.1);border:none;cursor:pointer;color:rgba(255,255,255,.75);font-family:var(--fn);font-size:12.5px;font-weight:500;padding:7px 13px;border-radius:7px;transition:all .2s;white-space:nowrap}
+.gtb:hover,.gtb.on{background:rgba(255,255,255,.22);color:#fff;font-weight:700}
+.fctrl{display:flex;gap:3px}
+.fb{background:rgba(255,255,255,.1);border:none;cursor:pointer;color:#fff;font-family:var(--fn);font-size:11px;font-weight:700;width:28px;height:28px;border-radius:6px}
+.fb:hover{background:rgba(255,255,255,.22)}
+
+/* ── 메인 탭 패널 ── */
+.tp{display:none}
+.tp.on{display:block}
+
+/* ── 이슈 서브탭 바 ── */
+.isbar{background:#fff;border-bottom:2px solid var(--bd);position:sticky;top:60px;z-index:900;overflow-x:auto;display:none}
+.isbar.vis{display:block}
+.isbar::-webkit-scrollbar{height:2px}
+.isbi{max-width:1200px;margin:0 auto;padding:0 20px;display:flex}
+.itb{background:none;border:none;cursor:pointer;font-family:var(--fn);font-size:12.5px;font-weight:600;color:var(--mu);padding:12px 16px;border-bottom:3px solid transparent;white-space:nowrap;transition:all .2s}
+.itb:hover{color:var(--M);background:rgba(25,47,114,.03)}
+.itb.on{color:var(--M);border-bottom-color:var(--R)}
+.itnew{background:var(--R);color:#fff;font-size:9px;font-weight:800;padding:2px 5px;border-radius:3px;margin-left:4px}
+
+/* ── 이슈 패널 ── */
+.ip{display:none}
+.ip.on{display:block}
+
+/* ── 컨테이너 ── */
+.con{max-width:1200px;margin:0 auto;padding:0 24px}
+.cw{max-width:920px;margin:0 auto}
+
+/* ── 히어로 ── */
+.hero{background:linear-gradient(135deg,#0f1f50 0%,var(--M) 50%,#1e2a5e 100%);color:#fff;padding:52px 0 44px;position:relative;overflow:hidden}
+.hvol{position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-size:200px;font-weight:900;opacity:.04;color:#fff;line-height:1;pointer-events:none;letter-spacing:-.05em}
+.hm{display:flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.bd{font-size:10px;font-weight:800;padding:3px 9px;border-radius:4px;letter-spacing:.06em}
+.bdv{background:var(--R);color:#fff}
+.bdc{background:rgba(255,255,255,.12);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.18)}
+.bdn{background:var(--Y);color:var(--M)}
+.hdt{font-size:11px;color:rgba(255,255,255,.5)}
+.hero h1{font-size:clamp(20px,3.2vw,36px);font-weight:900;line-height:1.3;margin-bottom:12px;letter-spacing:-.025em}
+.hero h1 em{color:var(--Y);font-style:normal}
+.hsub{font-size:13px;color:rgba(255,255,255,.65);margin-bottom:24px;line-height:1.65;max-width:700px}
+.hinfo{display:flex;gap:22px;flex-wrap:wrap;padding-top:18px;border-top:1px solid rgba(255,255,255,.12)}
+.hil{font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.08em;text-transform:uppercase}
+.hiv{font-size:12.5px;font-weight:700;color:rgba(255,255,255,.9);margin-top:2px}
+.htoc{display:flex;gap:6px;flex-wrap:wrap;margin-top:18px}
+.htoc a{background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);font-size:11px;padding:4px 10px;border-radius:16px;transition:all .2s;border:1px solid rgba(255,255,255,.14)}
+.htoc a:hover{background:rgba(255,255,255,.2);color:#fff}
+
+/* ── SCQA ── */
+.scqa-wrap{background:var(--sf);padding:38px 0;border-bottom:1px solid var(--bd)}
+.scqa-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:16px}
+.sc{border-radius:var(--ra);padding:18px 18px 18px 20px;background:var(--bg);border:1px solid var(--bd);position:relative;overflow:hidden}
+.sc::before{content:"";position:absolute;top:0;left:0;width:4px;height:100%}
+.sc-s::before{background:var(--M)}.sc-c::before{background:var(--R)}.sc-q::before{background:var(--Y)}.sc-a::before{background:#16a34a}
+.scl{font-size:9.5px;font-weight:800;letter-spacing:.1em;margin-bottom:5px;opacity:.45}
+.sc-s .scl{color:var(--M)}.sc-c .scl{color:var(--R)}.sc-q .scl{color:#b45309}.sc-a .scl{color:#15803d}
+.sc h4{font-size:14px;font-weight:700;margin-bottom:5px}
+.sc p{font-size:12.5px;color:var(--mu);line-height:1.6}
+
+/* ── 본문 공통 ── */
+.ms{padding:46px 0 80px}
+.sb{margin-bottom:52px}
+.slbl{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:800;letter-spacing:.1em;color:var(--M);text-transform:uppercase;margin-bottom:10px}
+.slbl::after{content:"";flex:1;min-width:32px;height:2px;background:linear-gradient(to right,var(--M),transparent)}
+.st{font-size:clamp(18px,2.4vw,25px);font-weight:800;letter-spacing:-.02em;margin-bottom:7px;line-height:1.3}
+.sd{font-size:13.5px;color:var(--mu);margin-bottom:22px;line-height:1.7}
+
+/* ── 카드 ── */
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:14px}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--ra);padding:22px;box-shadow:0 2px 12px rgba(25,47,114,.08);transition:all .25s}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(25,47,114,.14)}
+.ci{width:40px;height:40px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:12px}
+.ci-r{background:rgba(148,36,58,.09)}.ci-b{background:rgba(25,47,114,.09)}.ci-y{background:rgba(246,181,68,.17)}.ci-g{background:rgba(22,163,74,.09)}
+.card h4{font-size:14.5px;font-weight:700;margin-bottom:7px}
+.card p,.card ul{font-size:13px;color:var(--mu);line-height:1.65}
+.card ul{padding-left:16px}.card ul li{margin-bottom:4px}
+
+/* ── 강조 박스 ── */
+.hb{border-radius:var(--ra);padding:18px 20px;margin:16px 0}
+.hb h5{font-size:12.5px;font-weight:700;margin-bottom:5px}
+.hb p{font-size:13.5px;color:var(--tx);line-height:1.75}
+.hb ul{padding-left:18px;margin-top:8px}
+.hb ul li{font-size:13px;color:var(--mu);margin-bottom:5px;line-height:1.65}
+.hb ul li strong{color:var(--tx)}
+.hb-y{background:rgba(246,181,68,.1);border:1px solid rgba(246,181,68,.3);border-left:4px solid var(--Y)}
+.hb-b{background:rgba(25,47,114,.04);border:1px solid rgba(25,47,114,.12);border-left:4px solid var(--M)}
+.hb-r{background:rgba(148,36,58,.05);border:1px solid rgba(148,36,58,.12);border-left:4px solid var(--R)}
+.hb-g{background:rgba(22,163,74,.06);border:1px solid rgba(22,163,74,.16);border-left:4px solid #16a34a}
+
+/* ── 통계 ── */
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:18px 0}
+.stc{background:var(--sf);border:1px solid var(--bd);border-radius:var(--ra);padding:16px;text-align:center}
+.stn{font-size:30px;font-weight:900;letter-spacing:-.04em;line-height:1}
+.stu{font-size:13px;font-weight:700}
+.snm{color:var(--M)}.snr{color:var(--R)}.sny{color:#d97706}.sng{color:#16a34a}
+.stl{font-size:11px;color:var(--mu);margin-top:5px;line-height:1.5}
+
+/* ── 테이블 ── */
+.tw{overflow-x:auto;margin:16px 0;border-radius:var(--ra);border:1px solid var(--bd);box-shadow:0 2px 12px rgba(25,47,114,.08)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead{background:var(--M);color:#fff}
+th{padding:12px 14px;font-weight:600;text-align:left;white-space:nowrap;font-size:12px}
+td{padding:11px 14px;border-bottom:1px solid var(--bd);color:var(--tx);line-height:1.65;vertical-align:top}
+tbody tr:nth-child(even){background:rgba(25,47,114,.025)}
+tbody tr:last-child td{border-bottom:none}
+td strong{color:var(--M)}
+
+/* ── 인용 ── */
+.qb{border-left:4px solid var(--R);padding:14px 20px;background:rgba(148,36,58,.04);border-radius:0 var(--ra) var(--ra) 0;margin:20px 0}
+.qb p{font-size:14.5px;font-style:italic;font-weight:500;color:var(--tx);line-height:1.7}
+.qb cite{display:block;font-size:11px;color:var(--mu);margin-top:7px;font-style:normal;font-weight:600}
+.qb-b{border-left-color:var(--M);background:rgba(25,47,114,.04)}
+
+/* ── 구분선 ── */
+.dvd{height:1px;background:var(--bd);margin:40px 0}
+
+/* ── 2컬럼 ── */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* ── Action Plan 카드 ── */
+.ag{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.ac{background:var(--sf);border:1px solid var(--bd);border-radius:var(--ra);padding:22px;position:relative;overflow:hidden;transition:all .25s;box-shadow:0 2px 12px rgba(25,47,114,.08)}
+.ac:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(25,47,114,.14)}
+.ac::before{content:"";position:absolute;top:0;left:0;right:0;height:4px}
+.ac1::before{background:var(--M)}.ac2::before{background:var(--R)}.ac3::before{background:var(--Y)}.ac4::before{background:#16a34a}
+.acn{font-size:9.5px;font-weight:800;letter-spacing:.12em;margin-bottom:8px;opacity:.42}
+.ac1 .acn{color:var(--M)}.ac2 .acn{color:var(--R)}.ac3 .acn{color:#d97706}.ac4 .acn{color:#15803d}
+.ac h4{font-size:14.5px;font-weight:800;margin-bottom:8px;line-height:1.35}
+.ac p{font-size:12.5px;color:var(--mu);line-height:1.7;margin-bottom:8px}
+.ac ul{padding-left:16px;margin-top:6px}
+.ac ul li{font-size:12px;color:var(--mu);margin-bottom:4px;line-height:1.6}
+.ac ul li strong{color:var(--tx)}
+.acef{margin-top:10px;padding:8px 11px;border-radius:7px;font-size:11px;font-weight:600}
+.ac1 .acef{background:rgba(25,47,114,.07);color:var(--M)}.ac2 .acef{background:rgba(148,36,58,.07);color:var(--R)}
+.ac3 .acef{background:rgba(246,181,68,.14);color:#b45309}.ac4 .acef{background:rgba(22,163,74,.08);color:#15803d}
+
+/* ── 결론 박스 ── */
+.cbox{background:linear-gradient(135deg,var(--M),#0f1f50);color:#fff;border-radius:var(--ra);padding:28px 30px;margin:24px 0;position:relative;overflow:hidden}
+.cbox::before{content:"";position:absolute;top:-30px;right:-30px;width:160px;height:160px;background:radial-gradient(circle,rgba(148,36,58,.25) 0%,transparent 65%);pointer-events:none}
+.cbox h3{font-size:17px;font-weight:800;color:var(--Y);margin-bottom:12px}
+.cbox p{font-size:13.5px;color:rgba(255,255,255,.84);line-height:1.8;margin-bottom:8px}
+.cbox ul{padding-left:18px;margin-top:10px}
+.cbox ul li{font-size:13px;color:rgba(255,255,255,.76);margin-bottom:5px;line-height:1.65}
+.cbox ul li strong{color:var(--Y)}
+
+/* ── 아코디언 ── */
+.ah{background:var(--sf);border:1px solid var(--bd);border-radius:var(--ra);padding:15px 18px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-size:14px;font-weight:700;margin-bottom:3px;transition:all .2s;user-select:none}
+.ah:hover{background:rgba(25,47,114,.04)}
+.ah.op{color:var(--M);border-color:var(--M)}
+.aha{font-size:12px;transition:transform .25s;color:var(--mu)}
+.ah.op .aha{transform:rotate(180deg);color:var(--M)}
+.ab{display:none;padding:16px 18px 18px;background:rgba(25,47,114,.03);border:1px solid var(--bd);border-top:none;border-radius:0 0 var(--ra) var(--ra);margin-top:-3px;margin-bottom:3px;font-size:13.5px;color:var(--tx);line-height:1.75}
+.ab.op{display:block}
+.ab ol,.ab ul{padding-left:20px;line-height:1.9}
+
+/* ── 벤치마크 탭 ── */
+.btn-nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.btab{background:var(--sf);border:1px solid var(--bd);cursor:pointer;font-family:var(--fn);font-size:12px;font-weight:600;color:var(--mu);padding:8px 15px;border-radius:7px;transition:all .2s}
+.btab:hover{border-color:var(--M);color:var(--M)}
+.btab.on{background:var(--M);color:#fff;border-color:var(--M)}
+.bpanel{display:none}
+.bpanel.on{display:block}
+
+/* ── 진단 카드 ── */
+.dc{background:var(--sf);border:1px solid var(--bd);border-radius:var(--ra);overflow:hidden;margin-bottom:12px;box-shadow:0 2px 12px rgba(25,47,114,.08)}
+.dch{background:rgba(25,47,114,.05);padding:12px 16px;border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.drisk{font-size:10px;font-weight:800;padding:2px 7px;border-radius:4px}
+.drh{background:rgba(148,36,58,.14);color:var(--R)}
+.drm{background:rgba(246,181,68,.18);color:#b45309}
+.dch h5{font-size:13.5px;font-weight:700;flex:1}
+.dgrid{display:grid;grid-template-columns:1fr 1fr 1fr}
+.dcell{padding:12px 14px;font-size:12.5px;line-height:1.65;border-right:1px solid var(--bd)}
+.dcell:last-child{border-right:none}
+.dcell-h{background:rgba(25,47,114,.04);font-weight:700;font-size:11.5px;color:var(--M);border-bottom:1px solid var(--bd)}
+.dcell-i{color:var(--R);font-style:italic}
+.dcell-v{color:#c2410c;font-weight:600}
+
+/* ── 아카이브 카드 ── */
+.arch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;padding:32px 0}
+.acard{background:var(--sf);border:1px solid var(--bd);border-radius:var(--ra);overflow:hidden;cursor:pointer;transition:all .25s;box-shadow:0 2px 12px rgba(25,47,114,.08)}
+.acard:hover{transform:translateY(-4px);box-shadow:0 10px 32px rgba(25,47,114,.14)}
+.acard.latest{border-color:var(--M);border-width:2px}
+.athumb{height:105px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.at6{background:linear-gradient(135deg,#0f1f50,var(--M))}.at5{background:linear-gradient(135deg,#3a0d1e,#6b1428)}
+.at4{background:linear-gradient(135deg,#1a3a1a,#2d6a2d)}.at3{background:linear-gradient(135deg,#2a1a00,#7a4d00)}
+.at2{background:linear-gradient(135deg,#1a1a3a,#3a2a6a)}.at1{background:linear-gradient(135deg,#0a2a0a,#1a4a1a)}
+.avol{font-size:52px;font-weight:900;opacity:.14;color:#fff;line-height:1}
+.avbdg{position:absolute;top:10px;left:10px;font-size:10.5px;font-weight:800;padding:3px 8px;border-radius:4px;letter-spacing:.04em}
+.anew{position:absolute;top:10px;right:10px;background:var(--R);color:#fff;font-size:9px;font-weight:800;padding:2px 7px;border-radius:3px}
+.abody{padding:16px 18px}
+.adt{font-size:11px;color:var(--mu);margin-bottom:5px}
+.attl{font-size:14px;font-weight:700;margin-bottom:7px;line-height:1.4;color:var(--tx)}
+.asum{font-size:12px;color:var(--mu);line-height:1.6}
+.aft{padding:10px 18px;border-top:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between}
+.atag{background:rgba(25,47,114,.08);color:var(--M);font-size:10.5px;font-weight:600;padding:3px 8px;border-radius:4px}
+
+/* ── TOC ── */
+.toc-nav{position:fixed;right:14px;top:50%;transform:translateY(-50%);z-index:500;display:flex;flex-direction:column;gap:7px}
+.tnd{width:7px;height:7px;border-radius:50%;background:rgba(25,47,114,.2);cursor:pointer;transition:all .2s}
+.tnd.on,.tnd:hover{background:var(--M);transform:scale(1.5)}
+@media(max-width:1300px){.toc-nav{display:none}}
+
+/* ── 푸터 ── */
+footer{background:var(--M);color:rgba(255,255,255,.58);padding:22px 0;font-size:12px}
+.fi{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fbold{font-weight:700;color:rgba(255,255,255,.86)}
+
+/* ── 반응형 ── */
+@media(max-width:768px){
+  .gi{height:auto;padding:10px 16px}
+  .btxt small{display:none}
+  .hero{padding:36px 0 30px}
+  .hvol{font-size:120px}
+  .hero h1{font-size:20px}
+  .ms{padding:30px 0 56px}
+  .sg{grid-template-columns:repeat(2,1fr)}
+  .ag{grid-template-columns:1fr}
+  .cg{grid-template-columns:1fr}
+  .two{grid-template-columns:1fr}
+  .dgrid{grid-template-columns:1fr}
+  .dcell{border-right:none;border-bottom:1px solid var(--bd)}
+  .fctrl{display:none}
+}
+</style>
 </head>
-<body class="bg-slate-50 text-slate-800 leading-relaxed antialiased">
+<body>
+<div id="rp"></div>
+<!-- ========== GNB ========== -->
+<header class="gnb">
+  <div class="gi">
+    <div class="brand">
+      <div class="blogo">JWU</div>
+      <div class="btxt">중원대학교 성과감사실 이슈브리프 웹진<small>Issue Brief Webzine | 성과감사실</small></div>
+    </div>
+    <div class="gnav">
+      <button class="gtb on" onclick="swTab('issues',this)">📖 이슈 읽기</button>
+      <button class="gtb" onclick="swTab('archive',this)">🗂 아카이브</button>
+      <button class="gtb" onclick="swTab('intro',this)">💡 웹진 소개</button>
+    </div>
+    <div class="fctrl">
+      <button class="fb" onclick="chFont(1)">A+</button>
+      <button class="fb" onclick="chFont(-1)">A-</button>
+    </div>
+  </div>
+</header>
 
-    <!-- Top Premium Accent Bar -->
-    <div class="h-2 w-full bg-gradient-to-r from-jwuBlue via-jwuRed to-jwuYellow"></div>
+<!-- ========== 이슈 서브탭 바 (isbar) ========== -->
+<div class="isbar vis" id="isbar">
+  <div class="isbi">
+    <button class="itb on" onclick="swIssue('i7',this)">🔥 07호<span class="itnew">NEW</span></button>
+    <button class="itb" onclick="swIssue('i6',this)">🏛️ 06호</button>
+    <button class="itb" onclick="swIssue('i5',this)">📋 05호</button>
+    <button class="itb" onclick="swIssue('i4',this)">🤖 04호</button>
+    <button class="itb" onclick="swIssue('i3',this)">📜 03호</button>
+    <button class="itb" onclick="swIssue('i2',this)">🎓 02호</button>
+    <button class="itb" onclick="swIssue('i1',this)">🌱 01호</button>
+  </div>
+</div>
 
-    <!-- Quick Navigation (Sticky Header) -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm border-b border-slate-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-jwuBlue/10 text-jwuBlue border border-jwuBlue/20">
-                    JWU 성과감사실 이슈분석
-                </span>
-                <span class="text-slate-300 hidden md:inline">|</span>
-                <span class="text-xs text-slate-500 font-medium hidden md:inline">내부 참고자료</span>
-            </div>
-            <nav class="hidden md:flex space-x-6 text-sm font-semibold">
-                <a href="#scqa" class="text-slate-600 hover:text-jwuBlue transition">SCQA 진단</a>
-                <a href="#crises" class="text-slate-600 hover:text-jwuBlue transition">4대 위기</a>
-                <a href="#evidence" class="text-slate-600 hover:text-jwuBlue transition">실증 데이터</a>
-                <a href="#benchmarks" class="text-slate-600 hover:text-jwuBlue transition">글로벌 벤치마크</a>
-                <a href="#action" class="text-slate-600 hover:text-jwuBlue transition">실천 가이드</a>
-                <a href="#selfcheck" class="text-slate-600 hover:text-jwuBlue transition">자가진단</a>
-            </nav>
-            <div class="flex items-center space-x-2">
-                <button onclick="adjustFontSize(1)" class="p-1.5 text-xs font-bold border border-slate-200 rounded hover:bg-slate-50" title="글자 크게">A+</button>
-                <button onclick="adjustFontSize(-1)" class="p-1.5 text-xs font-bold border border-slate-200 rounded hover:bg-slate-50" title="글자 작게">A-</button>
-                <button onclick="window.print()" class="p-1.5 text-slate-600 hover:text-jwuRed rounded hover:bg-slate-100 hidden sm:inline-flex" title="프린트">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
-                </button>
-            </div>
+<!-- ========================================
+     메인 탭: 이슈 읽기
+======================================== -->
+<div id="tab-issues" class="tp on">
+
+<!-- ============================================================
+  06호 이슈 패널 — 미국 명문대 신뢰 위기와 한국 대학에의 함의
+============================================================ -->
+<div id="ip-i6" class="ip">
+  <div class="hero">
+    <div class="hvol">06</div>
+    <div class="con"><div class="cw">
+      <div class="hm">
+        <span class="bd bdv">ISSUE BRIEF 2026-06</span>
+        <span class="bd bdc">대학 신뢰·거버넌스 / 글로벌 벤치마크</span>
+        <span class="bd bdn">LATEST</span>
+        <span class="hdt">2026. 05. 28</span>
+      </div>
+      <h1>미국 명문대 신뢰 위기와<br><em>한국 대학에의 함의</em></h1>
+      <p class="hsub">예일대 신뢰·평판 위원회 보고서 심층 분석 • 5대 구조적 병폐 해부 • 20대 권고안 전문 수록 • 중원대학교 선제 대응 4대 전략</p>
+      <div class="hinfo">
+        <div><div class="hil">작성부서</div><div class="hiv">성과감사실</div></div>
+        <div><div class="hil">발행일자</div><div class="hiv">2026. 05. 28</div></div>
+        <div><div class="hil">분석 대상</div><div class="hiv">Yale 신뢰위원회 보고서</div></div>
+        <div><div class="hil">배포구분</div><div class="hiv">내부 참고 (배포 금지)</div></div>
+      </div>
+      <div class="htoc">
+        <a href="#s6a">SCQA</a><a href="#s6b">위기 배경</a>
+        <a href="#s6c">5대 병폐</a><a href="#s6d">20대 권고안</a><a href="#s6e">중원대 전략</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="scqa-wrap" id="s6a">
+    <div class="con cw">
+      <div class="scqa-grid">
+        <div class="sc sc-s"><div class="scl">SITUATION</div><h4>신뢰 붕괴의 가시화</h4><p>예일대가 연속적 사회 논란 속에서 신뢰·평판 위원회를 총장 직속으로 공식 설치하였습니다.</p></div>
+        <div class="sc sc-c"><div class="scl">COMPLICATION</div><h4>5대 구조적 병폐 확인</h4><p>교육비 폭등·불공정 입시·표현자유 위축·학점 인플레이션·거버넌스 불투명이 복합 작동하고 있습니다.</p></div>
+        <div class="sc sc-q"><div class="scl">QUESTION</div><h4>한국 대학의 선제 대응</h4><p>"중원대학교는 어떤 제도적 장치를 사전에 갖추어야 동일한 신뢰 위기를 예방할 수 있는가?"</p></div>
+        <div class="sc sc-a"><div class="scl">ANSWER</div><h4>3축 선제 전략 실행</h4><p>재정 투명성 공시, 입시 공정관리 고도화, 위기 거버넌스 구축의 3축 전략으로 신뢰 자산을 선제 구축합니다.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <main class="ms">
+    <div class="con cw">
+
+      <section class="sb" id="s6b">
+        <div class="slbl">Part I</div>
+        <h2 class="st">위기의 배경 — 예일대 신뢰·평판 위원회 설립 경위</h2>
+        <p class="sd">예일대학교는 2024년, 연속적인 사회적 논란 속에서 대학의 신뢰도 하락을 심각하게 받아들이고 총장 직속의 '신뢰 및 평판 위원회'를 설치하고 종합 진단 보고서를 발표하였습니다.</p>
+        <div class="sg">
+          <div class="stc"><div class="stn snr">26<span class="stu">%</span></div><div class="stl">보수 성향 유권자<br>대학 신뢰도 (2025)<br><small>(2015년 56%에서 급락)</small></div></div>
+          <div class="stc"><div class="stn snr">33<span class="stu">%</span></div><div class="stl">학부생 중 신념 표현이<br>두렵다 응답 비율</div></div>
+          <div class="stc"><div class="stn snr">79<span class="stu">%</span></div><div class="stl">A등급 수령 학생 비율<br>(1963년 단 10%)</div></div>
+          <div class="stc"><div class="stn snr">36<span class="stu">:1</span></div><div class="stl">인문사회계열 교수<br>민주당:공화당 비율</div></div>
         </div>
-    </header>
+        <div class="hb hb-r"><h5>🚨 핵심 시사점</h5><p>보수 성향 신뢰도 56%→26% 폭락은 대학이 더 이상 사회 전체가 인정하는 중립적 진리 탐구 공간으로 기능하지 못하고 있음을 의미합니다. 이 위기는 예일대만의 문제가 아닌 글로벌 고등교육 전반의 구조적 문제입니다.</p></div>
+      </section>
 
-    <!-- Main Content Container with dynamic sizing -->
-    <main id="main-container" class="transition-all duration-200">
+      <div class="dvd"></div>
 
-        <!-- Hero Section -->
-        <section class="relative bg-gradient-to-br from-jwuBlue via-[#1f377e] to-[#0d1c47] text-white py-16 px-4 overflow-hidden">
-            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#f6b544_1px,transparent_1px)] [background-size:16px_16px]"></div>
-            <div class="max-w-4xl mx-auto text-center relative z-10">
-                <div class="inline-flex items-center space-x-2 bg-jwuYellow/20 border border-jwuYellow/40 px-4 py-1.5 rounded-full text-jwuYellow text-xs font-bold mb-6 tracking-wide uppercase">
-                    <span>이슈브리프 2026-04</span>
-                    <span>•</span>
-                    <span>AI · 에듀테크 / 교수학습혁신</span>
-                </div>
-                
-                <h1 class="text-3xl sm:text-5xl font-black tracking-tight leading-tight mb-6">
-                    AI 시대, 교수는 무엇을 <span class="text-jwuYellow">두려워하고</span><br class="hidden sm:inline"> 어떻게 <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-200 to-jwuYellow border-b-4 border-jwuYellow">바꿔야 하는가</span>
-                </h1>
-                
-                <p class="text-lg sm:text-xl text-slate-200 font-medium max-w-2xl mx-auto leading-relaxed mb-8">
-                    배상훈 교수 칼럼 분석 • 인지과학 실증 • 국내외 거버넌스 벤치마크 • 중원대학교 실제 현장 적용 시사점
-                </p>
-
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto pt-6 border-t border-white/10 text-sm">
-                    <div class="bg-white/5 p-3 rounded-lg backdrop-blur">
-                        <span class="block text-slate-400 text-xs">작성부서</span>
-                        <strong class="text-slate-100">성과감사실</strong>
-                    </div>
-                    <div class="bg-white/5 p-3 rounded-lg backdrop-blur">
-                        <span class="block text-slate-400 text-xs">발행일</span>
-                        <strong class="text-slate-100">2026. 05. 19</strong>
-                    </div>
-                    <div class="bg-white/5 p-3 rounded-lg backdrop-blur">
-                        <span class="block text-slate-400 text-xs">분석 대상</span>
-                        <strong class="text-slate-100">배상훈 교수 칼럼 외</strong>
-                    </div>
-                    <div class="bg-white/5 p-3 rounded-lg backdrop-blur">
-                        <span class="block text-slate-400 text-xs">배포구분</span>
-                        <strong class="text-jwuYellow">내부 참고 (배포 금지)</strong>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SCQA Summary section -->
-        <section id="scqa" class="py-12 bg-white border-b border-slate-100">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                    <!-- S -->
-                    <div class="relative bg-slate-50 p-6 rounded-2xl border-l-4 border-jwuBlue shadow-sm hover:shadow-md transition">
-                        <div class="absolute -top-3 left-6 px-3 py-0.5 bg-jwuBlue text-white text-xs font-black rounded-full uppercase tracking-wider">Situation</div>
-                        <h4 class="font-bold text-slate-900 mt-2 mb-2 text-base">파괴적 수업 재편</h4>
-                        <p class="text-sm text-slate-600">AI가 대학의 수업·평가·교수자 고유 역할 전반을 파괴적으로 재설정하고 있습니다.</p>
-                    </div>
-                    <!-- C -->
-                    <div class="relative bg-slate-50 p-6 rounded-2xl border-l-4 border-jwuRed shadow-sm hover:shadow-md transition">
-                        <div class="absolute -top-3 left-6 px-3 py-0.5 bg-jwuRed text-white text-xs font-black rounded-full uppercase tracking-wider">Complication</div>
-                        <h4 class="font-bold text-slate-900 mt-2 mb-2 text-base">사고의 외주화 부작용</h4>
-                        <p class="text-sm text-slate-600">'표피적 학습', '인지적 표절' 등 실질적 사고력 감퇴 현상이 실증 데이터로 입증되었습니다.</p>
-                    </div>
-                    <!-- Q -->
-                    <div class="relative bg-slate-50 p-6 rounded-2xl border-l-4 border-jwuYellow shadow-sm hover:shadow-md transition">
-                        <div class="absolute -top-3 left-6 px-3 py-0.5 bg-jwuYellow text-slate-900 text-xs font-black rounded-full uppercase tracking-wider">Question</div>
-                        <h4 class="font-bold text-slate-900 mt-2 mb-2 text-base">우리의 핵심 과제</h4>
-                        <p class="text-sm text-slate-600">"중원대학교 교수진은 지금 무엇을, 그리고 어떻게 당장 혁신해야 하는가?"</p>
-                    </div>
-                    <!-- A -->
-                    <div class="relative bg-gradient-to-br from-jwuBlue to-slate-900 p-6 rounded-2xl border-l-4 border-jwuYellow text-white shadow-md hover:shadow-lg transition">
-                        <div class="absolute -top-3 left-6 px-3 py-0.5 bg-jwuYellow text-slate-900 text-xs font-black rounded-full uppercase tracking-wider">Answer</div>
-                        <h4 class="font-bold text-jwuYellow mt-2 mb-2 text-base">동시 3축 혁신</h4>
-                        <p class="text-sm text-slate-200">수업 설계, 평가 방식 다각화, 통합적 AI 거버넌스의 3박자 동시 혁신이 필수적입니다.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section I: 4대 위기 -->
-        <section id="crises" class="py-16 px-4 bg-slate-50">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-12">
-                    <span class="text-xs font-extrabold text-jwuRed uppercase tracking-widest bg-jwuRed/10 px-3 py-1 rounded-full">Part I</span>
-                    <h2 class="text-3xl font-black text-slate-900 mt-3 mb-4">배상훈 교수가 경고하는 4대 위기 진단</h2>
-                    <p class="text-slate-600 max-w-2xl mx-auto text-sm sm:text-base">
-                        성균관대 교육학과 배상훈 교수의 2026년 5월 19일 머니투데이 오피니언을 입체적으로 해부하여 교육 시스템 전반의 무너지는 신뢰 구조와 대안을 짚어봅니다.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- 위기 1 -->
-                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:border-jwuBlue/20 transition group">
-                        <div class="flex items-start space-x-4">
-                            <div class="flex-shrink-0 w-12 h-12 bg-jwuBlue/10 rounded-2xl flex items-center justify-center text-jwuBlue font-black text-xl group-hover:bg-jwuBlue group-hover:text-white transition">01</div>
-                            <div>
-                                <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-jwuBlue transition">대학 존재 이유의 흔들림</h3>
-                                <p class="text-slate-600 text-sm mb-4">
-                                    AI가 보고서 작성, 공모전 디자인, 진로 설계까지 원스톱으로 대행하면서 학생들은 "비싼 등록금을 내며 굳이 대학을 다녀야 하는가" 자문하기 시작했습니다. 지식 전수 공간으로서의 전통적 위상은 소멸 중입니다.
-                                </p>
-                                <div class="bg-slate-50 p-3.5 rounded-xl border-l-4 border-jwuYellow text-xs text-slate-700">
-                                    <strong class="text-jwuBlue block mb-1">인지과학 관점: 인지적 오프로딩(Cognitive Offloading)</strong>
-                                    인간이 사고해야 할 고차원 인지 과정을 AI에 전부 위임하여 스스로 성찰하고 문제를 도출하는 훈련 자체를 누락시키는 치명적 현상.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 위기 2 -->
-                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:border-jwuRed/20 transition group">
-                        <div class="flex items-start space-x-4">
-                            <div class="flex-shrink-0 w-12 h-12 bg-jwuRed/10 rounded-2xl flex items-center justify-center text-jwuRed font-black text-xl group-hover:bg-jwuRed group-hover:text-white transition">02</div>
-                            <div>
-                                <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-jwuRed transition">교수 역할의 근본적 해체</h3>
-                                <p class="text-slate-600 text-sm mb-4">
-                                    AI 알고리즘이 MIT 월터 르윈 교수 수준의 최고급 명강의를 학습자의 현 수준에 맞춤형으로 큐레이션해주는 시대입니다. "르윈 교수보다 더 잘 가르칠 자신 없으면 소멸 대상"이라는 냉정한 진단이 현실화되었습니다.
-                                </p>
-                                <div class="bg-slate-50 p-3.5 rounded-xl border-l-4 border-jwuBlue text-xs text-slate-700">
-                                    <strong class="text-jwuRed block mb-1">교수의 미래 정체성 대변환</strong>
-                                    단순 지식 전달자(Lecturer)에서 개인 성장을 서포트하는 학습 코치(Learning Coach), 강력한 자극을 주는 질문 설계자, 정교한 평가자 및 멘토로의 전환.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 위기 3 -->
-                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:border-jwuBlue/20 transition group">
-                        <div class="flex items-start space-x-4">
-                            <div class="flex-shrink-0 w-12 h-12 bg-jwuBlue/10 rounded-2xl flex items-center justify-center text-jwuBlue font-black text-xl group-hover:bg-jwuBlue group-hover:text-white transition">03</div>
-                            <div>
-                                <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-jwuBlue transition">표피적 학습과 사고의 외주화</h3>
-                                <p class="text-slate-600 text-sm mb-4">
-                                    과제를 AI로 빠르게 수행한 학생들은 스스로 "매우 잘 알고 있다"고 착각하는 경향을 보이지만, 실제로는 단편적 정보만 축적할 뿐입니다. 스스로 가공하고 곱씹는 성찰의 시간이 사라져 구조적인 지식 확장이 어렵습니다.
-                                </p>
-                                <div class="bg-slate-50 p-3.5 rounded-xl border-l-4 border-jwuYellow text-xs text-slate-700">
-                                    <strong class="text-jwuBlue block mb-1">핵심 개념: 인지적 표절(Cognitive Plagiarism)</strong>
-                                    단순 문장 베끼기가 아니라, 스스로 고민해야 할 논리 구조와 생각의 전개 과정 자체를 AI에 통째로 위임하는 새로운 차원의 표절 양상.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 위기 4 -->
-                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:border-jwuRed/20 transition group">
-                        <div class="flex items-start space-x-4">
-                            <div class="flex-shrink-0 w-12 h-12 bg-jwuRed/10 rounded-2xl flex items-center justify-center text-jwuRed font-black text-xl group-hover:bg-jwuRed group-hover:text-white transition">04</div>
-                            <div>
-                                <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-jwuRed transition">교육 현장의 신뢰 위기</h3>
-                                <p class="text-slate-600 text-sm mb-4">
-                                    제출된 레포트를 채점하며 '이 과제는 정말 학생이 스스로 고민해 쓴 것일까?'라는 의심이 교수자들의 일상이 되었습니다. 변별력을 잃어버린 구태의연한 정답 찾기형 평가는 AI 무대에서 설 자리를 잃었습니다.
-                                </p>
-                                <div class="bg-slate-50 p-3.5 rounded-xl border-l-4 border-jwuBlue text-xs text-slate-700">
-                                    <strong class="text-jwuRed block mb-1">전국적 위기의식 통계</strong>
-                                    한국대학교육협의회 설문 결과, 국내 대학 총장 75% 이상이 "AI 활용 확대로 인한 성적 및 학생 평가 신뢰도 훼손"을 극도로 우려하고 있습니다.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-8 bg-gradient-to-r from-jwuBlue to-jwuRed text-white p-6 rounded-2xl text-center shadow-lg">
-                    <p class="text-base sm:text-lg font-medium italic">
-                        "AI에 대한 피상적 기대와 단순한 기술 낙관론에서 완전히 벗어나, 교육자·연구자·정책가가 긴밀히 협력해 지금 당장 대학 현장 중심의 실질적 'AI 임팩트 보고서(AI Impact Report)'를 작성해야 할 시점이다."
-                    </p>
-                    <span class="block mt-3 text-xs text-jwuYellow font-bold">- 배상훈 교수 머니투데이 칼럼 제언 중</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section II: 국내외 실증 근거 -->
-        <section id="evidence" class="py-16 px-4 bg-white border-y border-slate-100">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-12">
-                    <span class="text-xs font-extrabold text-jwuBlue uppercase tracking-widest bg-jwuBlue/10 px-3 py-1 rounded-full">Part II</span>
-                    <h2 class="text-3xl font-black text-slate-900 mt-3 mb-4">우려는 데이터로 입증된다</h2>
-                    <p class="text-slate-600 max-w-xl mx-auto text-sm">
-                        단순한 우려가 아닌, 최근 글로벌 교육 조사 및 실험을 통해 백업되는 강력한 정량 데이터들을 시각화하여 공유합니다.
-                    </p>
-                </div>
-
-                <!-- 미국 AAC&U 설문조사 시각화 -->
-                <div class="mb-16">
-                    <h3 class="text-xl font-bold text-slate-950 mb-6 flex items-center space-x-2">
-                        <span class="w-3 h-6 bg-jwuBlue rounded-full inline-block"></span>
-                        <span>미국 전국 교수 대규모 설문 조사 결과 <span class="text-xs text-slate-500 font-normal">(AAC&U - Elon Univ, n=1,057)</span></span>
-                    </h3>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <!-- Stat 1 -->
-                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-between">
-                            <div>
-                                <span class="text-sm font-semibold text-slate-500 block mb-1">AI 과의존 및 비판력 약화 우려</span>
-                                <p class="text-slate-600 text-xs">"비판적 사고력이 훼손되고 과도하게 편의 위주로 AI에 기댈 것"</p>
-                            </div>
-                            <div class="mt-4">
-                                <div class="flex items-baseline justify-between mb-1">
-                                    <span class="text-xs text-jwuBlue font-bold">동의 비율</span>
-                                    <span class="text-3xl font-black text-jwuBlue">95%</span>
-                                </div>
-                                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
-                                    <div class="bg-jwuBlue h-full rounded-full" style="width: 95%"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Stat 2 -->
-                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-between">
-                            <div>
-                                <span class="text-sm font-semibold text-slate-500 block mb-1">학문적 진실성 및 윤리 훼손</span>
-                                <p class="text-slate-600 text-xs">"과제 및 학술 활동 중 대필 등 윤리 도덕적 훼손이 일어날 것"</p>
-                            </div>
-                            <div class="mt-4">
-                                <div class="flex items-baseline justify-between mb-1">
-                                    <span class="text-xs text-jwuRed font-bold">동의 비율</span>
-                                    <span class="text-3xl font-black text-jwuRed">75%↑</span>
-                                </div>
-                                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
-                                    <div class="bg-jwuRed h-full rounded-full" style="width: 78%"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Stat 3 -->
-                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-between">
-                            <div>
-                                <span class="text-sm font-semibold text-slate-500 block mb-1">학교 AI 대응 미비</span>
-                                <p class="text-slate-600 text-xs">"우리 대학은 아직 AI 환경을 통제하거나 활용할 준비가 안 되었다"</p>
-                            </div>
-                            <div class="mt-4">
-                                <div class="flex items-baseline justify-between mb-1">
-                                    <span class="text-xs text-slate-600 font-bold">동의 비율</span>
-                                    <span class="text-3xl font-black text-slate-700">59%</span>
-                                </div>
-                                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
-                                    <div class="bg-slate-600 h-full rounded-full" style="width: 59%"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Stat 4 -->
-                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-between">
-                            <div>
-                                <span class="text-sm font-semibold text-slate-500 block mb-1">졸업생 AI 활용 한계</span>
-                                <p class="text-slate-600 text-xs">"졸업생들이 실제 기업에 가서 정합하게 AI를 다룰 역량이 부족하다"</p>
-                            </div>
-                            <div class="mt-4">
-                                <div class="flex items-baseline justify-between mb-1">
-                                    <span class="text-xs text-jwuYellow font-bold">동의 비율</span>
-                                    <span class="text-3xl font-black text-jwuYellow">63%</span>
-                                </div>
-                                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
-                                    <div class="bg-jwuYellow h-full rounded-full" style="width: 63%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 대학생 vs 교수진 AI 격차 분석 리포트 -->
-                <div>
-                    <h3 class="text-xl font-bold text-slate-950 mb-6 flex items-center space-x-2">
-                        <span class="w-3 h-6 bg-jwuRed rounded-full inline-block"></span>
-                        <span>교수 • 학생 간 AI 활용 인식 격차 비교 <span class="text-xs text-slate-500 font-normal">(독일 뒤스부르크-에센 대학 공동 연구, 5점 척도 표준)</span></span>
-                    </h3>
-
-                    <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
-                        <table class="w-full text-left border-collapse bg-white">
-                            <thead>
-                                <tr class="bg-slate-100 text-slate-800 text-sm font-bold border-b border-slate-200">
-                                    <th class="p-4">분석 영역</th>
-                                    <th class="p-4 text-center">학생 집단 실태</th>
-                                    <th class="p-4 text-center">교수 집단 실태</th>
-                                    <th class="p-4">중원대 교수자용 핵심 시사점 (인지과학적 리포트)</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-sm text-slate-600 divide-y divide-slate-100">
-                                <tr class="hover:bg-slate-50/50 transition">
-                                    <td class="p-4 font-bold text-slate-800">AI 사용 빈도</td>
-                                    <td class="p-4 text-center text-jwuRed font-semibold">
-                                        <span class="text-slate-800">교수 대비</span>
-                                        <span class="block mt-1 bg-red-50 text-jwuRed px-2 py-1 rounded text-xs font-bold border border-red-100">+0.35점 고빈도</span>
-                                    </td>
-                                    <td class="p-4 text-center">필요한 상황 시 가끔 제한적 사용</td>
-                                    <td class="p-4 text-xs">학생의 학업 및 일상 생활 전반에 깊게 스며들어 지적 독립성을 빠르게 상실 중입니다.</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50/50 transition">
-                                    <td class="p-4 font-bold text-slate-800">과제 수행 위임도</td>
-                                    <td class="p-4 text-center text-jwuRed font-semibold">
-                                        <span class="text-slate-800">교수 대비</span>
-                                        <span class="block mt-1 bg-red-50 text-jwuRed px-2 py-1 rounded text-xs font-bold border border-red-100">+15.72점 위임</span>
-                                    </td>
-                                    <td class="p-4 text-center">단순 참고 및 제한적 교정 보조 도구</td>
-                                    <td class="p-4 text-xs font-medium text-jwuRed">학생은 AI를 '도우미'가 아닌 일 처리를 다 해주는 '대행자'로 전제합니다. 사고의 도약이 멈춥니다.</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50/50 transition">
-                                    <td class="p-4 font-bold text-slate-800">정보검색 위임 격차</td>
-                                    <td class="p-4 text-center text-jwuRed font-semibold">
-                                        <span class="text-slate-800">격차 최대</span>
-                                        <span class="block mt-1 bg-red-50 text-jwuRed px-2 py-1 rounded text-xs font-bold border border-red-100">+24.09점 격차</span>
-                                    </td>
-                                    <td class="p-4 text-center">원문 및 팩트 체크 목적의 고도화 활용</td>
-                                    <td class="p-4 text-xs">스스로 탐색하며 배우는 능동적 탐구 단계를 뛰어넘고, 가공된 요약본만 표피적으로 소비합니다.</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50/50 transition">
-                                    <td class="p-4 font-bold text-slate-800">글쓰기 위임 & 평가</td>
-                                    <td class="p-4 text-center text-slate-700 font-semibold">
-                                        <span class="text-slate-800">편의성 극대화</span>
-                                        <span class="block mt-1 bg-slate-100 text-slate-600 px-2 py-1 rounded text-[11px] font-medium">매우 관대한 긍정 평가</span>
-                                    </td>
-                                    <td class="p-4 text-center">독창적 서사 결핍 우려 (83% 역량 부족 우려)</td>
-                                    <td class="p-4 text-xs">
-                                        <span class="text-jwuRed font-bold block mb-1">인간 환각 (Human Hallucination) 현상 초래</span>
-                                        AI가 작성해준 부드럽고 매끄러운 답변을 학생 자신이 직접 지적으로 노력해 도출해낸 실력으로 무의식 중에 심각하게 착각하는 '메타인지 자기귀인 오류'가 만연합니다.
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- 국내 정책 트렌드 요약 -->
-                <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 flex items-start space-x-3">
-                        <div class="text-2xl mt-1">💡</div>
-                        <div>
-                            <strong class="block text-slate-900 text-sm mb-1">정부 기조: 금지에서 '과정 명시'로</strong>
-                            <p class="text-xs text-slate-600">교육부·과기정통부 공동 방침(2025.12)에 따라 AI의 무조건적 제한 금지 대신 출처 표기 의무화 및 활용 영역 설정 표준안 구축 중입니다.</p>
-                        </div>
-                    </div>
-                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 flex items-start space-x-3">
-                        <div class="text-2xl mt-1">🏫</div>
-                        <div>
-                            <strong class="block text-slate-900 text-sm mb-1">AI 기본교육과정 개발 확대</strong>
-                            <p class="text-xs text-slate-600">교육부 '대학 AI 기본교육과정 개발 지원사업'을 통해 20개 선정 대학에 평균 3억 원씩 집중 지원하며 재정 사업 전면에 배치되었습니다.</p>
-                        </div>
-                    </div>
-                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 flex items-start space-x-3">
-                        <div class="text-2xl mt-1">📋</div>
-                        <div>
-                            <strong class="block text-slate-900 text-sm mb-1">가이드라인 제정 및 공표 가속</strong>
-                            <p class="text-xs text-slate-600">국내 대학 총장 설문 조사 결과, 전국 대학의 40%가 이미 AI 가이드라인을 최종 확정했으며, 40%가 추가 제정 절차에 착수했습니다.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Section III: 국내외 AI 거버넌스 벤치마크 -->
-        <section id="benchmarks" class="py-16 px-4 bg-slate-50">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-12">
-                    <span class="text-xs font-extrabold text-jwuRed uppercase tracking-widest bg-jwuRed/10 px-3 py-1 rounded-full">Part III</span>
-                    <h2 class="text-3xl font-black text-slate-900 mt-3 mb-4">선도 대학들의 AI 거버넌스 벤치마킹</h2>
-                    <p class="text-slate-600 max-w-xl mx-auto text-sm">
-                        선도적 대응에 나선 주요 대학 사례를 바탕으로 중원대학교 2026학년도 2학기 수업에 즉각 이식 가능한 실천 전략을 찾습니다.
-                    </p>
-                </div>
-
-                <!-- Tab interface for Benchmarks -->
-                <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
-                    <div class="flex border-b border-slate-100 bg-slate-50 overflow-x-auto">
-                        <button onclick="switchTab('pnu')" id="tab-pnu" class="flex-1 py-4 px-6 text-center text-sm font-bold border-b-2 border-jwuBlue text-jwuBlue whitespace-nowrap">
-                            부산대 (PNU-AX 마스터플랜)
-                        </button>
-                        <button onclick="switchTab('dsu')" id="tab-dsu" class="flex-1 py-4 px-6 text-center text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-800 whitespace-nowrap">
-                            동서대 (The Only One)
-                        </button>
-                        <button onclick="switchTab('ucl')" id="tab-ucl" class="flex-1 py-4 px-6 text-center text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-800 whitespace-nowrap">
-                            UCL (영국 런던대 모델)
-                        </button>
-                        <button onclick="switchTab('harvard')" id="tab-harvard" class="flex-1 py-4 px-6 text-center text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-800 whitespace-nowrap">
-                            하버드대 (보안 & 자율 규제)
-                        </button>
-                    </div>
-
-                    <div class="p-8">
-                        <!-- Pusan National Univ Content -->
-                        <div id="content-pnu" class="tab-content block">
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                                <div class="space-y-4">
-                                    <span class="inline-block px-3 py-1 bg-jwuBlue/10 text-jwuBlue text-xs font-bold rounded">핵심 철학</span>
-                                    <h4 class="text-2xl font-black text-slate-900 leading-tight">"지성 • 창의성 • 인간성" 기반 6대 윤리 원칙 정립</h4>
-                                    <p class="text-sm text-slate-600">국내 최초로 행정, 교육, 연구 전 영역을 통합하여 윤리 매뉴얼과 AI 마스터플랜 'A.U.R.A'를 동시 선언했습니다.</p>
-                                </div>
-                                <div class="bg-slate-50 p-6 rounded-2xl space-y-3">
-                                    <span class="inline-block px-3 py-1 bg-jwuRed/10 text-jwuRed text-xs font-bold rounded">주요 통제 장치</span>
-                                    <ul class="text-sm text-slate-700 space-y-2 list-disc list-inside">
-                                        <li>수업 자가검증 및 모니터링 표준 도입</li>
-                                        <li>중간·기말고사 AI 활용 적정성 사전 진단</li>
-                                        <li>평가 시 AI 채점 보조 도구 사용 규격 명시</li>
-                                        <li>연구자 대상 생성 AI 연구 윤리 사전 가이드</li>
-                                    </ul>
-                                </div>
-                                <div class="bg-jwuBlue/5 p-6 rounded-2xl border border-jwuBlue/10 space-y-3">
-                                    <span class="inline-block px-3 py-1 bg-jwuYellow/20 text-slate-900 text-xs font-bold rounded">중원대 적용 시사점</span>
-                                    <p class="text-sm text-slate-700 font-medium">
-                                        단순 가이드라인 일회성 배포에 그치지 않고, 대학 행정-교육-연구 3개 영역을 통합 관리하는 "JWU AI 거버넌스 3축 구조도" 설계가 시급합니다.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Dongseo Univ Content -->
-                        <div id="content-dsu" class="tab-content hidden">
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                                <div class="space-y-4">
-                                    <span class="inline-block px-3 py-1 bg-jwuBlue/10 text-jwuBlue text-xs font-bold rounded">핵심 철학</span>
-                                    <h4 class="text-2xl font-black text-slate-900 leading-tight">교수와 학생 간 "신뢰와 자율적 합의" 최우선</h4>
-                                    <p class="text-sm text-slate-600">교수자용, 학습자용, 대학 공동 실천 협약 등 3대 맞춤형 가이드라인을 세분화하여 상호 신뢰를 높였습니다.</p>
-                                </div>
-                                <div class="bg-slate-50 p-6 rounded-2xl space-y-3">
-                                    <span class="inline-block px-3 py-1 bg-jwuRed/10 text-jwuRed text-xs font-bold rounded">주요 통제 장치</span>
-                                    <ul class="text-sm text-slate-700 space-y-2 list-disc list-inside">
-                                        <li>매 학기 강의계획서 상 AI 활용 명문화</li>
-                                        <li>부정행위 범위 명확한 예고제 운용</li>
-                                        <li>과제물 성적 평가 전 최종 책임 귀속 서약</li>
-                                        <li>과정 중심 학생 참여형 워크숍 결합</li>
-                                    </ul>
-                                </div>
-                                <div class="bg-jwuBlue/5 p-6 rounded-2xl border border-jwuBlue/10 space-y-3">
-                                    <span class="inline-block px-3 py-1 bg-jwuYellow/20 text-slate-900 text-xs font-bold rounded">중원대 적용 시사점</span>
-                                    <p class="text-sm text-slate-700 font-medium">
-                                        교무처와 긴밀히 조율하여 2026학년도 2학기 강의계획서 표준 양식에 "생성 AI 활용 유의사항 및 기준"을 필수 기재 항목으로 정형화해 배포해야 합니다.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- UCL Content -->
-                        <div id="content-ucl" class="tab-content hidden">
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                                <div class="space-y-4">
-                                    <span class="inline-block px-3 py-1 bg-jwuBlue/10 text-jwuBlue text-xs font-bold rounded">핵심 철학</span>
-                                    <h4 class="text-2xl font-black text-slate-900 leading-tight">체계적인 "3단계 분류" 및 기여 명시</h4>
-                                    <p class="text-sm text-slate-600">AI 사용 기법을 명확히 명세화하고, 탐지 프로그램에 과도하게 의존하는 기법 대신 '과정의 투명한 입증'에 초점을 맞춥니다.</p>
-                                </div>
-                                <div class="bg-slate-50 p-6 rounded-2xl space-y-3">
-                                    <span class="inline-block px-3 py-1 bg-jwuRed/10 text-jwuRed text-xs font-bold rounded">주요 통제 장치</span>
-                                    <ul class="text-sm text-slate-700 space-y-2 list-disc list-inside">
-                                        <li>수업 및 평가의 3분류 적용 (① 금지, ② 보조 참고, ③ 통합 파트너)</li>
-                                        <li>의심 대작에 대해 구술 확인 면담(Viva) 실시</li>
-                                        <li>프롬프트 이력서 작성 제출 의무</li>
-                                        <li>학생 책임 표명 백업 파일 증빙 권장</li>
-                                    </ul>
-                                </div>
-                                <div class="bg-jwuBlue/5 p-6 rounded-2xl border border-jwuBlue/10 space-y-3">
-                                    <span class="inline-block px-3 py-1 bg-jwuYellow/20 text-slate-900 text-xs font-bold rounded">중원대 적용 시사점</span>
-                                    <p class="text-sm text-slate-700 font-medium">
-                                        금지/보조/통합 3단 구조는 매우 직관적이고 즉시 적용 가능합니다. 특히 주요 평가 단계에서 구술 확인 면담을 약식 도입하는 방안은 대필 우려를 단번에 종식시킵니다.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Harvard Content -->
-                        <div id="content-harvard" class="tab-content hidden">
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                                <div class="space-y-4">
-                                    <span class="inline-block px-3 py-1 bg-jwuBlue/10 text-jwuBlue text-xs font-bold rounded">핵심 철학</span>
-                                    <h4 class="text-2xl font-black text-slate-900 leading-tight">"지적 무결성 및 민감 정보" 완벽 보호</h4>
-                                    <p class="text-sm text-slate-600">데이터 보안에 철저한 제재 장치를 우선적으로 깔고, 단과대학별 학문적 다양성에 근거한 자율 통제를 조화롭게 병행합니다.</p>
-                                </div>
-                                <div class="bg-slate-50 p-6 rounded-2xl space-y-3">
-                                    <span class="inline-block px-3 py-1 bg-jwuRed/10 text-jwuRed text-xs font-bold rounded">주요 통제 장치</span>
-                                    <ul class="text-sm text-slate-700 space-y-2 list-disc list-inside">
-                                        <li>학생 성적, 대입 개인정보 등 민감 데이터 공용 AI 입력 차단</li>
-                                        <li>미공개 연구 자료 외부 반출 상시 필터링</li>
-                                        <li>정기 교직원 대상 정보보호 훈련 연동</li>
-                                        <li>수준별 학습 커뮤니티 정기 운영</li>
-                                    </ul>
-                                </div>
-                                <div class="bg-jwuBlue/5 p-6 rounded-2xl border border-jwuBlue/10 space-y-3">
-                                    <span class="inline-block px-3 py-1 bg-jwuYellow/20 text-slate-900 text-xs font-bold rounded">중원대 적용 시사점</span>
-                                    <p class="text-sm text-slate-700 font-medium">
-                                        학기말 성적 산출, 입시 채점, 신임교수 면접 자료 등 행정상의 중대 민감정보가 외산 범용 ChatGPT 등에 기입되어 유출되지 않도록 교직원 정보 보안 준칙을 공포해야 합니다.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section IV: 중원대학교를 위한 5대 제언 -->
-        <section id="action" class="py-16 px-4 bg-white">
-            <div class="max-w-5xl mx-auto">
-                <div class="text-center mb-12">
-                    <span class="text-xs font-extrabold text-jwuBlue uppercase tracking-widest bg-jwuBlue/10 px-3 py-1 rounded-full">Part IV</span>
-                    <h2 class="text-3xl font-black text-slate-900 mt-3 mb-4">중원대학교를 위한 즉시 전파 실천 가이드</h2>
-                    <p class="text-slate-600 max-w-2xl mx-auto text-sm">
-                        2026학년도 2학기 수업 준비부터 바로 활용할 수 있는 현실적인 5가지 행동 지침을 소개합니다.
-                    </p>
-                </div>
-
-                <!-- 5 Actions cards -->
-                <div class="space-y-6">
-                    <!-- Action 1 -->
-                    <div class="border border-slate-200 rounded-3xl p-6 sm:p-8 hover:shadow-md transition">
-                        <div class="flex flex-col sm:flex-row sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
-                            <div class="flex-shrink-0 w-14 h-14 bg-jwuBlue text-white rounded-2xl flex items-center justify-center font-black text-2xl">01</div>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold text-slate-900 mb-2">강의계획서에 AI 활용 범위 기준 명문화</h3>
-                                <p class="text-sm text-slate-600 mb-4">
-                                    학기 시작 전, 수업의 목표와 평가 지향점에 맞는 활용 한계를 UCL의 3분류 모델을 차용하여 사전 선언합니다. 이를 통해 상호 간 불필요한 의심을 배제할 수 있습니다.
-                                </p>
-                                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                                    <div class="bg-red-50/50 p-3 rounded-xl border border-red-100">
-                                        <span class="font-bold text-xs text-jwuRed block mb-1">① 완전 금지 (Forbidden)</span>
-                                        <p class="text-xs text-slate-600">기초 개념 숙지 및 독립 논증력 형성이 중점인 필수 기초 과목.</p>
-                                    </div>
-                                    <div class="bg-blue-50/50 p-3 rounded-xl border border-blue-100">
-                                        <span class="font-bold text-xs text-jwuBlue block mb-1">② 보조 참고 (Supportive)</span>
-                                        <p class="text-xs text-slate-600">AI를 단순 맞춤법 교정, 번역, 참고 문헌 교차 확인 도구로 제한 허용.</p>
-                                    </div>
-                                    <div class="bg-yellow-50/50 p-3 rounded-xl border border-yellow-200">
-                                        <span class="font-bold text-xs text-slate-800 block mb-1">③ 적극 통합 (Integrated)</span>
-                                        <p class="text-xs text-slate-600">고차원 기획, 대안 분석, 프로젝트 파트너로 인공지능을 전격 가동.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Action 2 -->
-                    <div class="border border-slate-200 rounded-3xl p-6 sm:p-8 hover:shadow-md transition">
-                        <div class="flex flex-col sm:flex-row sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
-                            <div class="flex-shrink-0 w-14 h-14 bg-jwuRed text-white rounded-2xl flex items-center justify-center font-black text-2xl">02</div>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold text-slate-900 mb-2">'AI가 즉시 수행 불가능한 고유 과제'로 전면 대체</h3>
-                                <p class="text-sm text-slate-600 mb-4">
-                                    지식의 요약 정리, 기존 학설 단순 나열, 광범위 정보 보고서 등은 AI가 몇 초 만에 가장 완벽하게 완수합니다. 이러한 과제를 철폐하고 ‘맥락과 실천’이 결합한 과제로 대전환합니다.
-                                </p>
-                                <div class="bg-slate-50 p-4 rounded-xl border-l-4 border-jwuRed space-y-3">
-                                    <div class="flex items-start space-x-2">
-                                        <span class="text-xs font-bold text-jwuRed bg-white border border-jwuRed/20 px-2 py-0.5 rounded">전환 방안 1</span>
-                                        <p class="text-xs text-slate-700 font-medium">학생 본인이 속한 특정 지역(예: 충북 괴산군 등)의 실제 현장 방문 관찰 및 인터뷰가 믹스된 '고유 서사 결합 보고서'</p>
-                                    </div>
-                                    <div class="flex items-start space-x-2">
-                                        <span class="text-xs font-bold text-jwuRed bg-white border border-jwuRed/20 px-2 py-0.5 rounded">전환 방안 2</span>
-                                        <p class="text-xs text-slate-700 font-medium">인공지능이 생성한 텍스트 답변 내부의 치명적 논리 결함, 편향성, 허위 출처(Citation Hallucination)를 학생이 파헤치고 수정하는 '비판적 검증 과제'</p>
-                                    </div>
-                                    <div class="flex items-start space-x-2">
-                                        <span class="text-xs font-bold text-jwuRed bg-white border border-jwuRed/20 px-2 py-0.5 rounded">전환 방안 3</span>
-                                        <p class="text-xs text-slate-700 font-medium">아이디어 스케치(1단계) → 데이터 정제(2단계) → AI 활용 최종 편집본(3단계)으로 이어지는 '생각의 흐름 궤적 히스토리 기록'</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Action 3 -->
-                    <div class="border border-slate-200 rounded-3xl p-6 sm:p-8 hover:shadow-md transition">
-                        <div class="flex flex-col sm:flex-row sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
-                            <div class="flex-shrink-0 w-14 h-14 bg-jwuBlue text-white rounded-2xl flex items-center justify-center font-black text-2xl">03</div>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold text-slate-900 mb-2">평가 방식을 '최종 결과물 단판'에서 '중간 과정 검증'으로 파격 전환</h3>
-                                <p class="text-sm text-slate-600 mb-4">
-                                    한 차례의 제출로 성적이 좌우되는 구조는 AI 대필의 가장 매력적인 표적입니다. 따라서 실시간 소통 중심의 형성평가로 평가 포커스를 이동합니다.
-                                </p>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div class="bg-slate-50 p-4 rounded-xl">
-                                        <strong class="text-xs text-jwuBlue block mb-1">💬 약식 구술 면담(Viva) 결합</strong>
-                                        <p class="text-xs text-slate-600">제출된 레포트 중 무작위 선정 혹은 일대일 개별 피드백 시간 내 약 3~5분 동안 학생에게 "이 주장의 핵심 논리 전개 과정을 직접 설명해보라"고 요구하여 검증합니다.</p>
-                                    </div>
-                                    <div class="bg-slate-50 p-4 rounded-xl">
-                                        <strong class="text-xs text-jwuBlue block mb-1">📊 개방형 종합 토론 및 면대면 비중 확대</strong>
-                                        <p class="text-xs text-slate-600">변별력이 전무해진 5지선다형 시험 대신 현장 발표, 모의 토론, 실시간 개념 퀴즈 위주로 학업 성취도를 다원 측정합니다.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Action 4 -->
-                    <div class="border border-slate-200 rounded-3xl p-6 sm:p-8 hover:shadow-md transition">
-                        <div class="flex flex-col sm:flex-row sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
-                            <div class="flex-shrink-0 w-14 h-14 bg-jwuRed text-white rounded-2xl flex items-center justify-center font-black text-2xl">04</div>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold text-slate-900 mb-2">'AI 기여도 공개제' 적극 수용</h3>
-                                <p class="text-sm text-slate-600 mb-4">
-                                    AI를 아예 차단하기보다 투명하고 책임감 있게 양지로 끌어올려 사용하도록 가이드합니다. 과제물 귀퉁이에 학생이 사용한 도구를 공개 선언하게 합니다.
-                                </p>
-                                <div class="bg-slate-50 p-4 rounded-xl flex items-center justify-between">
-                                    <div class="text-xs text-slate-700 space-y-1">
-                                        <span class="block font-bold text-jwuRed">📝 레포트 필수 동반 작성 양식안:</span>
-                                        <span>① 활용한 AI 엔진 모델 이름, ② 질문했던 프롬프트 내용, ③ AI 결과에서 본인이 정제·가공한 근거 사유</span>
-                                    </div>
-                                    <div class="text-xs font-bold text-jwuBlue bg-jwuBlue/10 px-3 py-2 rounded-lg text-center hidden sm:block">
-                                        학생 스스로 인지 분리 능력을 키우는<br> <span class="text-jwuRed">'메타인지 발달'</span> 효과 기대
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Action 5 -->
-                    <div class="border border-slate-200 rounded-3xl p-6 sm:p-8 hover:shadow-md transition">
-                        <div class="flex flex-col sm:flex-row sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
-                            <div class="flex-shrink-0 w-14 h-14 bg-jwuYellow text-slate-950 rounded-2xl flex items-center justify-center font-black text-2xl">05</div>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold text-slate-900 mb-2">할루시네이션(환각) 및 정보 편향성을 교육 자산으로 활용</h3>
-                                <p class="text-sm text-slate-600 mb-3">
-                                    AI가 보인 대표 오류인 '가짜 참조문헌 생성', '문화적/성적 고정관념'을 골칫거리로 보지 않고, 팩트 체크 리터러시 훈련을 시킬 절호의 교재로 전향 배정합니다.
-                                </p>
-                                <span class="inline-flex items-center text-xs font-bold text-jwuBlue bg-jwuBlue/10 px-3 py-1.5 rounded-full">
-                                    "AI가 스스로 절대 던질 수 없는 거대한 근원적 질문(예: 역사 속에서 소외된 계층의 시선 등)을 강의실 내 메인 어젠다로 선정하고 탐색"
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Interactive Section: AI 강의 준비도 자가 진단 테스트 -->
-        <section id="selfcheck" class="py-16 px-4 bg-slate-100 border-t border-slate-200">
-            <div class="max-w-3xl mx-auto bg-white p-8 sm:p-10 rounded-3xl shadow-lg border border-slate-100">
-                <div class="text-center mb-8">
-                    <span class="inline-block px-3 py-1 bg-jwuYellow/30 text-slate-900 text-xs font-bold rounded-full mb-2">교수자 자가 체크리스트</span>
-                    <h3 class="text-2xl font-black text-slate-900">나의 수업은 AI 시대에 얼마나 준비되어 있을까?</h3>
-                    <p class="text-xs text-slate-500 mt-2">자가 테스트를 통해 현재 수업 설계가 새로운 교육 시대에 부합하는지 즉석에서 평가해보세요.</p>
-                </div>
-
-                <div class="space-y-4" id="quiz-container">
-                    <!-- Q1 -->
-                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/60 flex items-start space-x-3">
-                        <input type="checkbox" id="q1" class="w-5 h-5 rounded text-jwuBlue mt-1 accent-jwuBlue flex-shrink-0" onchange="calculateScore()">
-                        <label for="q1" class="text-sm text-slate-700 font-medium cursor-pointer">
-                            내 수업의 중간/기말 대체 과제물은 ChatGPT에 그대로 복사해서 붙여넣었을 때 즉시 통과할 만한 수준의 문서를 생성할 수 없는 맥락적 문제 위주다.
-                        </label>
-                    </div>
-                    <!-- Q2 -->
-                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/60 flex items-start space-x-3">
-                        <input type="checkbox" id="q2" class="w-5 h-5 rounded text-jwuBlue mt-1 accent-jwuBlue flex-shrink-0" onchange="calculateScore()">
-                        <label for="q2" class="text-sm text-slate-700 font-medium cursor-pointer">
-                            학기 첫 주 강의계획서에 '생성 AI 사용 가능 범위 규정(허용 한계, 금지 내역)'을 명문화하여 강의실 규율을 세워두었다.
-                        </label>
-                    </div>
-                    <!-- Q3 -->
-                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/60 flex items-start space-x-3">
-                        <input type="checkbox" id="q3" class="w-5 h-5 rounded text-jwuBlue mt-1 accent-jwuBlue flex-shrink-0" onchange="calculateScore()">
-                        <label for="q3" class="text-sm text-slate-700 font-medium cursor-pointer">
-                            단판 성적 평가를 벗어나, 과제 생성 이력 제출, 프롬프트 로그 검수, 혹은 3분간의 가벼운 대면 구술 확인 등의 과정 중심 평가 장치가 있다.
-                        </label>
-                    </div>
-                    <!-- Q4 -->
-                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/60 flex items-start space-x-3">
-                        <input type="checkbox" id="q4" class="w-5 h-5 rounded text-jwuBlue mt-1 accent-jwuBlue flex-shrink-0" onchange="calculateScore()">
-                        <label for="q4" class="text-sm text-slate-700 font-medium cursor-pointer">
-                            단순히 검색하여 지식을 습득하고 정리하는 역량보다, 인공지능이 도출한 결과물 중 ‘잘못된 논리와 팩트를 예리하게 필터링’하는 성찰 훈련 기회가 강의 중에 주어진다.
-                        </label>
-                    </div>
-                    <!-- Q5 -->
-                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/60 flex items-start space-x-3">
-                        <input type="checkbox" id="q5" class="w-5 h-5 rounded text-jwuBlue mt-1 accent-jwuBlue flex-shrink-0" onchange="calculateScore()">
-                        <label for="q5" class="text-sm text-slate-700 font-medium cursor-pointer">
-                            중요 행정 기밀 정보 및 학생 성적 등 민감 정보 데이터를 외부 범용 공용 AI(ChatGPT 등)에 기입해서는 안 된다는 보완 준칙을 명확히 이해하고 실행하고 있다.
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Result area -->
-                <div class="mt-8 pt-6 border-t border-slate-100 text-center" id="quiz-result-area">
-                    <p class="text-sm text-slate-600 mb-1">체크한 항목 수: <strong id="score-text" class="text-jwuRed text-xl">0</strong>개 / 5개</p>
-                    <div class="h-3 w-full bg-slate-100 rounded-full overflow-hidden mb-4 max-w-xs mx-auto">
-                        <div id="quiz-bar" class="h-full bg-jwuRed transition-all duration-300" style="width: 0%"></div>
-                    </div>
-                    <div id="feedback-message" class="text-sm font-semibold text-slate-700 bg-slate-50 p-4 rounded-xl">
-                        자가진단을 클릭해 진행해보세요! 강의 계획 혁신의 길잡이가 되어드립니다.
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- MoneyToday Original Column Expandable Section -->
-        <section class="py-16 px-4 bg-white border-t border-slate-100">
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200/80">
-                    <div class="flex items-center justify-between mb-6">
-                        <div class="flex items-center space-x-3">
-                            <span class="p-2 bg-jwuBlue/10 rounded-lg text-jwuBlue text-xl">📰</span>
-                            <div>
-                                <span class="text-xs text-slate-500 block">머니투데이 청계광장 (2026.05.19자 009면)</span>
-                                <strong class="text-slate-900 text-base">"AI 시대, 교육학자가 두려워하는 것" 칼럼 전문</strong>
-                            </div>
-                        </div>
-                        <button onclick="toggleColumn()" id="btn-toggle-column" class="px-4 py-2 bg-white border border-slate-300 hover:border-jwuBlue text-xs font-semibold rounded-full shadow-sm text-slate-700 hover:text-jwuBlue transition">
-                            원문 전문 펼치기
-                        </button>
-                    </div>
-
-                    <!-- Column main content -->
-                    <div id="column-content" class="hidden transition-all duration-300 text-slate-700 text-sm leading-relaxed space-y-4 pt-4 border-t border-slate-200/60 max-h-[500px] overflow-y-auto pr-2">
-                        <p class="font-bold text-slate-900 text-base mb-2">배상훈 성균관대 교육학과 교수 · 교무처장</p>
-                        
-                        <p class="italic bg-white p-4 rounded-xl border-l-4 border-jwuYellow mb-4">
-                            "비싼 등록금을 내면서 대학에 꼭 다녀야 하나요." 생성형 AI를 활용해 공부는 물론 공모전 포스터 디자인과 진로탐색까지 한다는 한 대학생이 건넨 말이다. 세상에 흩어져 있는 지식과 정보를 실시간으로 모으고 분석하는 AI를 경험하면서 대학에 다닐 필요가 있는지를 다시 생각하게 됐다고 한다. 물론 대학은 단순히 지식을 전달하는 곳만은 아니다. 그럼에도 보고서 초안 작성부터 발표 슬라이드와 이미지 제작까지 도와주는 AI를 보면 "이렇게까지 해준다고?"란 감탄이 절로 나온다. 교육기관으로서 대학의 존재가치를 성찰하고 혁신하지 못한다면 대학의 존립 자체가 흔들릴지도 모른다.
-                        </p>
-
-                        <p>
-                            AI는 교수의 역할에 대해서도 근본적인 질문을 한다. 한 물리학 교수는 동료들에게 "MIT의 괴짜 물리학자 월터 르윈 교수보다 더 재미있게, 더 잘 가르치지 못하면 당신은 이미 소멸대상"이라고 경고한다. AI 알고리즘이 르윈 교수의 강의콘텐츠를 학생의 수준에 맞춰 체계적으로 제공하는 시대다. 과거의 교안과 수업방식으론 버티기 어렵다는 의미다. 나아가 교수의 역할도 단순한 지식전달자를 넘어 학습코치이자 평가자며 멘토로 재정립되는 시대를 맞았다. 학교에서 가르치고 배우는 방식 역시 빠르게 변한다. 학생들은 자료탐색과 요약, 분석의 상당부분을 AI와 함께 수행한다. 
-                        </p>
-
-                        <p>
-                            교육현장에서 '신뢰의 위기'도 시작됐다. 학생이 제출한 과제를 보며 'AI가 대신 해준 것은 아닐까'라고 의심하는 일이 낯설지 않다. 정보검색과 요약, 회의록 작성까지 AI에 의존하면서 손으로 메모하고 사유하는 시간도 줄어든다. '사고의 외주화'로 편리함은 커졌지만 발표자가 순간적으로 던지는 한마디와 회의장의 반응을 보며 새로운 영감을 얻는 '성찰의 순간'은 사라진다. 지적 게으름에 빠질까 걱정된다.
-                        </p>
-
-                        <p class="font-semibold text-slate-950">
-                            교육현장 AI發 '파괴적 혁신' 진행중 / 효능감 높지만 '사고의 외주화' 우려 / 윤리·부작용 고려, 교육 재설계해야
-                        </p>
-
-                        <p>
-                            이처럼 AI는 교육 전반에 '파괴적 혁신'을 촉발했다. 문제는 충분한 준비와 성찰 없이 AI를 받아들이는데 있다. 많은 이가 AI 시대 핵심역량으로 '질문하는 능력'을 강조한다. 그러나 교육은 그리 단순하지 않다. AI로 과제 등을 수행한 학생은 많이 아는 것처럼 느끼지만 단편 정보만 축적한 채 체계적 개념형성이나 깊이 있는 사고로 이어지지 못하는 경우가 적지 않다. 기초지식 없이 AI가 제공하는 결과를 빠르게 소비하는 학습에 익숙하면 스스로 사고하기보다 AI에 끌려다니는 '표피적 학습'에 머물 가능성이 높다. 학습 효능감은 높아져도 사고의 밀도는 얕아지는 역설이다. 교육목표를 기억·이해·적용·분석·창조의 단계로 설명해온 전통적 학습모델이 여전히 유효한지 다시 묻게 된다. 평가방식의 전환도 불가피하다. AI를 활용해 최신 정보를 탐색하고 검증하는 시대에 5개 선택지 가운데 정답 하나를 찾는 평가는 점점 설득력을 잃어간다. AI가 과정 중심 평가의 시대를 앞당긴 셈이다.
-                        </p>
-
-                        <p>
-                            AI가 불러온 교육혁신은 계속될 것이다. 어떤 학자는 "한 세기에 한 번 올까 말까 한 혁신의 기회"라고 한다. 교육에서 AX의 핵심은 단순한 디지털 전환이 아니다. 학교의 교육력을 높이고 학생의 성장을 지원하는 새로운 교육시스템을 만드는 것이다. 거시적으론 대학과 학교의 존재의의, 교육자의 역할을 재정립하고 미시적으론 수업과 평가혁신, AI윤리, 새로운 학습격차에 대한 대응까지 포함한 교육 재설계를 할 때다. AI에 대한 피상적 기대와 기술 낙관론에서 벗어나 학생의 사고방식과 학습태도가 어떻게 변하는지, 부작용은 무엇인지, 새로운 기술체계에서 교사와 학생은 어떤 관계여야 하는지에 대한 심층분석과 교육적 논의가 시급하다. 교육자, 연구자, 정책가들이 모여 제대로 된 'AI 임팩트 보고서'부터 쓸 때다.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Interactive Faculty Feedback Box -->
-        <section class="py-16 px-4 bg-slate-50 border-t border-slate-100">
-            <div class="max-w-xl mx-auto text-center">
-                <span class="text-xl">💬</span>
-                <h3 class="text-xl font-bold text-slate-900 mt-2 mb-2">중원대학교 동료 교수진 의견 수렴 방명록</h3>
-                <p class="text-xs text-slate-500 mb-6">수업 설계 혁신을 마주한 교수님의 소중한 다짐이나 아이디어를 자유롭게 공유해 주세요.</p>
-                
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-left space-y-4">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-500 mb-1">소속 전공명 / 성함 <span class="text-slate-400 font-normal">(미입력시 익명)</span></label>
-                        <input id="feedback-name" type="text" placeholder="예: 스마트융합공학부 배교수" class="w-full text-sm border border-slate-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-jwuBlue outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-500 mb-1">나만의 수업 혁신 아이디어 및 의견</label>
-                        <textarea id="feedback-text" rows="3" placeholder="예: 다음 학기 전공 레포트 전부에 '구술 면담' 평가를 약식 적용해 보려고 합니다." class="w-full text-sm border border-slate-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-jwuBlue outline-none"></textarea>
-                    </div>
-                    <button onclick="addFeedback()" class="w-full py-2.5 bg-jwuBlue hover:bg-jwuBlue/90 text-white font-bold text-sm rounded-lg transition shadow-sm">
-                        의견 게시하기
-                    </button>
-                </div>
-
-                <!-- Feedbacks display -->
-                <div id="feedback-list" class="mt-6 text-left space-y-3">
-                    <!-- Default sample comment -->
-                    <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-xs">
-                        <div class="flex justify-between items-center mb-1">
-                            <span class="text-xs font-bold text-jwuBlue">경영전공 익명 교수자</span>
-                            <span class="text-[10px] text-slate-400">2026. 05. 20</span>
-                        </div>
-                        <p class="text-xs text-slate-700">"강의계획서에 AI 활용 범위를 3단계로 고지하는 방안은 즉시 도입할 수 있어 매우 유용한 제안이네요. 꼭 반영하겠습니다!"</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Interactive Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-12 px-4 border-t border-slate-800">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between text-sm">
-            <div class="mb-4 md:mb-0 space-y-2">
-                <div class="flex items-center space-x-2 text-white font-bold text-base">
-                    <span class="text-jwuYellow">JWU</span>
-                    <span>중원대학교 성과감사실</span>
-                </div>
-                <p class="text-xs text-slate-500">본 분석 자료는 교내 교수자 역량 제고 및 교육 거버넌스 전파를 위한 내부 자료입니다.</p>
-                <p class="text-xs text-slate-600">무단 복제, 외부 배포 및 타인 전제를 엄중히 금합니다.</p>
-            </div>
-            <div class="flex space-x-6 text-xs font-semibold">
-                <a href="#" class="hover:text-white transition">맨 위로 가기</a>
-                <span>•</span>
-                <span class="text-slate-500">Issued by Office of Audit 2026</span>
-            </div>
+      <section class="sb" id="s6c">
+        <div class="slbl">Part II</div>
+        <h2 class="st">5대 구조적 병폐 해부</h2>
+        <p class="sd">위원회 보고서가 특정한 5대 구조적 병폐를 각각의 실증 데이터와 함께 분석합니다.</p>
+        <div class="cg">
+          <div class="card"><div class="ci ci-r">💰</div><h4>① 교육비용 폭등과 가치 불신</h4><ul><li>지난 20년간 등록금 300% 이상 인상, 물가상승률 3배 초과</li><li>학생 부채 총액 1.7조 달러 돌파 (미국 전체)</li><li>"대학 교육이 투자 대비 가치가 있는가" 회의론 확산</li><li>중산층 가정의 명문대 접근성 실질적 하락</li></ul></div>
+          <div class="card"><div class="ci ci-b">🎭</div><h4>② 입시 불공정 — Legacy·특기자 편향</h4><ul><li>기부자·동문 자녀(Legacy) 기득권 전형 온존</li><li>소득 상위 1% 가구 자녀의 합격 확률 편향 실증</li><li>2023년 AA 위헌 판결 이후에도 기득권 전형 유지</li><li>공정성 불신 심화로 지원자 이탈 가속화</li></ul></div>
+          <div class="card"><div class="ci ci-r">🗣️</div><h4>③ 표현의 자유 위축</h4><ul><li>학부생 33% "신념 표현에 두려움" 응답</li><li>전국 대학생 50% 이상 강의실 발언 위축 경험</li><li>인문사회계열 교수 민주당:공화당 = 36:1</li><li>2015년 이후 캔슬컬처 고착화</li></ul></div>
+          <div class="card"><div class="ci ci-y">📚</div><h4>④ 학점 인플레이션과 교육 질 하락</h4><ul><li>1963년 A등급 비율 단 10% → 2023년 79%</li><li>성적 변별력 완전 상실로 졸업장 가치 훼손</li><li>AI 도구 확산과 맞물려 실질 학습량 급감</li><li>기업 신뢰도 및 졸업생 역량 불신 심화</li></ul></div>
+          <div class="card"><div class="ci ci-b">🏛️</div><h4>⑤ 거버넌스 불투명과 이해충돌</h4><ul><li>이사회 구성의 다양성 부족 및 밀실 의사결정</li><li>교수 임용·승진 과정의 이념 편향성 제보 증가</li><li>학내 감사 결과 미공개 관행 지속</li><li>이해충돌 방지 규정의 형식화</li></ul></div>
         </div>
-    </footer>
+      </section>
 
-    <!-- Interactive Scripts -->
-    <script>
-        // Adjust Font Size Action
-        let currentFontSizeLevel = 0;
-        function adjustFontSize(delta) {
-            const container = document.getElementById('main-container');
-            if (delta === 1 && currentFontSizeLevel < 2) {
-                currentFontSizeLevel++;
-            } else if (delta === -1 && currentFontSizeLevel > -1) {
-                currentFontSizeLevel--;
-            }
+      <div class="dvd"></div>
 
-            if (currentFontSizeLevel === 2) {
-                container.style.fontSize = '1.15rem';
-            } else if (currentFontSizeLevel === 1) {
-                container.style.fontSize = '1.05rem';
-            } else if (currentFontSizeLevel === 0) {
-                container.style.fontSize = '1rem';
-            } else if (currentFontSizeLevel === -1) {
-                container.style.fontSize = '0.92rem';
-            }
-        }
+      <section class="sb" id="s6d">
+        <div class="slbl">Part III</div>
+        <h2 class="st">위원회 20대 권고안 전문</h2>
+        <p class="sd">5개 영역에 걸쳐 제시한 20대 권고안입니다. 항목을 클릭하면 세부 내용을 확인하실 수 있습니다.</p>
 
-        // Toggle Expandable Original Column
-        function toggleColumn() {
-            const content = document.getElementById('column-content');
-            const btn = document.getElementById('btn-toggle-column');
-            if (content.classList.contains('hidden')) {
-                content.classList.remove('hidden');
-                btn.innerText = '원문 전문 접기';
-            } else {
-                content.classList.add('hidden');
-                btn.innerText = '원문 전문 펼치기';
-            }
-        }
+        <div class="ah" onclick="tog(this)"><span>🔵 영역 1 — 비용 투명성 및 재정 신뢰 회복 (권고 1~5)</span><span class="aha">▼</span></div>
+        <div class="ab"><ol><li>등록금 산정 근거 및 세부 지출 내역 매년 대외 공개 의무화</li><li>장학금 지급 기준 및 재원 구성 100% 투명 공시</li><li>교육비 대비 학생 성과(취업률·소득 증가율) 10년 단위 추적 보고</li><li>고소득층·저소득층 간 실질 부담액 격차 분석 보고서 연간 발행</li><li>재정지원 수혜 학생 비율 목표치 설정 및 달성 여부 공개</li></ol></div>
 
-        // Switch Benchmarks tab
-        function switchTab(tabId) {
-            // Hide all contents
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => content.classList.add('hidden'));
+        <div class="ah" onclick="tog(this)"><span>🟠 영역 2 — 입시 공정성 및 다양성 (권고 6~10)</span><span class="aha">▼</span></div>
+        <div class="ab"><ol start="6"><li>Legacy(동문 자녀) 가산점 전형의 단계적 폐지 검토</li><li>체육특기자 전형 쿼터 축소 및 학업 기준 강화</li><li>전형별 합격자 소득 분포 데이터 매년 공개</li><li>입학처 결정 과정에 외부 독립 감사 도입</li><li>저소득층 우선 장학·입시 프로그램 예산 20% 증액</li></ol></div>
 
-            // Deactivate all tabs styling
-            const tabs = ['pnu', 'dsu', 'ucl', 'harvard'];
-            tabs.forEach(t => {
-                const el = document.getElementById(`tab-${t}`);
-                el.classList.remove('border-jwuBlue', 'text-jwuBlue');
-                el.classList.add('border-transparent', 'text-slate-500', 'hover:text-slate-800');
-            });
+        <div class="ah" onclick="tog(this)"><span>🟡 영역 3 — 표현의 자유 및 지적 다양성 (권고 11~14)</span><span class="aha">▼</span></div>
+        <div class="ab"><ol start="11"><li>표현의 자유 침해 사례 익명 신고 채널 상설 운영</li><li>정치·이념적 다양성 관점의 교원 임용 균형 보고서 연간 발행</li><li>강의실 내 발언 위축 경험 학생 비율 주기적 조사 및 공개</li><li>학생 자치 토론 문화 활성화를 위한 별도 예산 편성</li></ol></div>
 
-            // Show and Activate requested
-            document.getElementById(`content-${tabId}`).classList.remove('hidden');
-            const activeTab = document.getElementById(`tab-${tabId}`);
-            activeTab.classList.remove('border-transparent', 'text-slate-500');
-            activeTab.classList.add('border-jwuBlue', 'text-jwuBlue');
-        }
+        <div class="ah" onclick="tog(this)"><span>🟢 영역 4 — 교육 질 및 성적 평가 신뢰성 (권고 15~17)</span><span class="aha">▼</span></div>
+        <div class="ab"><ol start="15"><li>학과별 성적 분포 데이터 매 학기 집계 및 이사회 보고 의무화</li><li>성적 인플레이션 기준 초과 학과에 대한 개선 권고 제도화</li><li>AI 활용 과제 제출 기준 명문화 및 전교 통일 적용</li></ol></div>
 
-        // Calculate Score of Self Check Diagnostic Test
-        function calculateScore() {
-            let checkedCount = 0;
-            const qCount = 5;
-            for (let i = 1; i <= qCount; i++) {
-                if (document.getElementById(`q${i}`).checked) {
-                    checkedCount++;
-                }
-            }
+        <div class="ah" onclick="tog(this)"><span>🔴 영역 5 — 거버넌스 투명성 및 이해충돌 방지 (권고 18~20)</span><span class="aha">▼</span></div>
+        <div class="ab"><ol start="18"><li>이사회 회의록 요약본 홈페이지 정기 게재</li><li>교원 임용·승진 심사 기준 외부 공개 및 독립 검토 도입</li><li>대학 내 이해충돌 방지 규정 강화 및 위반 시 제재 명문화</li></ol></div>
+      </section>
 
-            const scoreText = document.getElementById('score-text');
-            const progress = document.getElementById('quiz-bar');
-            const feedback = document.getElementById('feedback-message');
+      <div class="dvd"></div>
 
-            scoreText.innerText = checkedCount;
-            const percentage = (checkedCount / qCount) * 100;
-            progress.style.width = `${percentage}%`;
+      <section class="sb" id="s6e">
+        <div class="slbl">Part IV</div>
+        <h2 class="st">중원대학교 선제 대응 4대 전략</h2>
+        <p class="sd">예일대 위기는 '발생 후 대응'이 아닌 '구조적 예방'이 핵심임을 보여줍니다.</p>
+        <div class="ag">
+          <div class="ac ac1"><div class="acn">STRATEGY 01 · 재정 투명성</div><h4>교육비 지출 구조 공시 체계화</h4><p>RISE 사업비 집행 내역, 장학금 지급 기준, 등록금 산정 근거를 연 1회 이상 학내외에 공시합니다.</p><ul><li><strong>단기</strong>: 성과감사실 주도 공시 양식 표준화 (2026년 하반기)</li><li><strong>중기</strong>: IR기반 성과관리시스템에 재정 대시보드 연동</li></ul><div class="acef">🎯 재정 불신 차단 + 대학기관평가인증 재정 영역 우수</div></div>
+          <div class="ac ac2"><div class="acn">STRATEGY 02 · 입시 공정관리</div><h4>대학입학전형 공정관리대책위 고도화</h4><p>기존 위원회 운영을 강화하고 외부 검증 체계를 도입하여 입시 공정성을 선제 확보합니다.</p><ul><li><strong>위원회</strong>: 외부 전문가 참여 비율 확대, 심의 결과 요약 공개</li><li><strong>데이터</strong>: 전형별 합격자 특성 데이터 연 1회 이사회 보고</li></ul><div class="acef">🎯 입시 불공정 논란 원천 차단 + 지역 신뢰도 제고</div></div>
+          <div class="ac ac3"><div class="acn">STRATEGY 03 · 캠퍼스 소통</div><h4>구성원 소통 제도화 및 표현 환경 조성</h4><p>자유롭게 의견을 개진하고 갈등을 조기에 해소하는 소통 채널을 제도화합니다.</p><ul><li><strong>익명 신고</strong>: 표현 위축·차별 경험 익명 신고 채널 구축</li><li><strong>정기 소통</strong>: 총장·학생 간담회 학기당 1회 이상 의무화</li></ul><div class="acef">🎯 캠퍼스 신뢰 문화 구축 + 중도탈락률 간접 개선</div></div>
+          <div class="ac ac4"><div class="acn">STRATEGY 04 · 위기 거버넌스</div><h4>이슈 조기 탐지 및 위기대응 체계 구축</h4><p>성과감사실 주도로 국내외 대학 주요 이슈를 모니터링하고 선제 전략보고서를 발행합니다.</p><ul><li><strong>이슈 스캐닝</strong>: 교육부 정책·국내외 대학 이슈 월 1회 이상 보고</li><li><strong>위기 훈련</strong>: 연 1회 대학 위기 대응 시뮬레이션 실시</li></ul><div class="acef">🎯 위기 조기 탐지·대응력 강화 + 기관 평판 관리</div></div>
+        </div>
+        <div class="cbox">
+          <h3>🎯 핵심 결론: 신뢰는 위기 이후가 아닌, 위기 이전에 구축된다</h3>
+          <p>중원대학교는 IR기반 성과관리시스템과 연계하여 성과 공시·입시지표·성적분포·RISE 성과를 체계적으로 관리함으로써, 신뢰를 사후 회복이 아닌 사전 구축의 자산으로 전환해야 합니다.</p>
+          <ul>
+            <li><strong>단기(2026년)</strong>: 재정 공시 체계 표준화 + 입학전형 위원회 고도화</li>
+            <li><strong>중기(2027년)</strong>: IR시스템 신뢰지표 대시보드 연동</li>
+            <li><strong>장기(2028년)</strong>: 지역사회 대상 대학 신뢰도 정기 조사 및 공개 보고</li>
+          </ul>
+        </div>
+      </section>
 
-            let msg = "";
-            let colorClass = "text-slate-700 bg-slate-50";
-            if (checkedCount <= 1) {
-                msg = "⚠️ [AI 초기 단계] AI가 유발할 수 있는 교육 위기 극복을 위해, 즉시 강의계획서 AI 활용 가이드라인부터 작성해볼 것을 권고합니다.";
-            } else if (checkedCount <= 3) {
-                msg = "⚡ [AI 과도기 단계] 상당 부분 인지하고 변화에 동참 중이십니다! 약식 구술 면담이나 개방형 수업 과제를 확대해 평가 신뢰성을 강화해 보세요.";
-            } else {
-                msg = "🏆 [AI 혁신 선도 단계] 혁신적인 교육 리더십을 갖추셨습니다! 중원대학교의 훌륭한 AI 활용 우수 사례 교수로 동료 교수님들을 리드해주실 수 있습니다.";
-            }
-            feedback.innerHTML = msg;
-        }
+    </div>
+  </main>
+</div>
+<!-- ip-i6 END -->
 
-        // Handle dynamically added feedbacks (simulating back-end locally)
-        function addFeedback() {
-            const nameInput = document.getElementById('feedback-name');
-            const textInput = document.getElementById('feedback-text');
-            
-            const nameValue = nameInput.value.trim() || "익명 교수자";
-            const textValue = textInput.value.trim();
+<!-- ============================================================
+  05호 이슈 패널 — 게으른 교수를 거르는 것도 개혁이다
+============================================================ -->
+<div id="ip-i5" class="ip">
+  <div class="hero">
+    <div class="hvol">05</div>
+    <div class="con"><div class="cw">
+      <div class="hm">
+        <span class="bd bdv">ISSUE BRIEF 2026-05</span>
+        <span class="bd bdc">교원인사·업적평가 / 대학 경쟁력</span>
+        <span class="hdt">2026. 05. 21</span>
+      </div>
+      <h1>게으른 교수를 거르는 것,<br><em>그것도 대학 개혁이다</em></h1>
+      <p class="hsub">한국일보 고영선 원장 칼럼 심층 분석 • 라이덴(Leiden) 평가 지표 진단 • 중원대학교 교원인사·업적평가 규정 정밀 대조 • 4대 Action Plan 제시</p>
+      <div class="hinfo">
+        <div><div class="hil">작성부서</div><div class="hiv">성과감사실</div></div>
+        <div><div class="hil">발행일자</div><div class="hiv">2026. 05. 21</div></div>
+        <div><div class="hil">분석 대상</div><div class="hiv">한국일보 칼럼 · 내부 규정</div></div>
+        <div><div class="hil">배포구분</div><div class="hiv">내부 참고 (배포 금지)</div></div>
+      </div>
+      <div class="htoc">
+        <a href="#s5a">SCQA</a><a href="#s5b">칼럼 분석</a>
+        <a href="#s5c">라이덴 현실</a><a href="#s5d">규정 진단</a><a href="#s5e">Action Plan</a>
+      </div>
+    </div></div>
+  </div>
 
-            if (!textValue) {
-                alert("의견 내용을 작성해주세요.");
-                return;
-            }
+  <div class="scqa-wrap" id="s5a">
+    <div class="con cw">
+      <div class="scqa-grid">
+        <div class="sc sc-s"><div class="scl">SITUATION</div><h4>공론화된 구조적 문제</h4><p>고영선 한국교육개발원장이 한국일보 칼럼을 통해 지방대 교원 인사제도의 구조적 문제를 사회적으로 공론화하였습니다.</p></div>
+        <div class="sc sc-c"><div class="scl">COMPLICATION</div><h4>우리 대학도 예외 없음</h4><p>중원대학교 현행 교원인사·업적평가 규정 정밀 진단 결과, 칼럼이 지적한 동일한 취약점이 내재되어 있음이 확인되었습니다.</p></div>
+        <div class="sc sc-q"><div class="scl">QUESTION</div><h4>체질 전환의 로드맵</h4><p>"중원대학교는 어떻게 규정을 개혁하여 2026년 대학기관평가인증과 RISE 체제를 동시에 수성해야 하는가?"</p></div>
+        <div class="sc sc-a"><div class="scl">ANSWER</div><h4>4대 Action Plan 즉시 실행</h4><p>SCI 쿼터제 도입, 트랙 우회 차단, 성과 차등 보상, 퇴출 경로 정비의 4대 혁신안을 단계적으로 실행합니다.</p></div>
+      </div>
+    </div>
+  </div>
 
-            const today = new Date();
-            const dateStr = `${today.getFullYear()}. ${String(today.getMonth() + 1).padStart(2, '0')}. ${String(today.getDate()).padStart(2, '0')}`;
+  <main class="ms">
+    <div class="con cw">
 
-            const feedbackList = document.getElementById('feedback-list');
-            const newFeedback = document.createElement('div');
-            newFeedback.className = "bg-white p-4 rounded-xl border border-slate-100 shadow-xs animate-fade-in";
-            newFeedback.innerHTML = `
-                <div class="flex justify-between items-center mb-1">
-                    <span class="text-xs font-bold text-jwuRed">${nameValue}</span>
-                    <span class="text-[10px] text-slate-400">${dateStr}</span>
-                </div>
-                <p class="text-xs text-slate-700">${textValue}</p>
-            `;
+      <section class="sb" id="s5b">
+        <div class="slbl">Part I</div>
+        <h2 class="st">칼럼 원문 분석 — 4대 핵심 고발 메시지</h2>
+        <p class="sd">2026년 5월 21일 한국일보 A25면 오피니언 「지금, 대학을 묻다」에 게재된 고영선 한국교육개발원장의 칼럼 핵심 논지를 분석합니다.</p>
+        <div class="hb hb-y" style="margin-bottom:20px">
+          <p><strong>📰 한국일보 A25면 오피니언 | 2026.05.21 | 저자: 고영선 한국교육개발원장</strong><br>
+          <strong>🔑 핵심 논지</strong>: "학교 간 나눠먹기뿐 아니라 학교 내 나눠먹기도 최소화하고, 개별 인재에게 각각 합당한 대우를 해주어야만 우리 대학의 앞날이 보장될 수 있다."</p>
+        </div>
+        <div class="cg">
+          <div class="card"><div class="ci ci-r">🚨</div><h4>① 교원 인사제도가 개혁의 본질</h4><p>건물 신축·행정 개편보다 '교수가 열심히 연구하고 잘 가르치도록 만드는 인사제도'가 대학 개혁의 본질이며, 교수가 변하지 않으면 대학이, 대학이 변하지 않으면 지역이 소멸한다는 인과관계를 명확히 합니다.</p></div>
+          <div class="card"><div class="ci ci-b">😴</div><h4>② 느슨한 정년보장 심사</h4><ul><li>수도권 주요 사립대: SCI급 논문이 필수 요건</li><li>지방대·거점국립대: KCI급 국내학술지 실적이나 단순 논문 편수만 채워도 통과</li><li>온정주의적 구조가 연구 동기를 원천 차단</li></ul></div>
+          <div class="card"><div class="ci ci-y">📈</div><h4>③ 무성과에도 자동 연봉 상승</h4><ul><li>정년 취득 후 연구 실적 전무·강의평가 최하위 교원도 연봉 자동 상승</li><li>공무원 임금 인상률에 연동되는 구조적 맹점</li><li>성실 교원의 상대적 박탈감과 도덕적 해이 야기</li></ul></div>
+          <div class="card"><div class="ci ci-r">🍕</div><h4>④ 재정지원 예산의 '나눠먹기'</h4><ul><li>정부·지자체 지원 예산을 전 학과·교원에게 균등 배분</li><li>행정 편의적 온정주의가 성과 혁신 동력 소멸</li><li>실적 내는 우수 교원에게 직접 차등 보상 체계로 전환 필요</li></ul></div>
+        </div>
+        <div class="qb"><p>"학교 간 나눠먹기뿐 아니라 학교 내 나눠먹기도 최소화하고, 개별 인재에게 각각 합당한 대우를 해주어야만 우리 대학의 앞날이 보장될 수 있다."</p><cite>— 고영선 한국교육개발원장, 한국일보(2026.05.21) 결론 중</cite></div>
+      </section>
 
-            feedbackList.insertBefore(newFeedback, feedbackList.firstChild);
+      <div class="dvd"></div>
 
-            // Reset inputs
-            textInput.value = "";
-            nameInput.value = "";
-        }
-    </script>
+      <section class="sb" id="s5c">
+        <div class="slbl">Part II</div>
+        <h2 class="st">라이덴평가가 보여주는 냉혹한 현실</h2>
+        <p class="sd">라이덴(CWTS Leiden) 평가는 설문 등 주관적 요소를 100% 배제하고, 오직 <strong>'세계 최상위 10%에 포함된 고인용 논문의 비율'</strong>만으로 연구 질을 측정하는 가장 객관적인 국제 지표입니다.</p>
+        <div class="sg">
+          <div class="stc"><div class="stn snm">64<span class="stu">위</span></div><div class="stl">서울대학교<br>세계 라이덴 순위</div></div>
+          <div class="stc"><div class="stn snm">111<span class="stu">위</span></div><div class="stl">연세대학교<br>세계 라이덴 순위</div></div>
+          <div class="stc"><div class="stn sny">435<span class="stu">위</span></div><div class="stl">경북대학교<br>거점국립대 최상위</div></div>
+          <div class="stc"><div class="stn snr">908<span class="stu">위</span></div><div class="stl">충북대학교<br>세계 하위권</div></div>
+          <div class="stc"><div class="stn snr">924<span class="stu">위</span></div><div class="stl">강원대학교<br>세계 하위권</div></div>
+          <div class="stc"><div class="stn snr" style="font-size:24px">1,221<span class="stu">위</span></div><div class="stl">제주대학교<br>세계 최하위권</div></div>
+        </div>
+        <div class="hb hb-r"><h5>🚨 충격적 시사점</h5><p>서울대(64위)와 제주대(1,221위)의 라이덴 순위 격차는 <strong>19배</strong>에 달합니다. 칼럼이 명확히 지적한 것처럼, <strong>교원 인사·보상 체계의 차이</strong>가 연구 동기의 차이를, 연구 동기의 차이가 연구 질의 격차를 만들어낸 결과입니다.</p></div>
+      </section>
+
+      <div class="dvd"></div>
+
+      <section class="sb" id="s5d">
+        <div class="slbl">Part III</div>
+        <h2 class="st">중원대학교 현행 규정 정밀 진단 — 4대 취약점</h2>
+        <p class="sd">칼럼에서 고발한 4대 문제점을 우리 대학의 최신 '교원인사규정' 및 '교원업적평가규정'과 대조하여 취약 요소를 도출하였습니다.</p>
+
+        <div class="dc">
+          <div class="dch"><span class="drisk drh">🔴 위험도: 높음</span><h5>진단 ① SCI급 논문 의무 부재 — "양적 채우기 중심 안일한 연구 풍토"</h5></div>
+          <div class="dgrid"><div class="dcell dcell-h">칼럼 고발</div><div class="dcell dcell-h">중원대 현행 규정</div><div class="dcell dcell-h">취약성 진단</div></div>
+          <div class="dgrid">
+            <div class="dcell dcell-i">"SCI급 논문 대신 KCI 실적만으로 안주하는 지방대 인사 기준"</div>
+            <div class="dcell">[별표 12] 자연/공학/의학 계열조차 최저 필수 요건이 '국제저명학술지 B급(SCOPUS)'으로 연간 0.28~1.17편 수준. SCI/SCIE(A급)는 의무가 아닌 단순 가점(300점) 영역임.</div>
+            <div class="dcell dcell-v">최고 권위 학술지(SCI급) 논문 제출이 강제되지 않아, '양적 채우기 중심의 안일한 연구 풍토'가 고착될 리스크가 매우 큼.</div>
+          </div>
+        </div>
+
+        <div class="dc">
+          <div class="dch"><span class="drisk drh">🔴 위험도: 높음</span><h5>진단 ② 연구 트랙 우회 허용 — 무성과자 도피처 오용 위험</h5></div>
+          <div class="dgrid"><div class="dcell dcell-h">칼럼 고발</div><div class="dcell dcell-h">중원대 현행 규정</div><div class="dcell dcell-h">취약성 진단</div></div>
+          <div class="dgrid">
+            <div class="dcell dcell-i">"정년보장 이후 무성과자도 연봉 자동 상승, 연구 기피"</div>
+            <div class="dcell"><strong>규정 제7조(평가트랙 선택)</strong>: 교원이 교육, 연구, 산학협력 트랙 중 하나를 <strong>매년 자유롭게 변경 선택</strong> 가능. 실질적 연봉 차등 폭 미미.</div>
+            <div class="dcell dcell-v">연구 압박을 받는 교원이 '교육트랙'으로 매년 우회 가능. 변별력 상실 및 무성과자의 제도적 도피처로 오용될 소지가 큼.</div>
+          </div>
+        </div>
+
+        <div class="dc">
+          <div class="dch"><span class="drisk drm">🟡 위험도: 중간</span><h5>진단 ③ 성과급 차등 배분 공식 미비 — '나눠먹기' 관행 지속 위험</h5></div>
+          <div class="dgrid"><div class="dcell dcell-h">칼럼 고발</div><div class="dcell dcell-h">중원대 현행 규정</div><div class="dcell dcell-h">취약성 진단</div></div>
+          <div class="dgrid">
+            <div class="dcell dcell-i">"재정지원 예산의 학내 나눠먹기 관행 타파 필요"</div>
+            <div class="dcell"><strong>규정 제65조(성과급)</strong>: 특별 성과에 대한 성과급 지급 근거 보유. 그러나 대형 국고 과제 기여도별 <strong>차등 배분 공식은 미비</strong>함.</div>
+            <div class="dcell dcell-v">RISE 사업 예산 집행 시 전 학과 균등 분배 방식을 유지할 경우, 성과 혁신 동력이 소멸하고 우수 인재 유인이 불가능해짐.</div>
+          </div>
+        </div>
+
+        <div class="dc">
+          <div class="dch"><span class="drisk drh">🔴 위험도: 높음</span><h5>진단 ④ 온정주의적 정성평가 — 계량 데이터 기반 퇴출 경로 부재</h5></div>
+          <div class="dgrid"><div class="dcell dcell-h">칼럼 고발</div><div class="dcell dcell-h">중원대 현행 규정</div><div class="dcell dcell-h">취약성 진단</div></div>
+          <div class="dgrid">
+            <div class="dcell dcell-i">"객관적 지표 없이 온정주의로 흐르는 정년 심사"</div>
+            <div class="dcell">승진(80점 이상), 정년보장(90점 이상) 기준. 인사평가 항목에 <strong>'대학 방침 수용, 인화, 품위'</strong> 등 주관적 정성평가 위주 구성.</div>
+            <div class="dcell dcell-v">'게으른 교수'를 계량화된 데이터로 단호하게 탈락시키기보다, 온정주의에 의해 당락이 좌우될 위험이 구조적으로 내재됨.</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="dvd"></div>
+
+      <section class="sb" id="s5e">
+        <div class="slbl">Part IV</div>
+        <h2 class="st">4대 제도 혁신 Action Plan</h2>
+        <p class="sd">칼럼의 제언과 중원대학교의 당면 과제를 결합한 실질적 규정 개정안을 제안합니다.</p>
+        <div class="ag">
+          <div class="ac ac1"><div class="acn">ACTION PLAN 01 · 최우선</div><h4>이공·의학 계열 승진 시 'SCI/SCIE' 필수 쿼터제 명문화</h4><p>교원업적평가규정 [별표 12]를 개정하여, 자연·공학·의학 계열 교원의 부교수 및 교수 승진 시 최소 1편 이상의 SCI/SCIE 등급(A급) 논문 게재를 필수 하한선(Cut-off)으로 강제합니다.</p><ul><li><strong>단계적 도입</strong>: 2027년 승진 심사부터 의무 적용 (예고 기간 1년)</li><li><strong>인문사회 계열</strong>: SCOPUS 등재 국제학술지 1편 이상 의무화 병행</li></ul><div class="acef">🎯 라이덴평가 기준 부합 우수 연구 장려 → 대학 학술 평판 근본 격상</div></div>
+          <div class="ac ac2"><div class="acn">ACTION PLAN 02 · 우선</div><h4>평가 트랙 하향 우회 차단 및 교육트랙의 '학생 성공' 책임성 연동</h4><p>제7조의 트랙 변경 조항에 제한 조치를 신설하여, 직전 연도 연구 실적 미달자가 교육트랙으로 전환하는 행위를 금지합니다.</p><ul><li><strong>우회 차단 기준</strong>: 직전 2년 연속 연구 필수 업적 미달 시 트랙 변경 신청 제한</li><li><strong>교육트랙 KPI</strong>: 지도학생 재등록 성공률(중도탈락 방지 실적) 강제 결합</li></ul><div class="acef">🎯 제도적 도피 경로 차단 + 중도탈락률 13.3% → 11% 이하 개선</div></div>
+          <div class="ac ac3"><div class="acn">ACTION PLAN 03 · 중요</div><h4>재정지원사업(RISE) 자원의 '성과 기반 파격 차등제' 확립</h4><p>규정 제65조(성과급)의 운영 세칙을 강화하여, 국고 지원금을 전 학과에 기계적으로 분배하던 관행을 전면 폐지합니다.</p><ul><li><strong>차등 기준 신설</strong>: 고인용 연구 성과 도출·대형 외부 연구비 수주 교원에게 파격 지원</li><li><strong>성장도·기여도 공식화</strong>: RISE 사업 내 교원별 기여도 측정 공식 규정에 명시</li></ul><div class="acef">🎯 '나눠먹기' 관행 철폐 → 연구 생산성 집중 제고 → RISE 성과 극대화</div></div>
+          <div class="ac ac4"><div class="acn">ACTION PLAN 04 · 중요</div><h4>직무태만 보직교수 페널티 구체화 및 부적격 교원 환류(퇴출) 경로 정비</h4><p>교원인사규정 제58조(징계의 사유)에 보직 교원의 직무태만 정량 기준을 신설하고, 누적 과락 교원의 퇴출 경로를 정교화합니다.</p><ul><li><strong>직무태만 정량화</strong>: 운영위원회 미개최, 필수 행정 해태 등 정량 기준 신설 → 인사상 불이익 명시</li><li><strong>퇴출 경로</strong>: 업적평가 과락 3회 이상 누적 시 정밀 실사 → 직권면직 가능 조항 명문화</li></ul><div class="acef">🎯 무임승차 차단 + 2026년 대학기관평가인증 교원인사 영역 "우수"</div></div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+<!-- ip-i5 END -->
+
+<!-- ============================================================
+  04호 이슈 패널 — AI 시대 교수법
+============================================================ -->
+<div id="ip-i4" class="ip">
+  <div class="hero">
+    <div class="hvol">04</div>
+    <div class="con"><div class="cw">
+      <div class="hm">
+        <span class="bd bdv">ISSUE BRIEF 2026-04</span>
+        <span class="bd bdc">AI · 에듀테크 / 교수학습혁신</span>
+        <span class="hdt">2026. 05. 19</span>
+      </div>
+      <h1>AI 시대, 교수는 무엇을 두려워하고<br><em>어떻게 바꿔야 하는가</em></h1>
+      <p class="hsub">배상훈 교수 칼럼 분석 · 인지과학 실증 · 국내외 AI 거버넌스 벤치마크 · 우리 대학 즉시 적용 가이드</p>
+      <div class="hinfo">
+        <div><div class="hil">작성부서</div><div class="hiv">성과감사실</div></div>
+        <div><div class="hil">발행일</div><div class="hiv">2026. 05. 19</div></div>
+        <div><div class="hil">분석 대상</div><div class="hiv">배상훈 교수 칼럼 외</div></div>
+        <div><div class="hil">배포구분</div><div class="hiv">내부 참고 (배포 금지)</div></div>
+      </div>
+      <div class="htoc">
+        <a href="#s4a">SCQA</a><a href="#s4b">4대 위기</a>
+        <a href="#s4c">실증 데이터</a><a href="#s4d">벤치마크</a><a href="#s4e">실천 가이드</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="scqa-wrap" id="s4a">
+    <div class="con cw">
+      <div class="scqa-grid">
+        <div class="sc sc-s"><div class="scl">SITUATION</div><h4>파괴적 수업 재편</h4><p>AI가 대학의 수업·평가·교수자 고유 역할 전반을 파괴적으로 재설정하고 있습니다.</p></div>
+        <div class="sc sc-c"><div class="scl">COMPLICATION</div><h4>사고의 외주화 부작용</h4><p>'표피적 학습', '인지적 표절' 등 실질적 사고력 감퇴 현상이 실증 데이터로 입증되었습니다.</p></div>
+        <div class="sc sc-q"><div class="scl">QUESTION</div><h4>우리의 핵심 과제</h4><p>"중원대학교 교수진은 지금 무엇을, 그리고 어떻게 당장 혁신해야 하는가?"</p></div>
+        <div class="sc sc-a"><div class="scl">ANSWER</div><h4>동시 3축 혁신</h4><p>수업·평가·AI 거버넌스의 3축 동시 혁신이 필수적입니다.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <main class="ms">
+    <div class="con cw">
+
+      <section class="sb" id="s4b">
+        <div class="slbl">Part I</div>
+        <h2 class="st">배상훈 교수가 경고하는 4대 위기 진단</h2>
+        <p class="sd">성균관대 교육학과 배상훈 교수(교무처장)는 2026년 5월 19일 머니투데이 오피니언에서 생성형 AI가 촉발한 대학교육의 '파괴적 혁신'을 진단하며 근본적 재설계를 촉구하였습니다.</p>
+        <div class="cg">
+          <div class="card"><div class="ci ci-r">🏛️</div><h4>위기① 대학 존재 이유의 흔들림</h4><p>AI가 보고서·공모전·진로탐색까지 원스톱으로 대행하면서 "비싼 등록금을 내며 꼭 대학을 다녀야 하나"를 학생 스스로 반문합니다.</p><div class="hb hb-b" style="margin-top:10px"><h5>인지적 오프로딩(Cognitive Offloading)</h5><p style="font-size:12.5px">AI에 고차원 인지 과정을 전부 위임하여 스스로 성찰하고 문제를 도출하는 훈련 자체를 누락시키는 치명적 현상.</p></div></div>
+          <div class="card"><div class="ci ci-y">👨‍🏫</div><h4>위기② 교수 역할의 근본적 해체</h4><p>AI 알고리즘이 MIT 월터 르윈 교수 수준의 명강의를 개인 맞춤형으로 제공하는 시대. "르윈보다 못 가르치면 소멸 대상"이라는 냉정한 진단이 현실화되었습니다.</p><div class="hb hb-y" style="margin-top:10px"><p style="font-size:12.5px">단순 지식 전달자(Lecturer) → 학습코치(Learning Coach) · 평가자 · 멘토 · 질문 설계자로의 전환 필수.</p></div></div>
+          <div class="card"><div class="ci ci-b">🧠</div><h4>위기③ 표피적 학습과 사고의 외주화</h4><p>AI로 과제를 빠르게 수행한 학생들은 스스로 "매우 잘 알고 있다"고 착각하지만, 실제로는 단편적 정보만 축적합니다.</p><div class="hb hb-r" style="margin-top:10px"><h5>인지적 표절(Cognitive Plagiarism)</h5><p style="font-size:12.5px">문장이 아닌 스스로 고민해야 할 논리 구조와 생각의 전개 과정 자체를 AI에 통째로 위임하는 새로운 차원의 표절.</p></div></div>
+          <div class="card"><div class="ci ci-r">⚠️</div><h4>위기④ 교육 현장의 신뢰 위기</h4><p>'이 과제는 정말 학생이 스스로 고민해 쓴 것일까?'라는 의심이 교수자들의 일상이 되었습니다.</p><div class="hb hb-y" style="margin-top:10px"><p style="font-size:12.5px">대교협 조사: 국내 대학 총장의 <strong>75% 이상</strong>이 "AI로 인한 학생 평가 신뢰도 훼손"을 극도로 우려합니다.</p></div></div>
+        </div>
+        <div class="qb"><p>"AI에 대한 피상적 기대와 단순한 기술 낙관론에서 완전히 벗어나, 교육자·연구자·정책가가 긴밀히 협력해 지금 당장 대학 현장 중심의 실질적 'AI 임팩트 보고서(AI Impact Report)'를 작성해야 할 시점이다."</p><cite>— 배상훈 교수, 머니투데이 청계광장 칼럼(2026.05.19)</cite></div>
+      </section>
+
+      <div class="dvd"></div>
+
+      <section class="sb" id="s4c">
+        <div class="slbl">Part II</div>
+        <h2 class="st">국내외 실증 근거 — 우려는 데이터로 입증된다</h2>
+        <p class="sd">단순한 우려가 아닌, 최근 글로벌 교육 조사를 통해 입증되는 강력한 정량 데이터들입니다.</p>
+        <h3 style="font-size:15px;font-weight:700;margin-bottom:12px">① 미국 전국 교수 대규모 설문 조사 (AAC&amp;U·Elon Univ, n=1,057, 2026.01 발표)</h3>
+        <div class="sg">
+          <div class="stc"><div class="stn snr">95<span class="stu">%</span></div><div class="stl">AI 과의존 및 비판력 약화 우려<br>"비판적 사고력 훼손" 동의</div></div>
+          <div class="stc"><div class="stn sny">75<span class="stu">%↑</span></div><div class="stl">학문적 진실성 및 윤리 훼손<br>"AI 대필 등 윤리 훼손" 동의</div></div>
+          <div class="stc"><div class="stn snm">59<span class="stu">%</span></div><div class="stl">학교 AI 대응 미비<br>"AI 환경 통제 준비 안됨" 동의</div></div>
+          <div class="stc"><div class="stn snr">63<span class="stu">%</span></div><div class="stl">졸업생 AI 활용 한계<br>"기업 AI 활용 역량 부족" 동의</div></div>
+        </div>
+        <h3 style="font-size:15px;font-weight:700;margin:22px 0 12px">② 교수·학생 간 AI 활용 인식 격차 (독일 뒤스부르크-에센 대학 공동 연구, 2025)</h3>
+        <div class="tw"><table>
+          <thead><tr><th>분석 영역</th><th>학생 집단</th><th>교수 집단</th><th>중원대 핵심 시사점</th></tr></thead>
+          <tbody>
+            <tr><td><strong>AI 사용 빈도</strong></td><td>교수 대비 +0.35점 고빈도</td><td>필요 시 가끔 제한적 사용</td><td>학생 학업 전반에 깊게 스며들어 지적 독립성 빠르게 상실</td></tr>
+            <tr><td><strong>과제 수행 위임도</strong></td><td>교수 대비 +15.72점 위임</td><td>단순 참고 및 제한적 보조</td><td>학생은 AI를 '도우미'가 아닌 '대행자'로 전제. 사고의 도약이 멈춤</td></tr>
+            <tr><td><strong>정보검색 위임 격차</strong></td><td>격차 최대 +24.09점</td><td>원문 및 팩트 체크 목적 활용</td><td>능동적 탐구 단계를 뛰어넘고, 가공된 요약본만 표피적으로 소비</td></tr>
+            <tr><td><strong>글쓰기 위임 격차</strong></td><td>교수 대비 +19.25점 위임</td><td>독창적 서사 결핍 우려 82%</td><td>'인간 환각(Human Hallucination)' — AI 텍스트를 자신의 실력으로 착각</td></tr>
+          </tbody>
+        </table></div>
+        <div class="hb hb-b"><h5>③ 국내 정책 동향</h5>
+          <ul>
+            <li><strong>교육부·과기부 공동 '수행평가 AI 관리 방안'(2025.12)</strong> — AI 일률 금지 대신 활용 범위 설정·과정 표기 의무화로 전환</li>
+            <li><strong>교육부 '대학 AI 기본교육과정 개발 지원사업'(2026.02)</strong> — 20개 대학 선정, 교당 3억 원 지원</li>
+            <li><strong>대교협 2026년 대학 총장 설문</strong> — 총장의 40%가 AI 가이드라인 공식 채택, 추가 40%가 제정 검토 중</li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="dvd"></div>
+
+      <section class="sb" id="s4d">
+        <div class="slbl">Part III</div>
+        <h2 class="st">국내외 AI 거버넌스 벤치마크</h2>
+        <p class="sd">대학교육의 신뢰성 훼손 문제를 해결하기 위해 주요 대학은 '금지론'에서 탈피하여 제도적 거버넌스 체계를 구축하는 단계로 이미 진입하였습니다.</p>
+        <div class="btn-nav">
+          <button class="btab on" onclick="swBtab('b4p1',this)">부산대 (PNU-AX)</button>
+          <button class="btab" onclick="swBtab('b4p2',this)">동서대 (The Only One)</button>
+          <button class="btab" onclick="swBtab('b4p3',this)">UCL (영국 런던대)</button>
+          <button class="btab" onclick="swBtab('b4p4',this)">하버드대 (보안·자율)</button>
+        </div>
+        <div id="b4p1" class="bpanel on">
+          <div class="card"><h4>핵심 철학: "지성·창의성·인간성" 기반 6대 윤리 원칙 정립 (국내 최초 전 영역 AI 정책 표준, 2026.02)</h4><ul><li>행정·교육·연구 세부 윤리 매뉴얼을 단일 거버넌스(A.U.R.A)로 수렴</li><li>교수자 수업 운영 단계별 체크리스트 의무 준수</li></ul><div class="hb hb-b" style="margin-top:12px"><h5>🎯 중원대 적용 시사점</h5><p style="font-size:12.5px">단순 가이드라인 배포를 넘어 행정-교육-연구 3개 영역을 통합 관리하는 "JWU AI 거버넌스 3축 구조도" 설계가 시급합니다.</p></div></div>
+        </div>
+        <div id="b4p2" class="bpanel">
+          <div class="card"><h4>핵심 철학: 교수자·학습자·공동 3대 맞춤형 가이드라인으로 "신뢰와 자율적 합의" 최우선</h4><ul><li>매 학기 강의계획서 상 AI 활용 기준 명문화 의무</li><li>부정행위 범위 명확한 예고제 운용, 과제물 성적 평가 전 책임 귀속 명시</li></ul><div class="hb hb-b" style="margin-top:12px"><h5>🎯 중원대 적용 시사점</h5><p style="font-size:12.5px">교무처와 협의하여 2026년 2학기 강의계획서 표준 양식에 "생성 AI 활용 유의사항 및 기준"을 필수 기재 항목으로 정형화해 배포해야 합니다.</p></div></div>
+        </div>
+        <div id="b4p3" class="bpanel">
+          <div class="card"><h4>핵심 철학: AI 사용 수준을 3범주로 구분 (①금지 ②보조 ③통합) — 과정 증명 백업 권고</h4><ul><li>탐지 프로그램 의존 배제 — 과정의 투명한 입증에 초점</li><li>위반 여부: 면담 구술조사(Viva) 방식으로 판정</li></ul><div class="hb hb-b" style="margin-top:12px"><h5>🎯 중원대 적용 시사점</h5><p style="font-size:12.5px">금지/보조/통합 3단 구조는 매우 직관적이고 즉시 적용 가능합니다. 특히 구술 확인 면담을 약식 도입하는 방안은 AI 대필 우려를 단번에 종식시킵니다.</p></div></div>
+        </div>
+        <div id="b4p4" class="bpanel">
+          <div class="card"><h4>핵심 철학: Level 2 이상 민감 정보(미공개 연구자료·학생 성적·인사 정보)의 공용 AI 입력 원천 차단</h4><ul><li>대학 본부 차원 보안 통제 + 개별 단과대학 자율 규제 결합</li><li>정기 교직원 대상 정보보호 훈련 연동</li></ul><div class="hb hb-b" style="margin-top:12px"><h5>🎯 중원대 적용 시사점</h5><p style="font-size:12.5px">학기말 성적 산출, 입시 채점, 신임교수 면접 자료 등 행정상의 중대 민감정보가 외산 범용 ChatGPT 등에 기입되어 유출되지 않도록 교직원 정보 보안 준칙을 공포해야 합니다.</p></div></div>
+        </div>
+      </section>
+
+      <div class="dvd"></div>
+
+      <section class="sb" id="s4e">
+        <div class="slbl">Part IV</div>
+        <h2 class="st">중원대학교를 위한 즉시 적용 실천 가이드 5</h2>
+        <p class="sd">배상훈 교수의 문제의식·인지과학 연구·국내외 대학 거버넌스 사례를 종합하여, 2026년 2학기부터 즉시 적용 가능한 실천 가이드입니다.</p>
+
+        <div class="ah" onclick="tog(this)"><span>📋 01. 강의계획서에 AI 활용 범위 기준 명문화</span><span class="aha">▼</span></div>
+        <div class="ab"><p style="margin-bottom:10px">UCL 3분류 모델을 기반으로, 과목 성격에 맞게 하나를 선택해 강의계획서에 명시합니다.</p><ul><li><strong>① [금지]</strong>: 기초 지식 습득·독립 논증력 향상이 목표인 과목 — AI 사용 완전 금지</li><li><strong>② [보조]</strong>: AI를 참고 도구로 허용하되 출처·프롬프트·선별 근거 표기 의무화</li><li><strong>③ [통합]</strong>: 고차원 문제 해결 수업에서 AI를 학습 파트너로 적극 활용</li></ul></div>
+
+        <div class="ah" onclick="tog(this)"><span>🔄 02. 'AI가 대신할 수 없는 과제'로 설계 전환</span><span class="aha">▼</span></div>
+        <div class="ab"><ul><li><strong>전환 방안 1</strong>: 학생 본인이 속한 특정 지역(충북 괴산군 등)의 실제 현장 방문 관찰 및 인터뷰가 믹스된 '고유 서사 결합 보고서'</li><li><strong>전환 방안 2</strong>: AI가 생성한 텍스트 답변 내부의 치명적 논리 결함, 편향성, 허위 출처(Citation Hallucination)를 학생이 파헤치고 수정하는 '비판적 검증 과제'</li><li><strong>전환 방안 3</strong>: 아이디어 스케치(1단계) → 자료 조사(2단계) → AI 활용 수정(3단계) → 최종본의 '사고 궤적' 추적</li></ul></div>
+
+        <div class="ah" onclick="tog(this)"><span>📊 03. 평가 방식을 '결과 제출'에서 '사고 과정 확인'으로 전환</span><span class="aha">▼</span></div>
+        <div class="ab"><ul><li><strong>💬 구술 확인 면담(Viva) 도입</strong>: 제출 과제의 핵심 논증을 대면으로 짧게(3~5분) 설명하게 함. UCL·동서대 채택 방식</li><li><strong>📊 개방형 종합 토론 및 면대면 비중 확대</strong>: 5지선다형 시험 대신 현장 발표, 모의 토론, 실시간 개념 퀴즈 위주로 학업 성취도를 다원 측정</li></ul></div>
+
+        <div class="ah" onclick="tog(this)"><span>🔍 04. 'AI 기여도 공개제' 적극 수용</span><span class="aha">▼</span></div>
+        <div class="ab"><p style="margin-bottom:10px">AI를 차단하기보다 투명하고 책임감 있게 양지로 끌어올려 사용하도록 가이드합니다.</p><ul><li>레포트 필수 동반 작성 양식안: ① 활용한 AI 엔진 모델 이름 ② 설계한 프롬프트 내용 ③ AI 산출물에서 본인이 정제·가공한 근거 사유</li></ul></div>
+
+        <div class="ah" onclick="tog(this)"><span>🧪 05. AI의 불완전성을 비판적 사고 훈련의 도구로 역활용</span><span class="aha">▼</span></div>
+        <div class="ab"><ul><li><strong>팩트체크 과제</strong>: AI가 생성한 텍스트 속 가짜 논문 참조(Citation Hallucination)를 학생이 직접 찾아내게 하는 과제</li><li><strong>편향 분석 훈련</strong>: AI 답변에 내재된 젠더·문화 편향을 추적·분석하는 비판적 리터러시 훈련</li><li><strong>근원적 질문 탐구</strong>: "AI가 스스로 던질 수 없는 질문"을 강의실 내 메인 어젠다로 선정하여 탐구</li></ul></div>
+      </section>
+
+    </div>
+  </main>
+</div>
+<!-- ip-i4 END -->
+
+<!-- ============================================================
+  03호 이슈 패널 — 앵커 시행령 분석
+============================================================ -->
+<div id="ip-i3" class="ip">
+  <div class="hero">
+    <div class="hvol">03</div>
+    <div class="con"><div class="cw">
+      <div class="hm">
+        <span class="bd bdv">ISSUE BRIEF 2026-03</span>
+        <span class="bd bdc">행정 거버넌스 · 국가재정사업 / 성과관리전략</span>
+        <span class="hdt">2026. 04. 21</span>
+      </div>
+      <h1>교육부 앵커(Anchor/RISE) 시행령 제정안<br><em>전격 분석 및 중원대 대응전략</em></h1>
+      <p class="hsub">대통령령 격상 분석 • 3대 핵심 법제화 포인트 • 성과 차등배분 대책 • 2트랙(RISE 수성 &amp; 초광역 인재사업) 전략</p>
+      <div class="hinfo">
+        <div><div class="hil">작성부서</div><div class="hiv">성과감사실</div></div>
+        <div><div class="hil">보고일자</div><div class="hiv">2026. 04. 21</div></div>
+        <div><div class="hil">대상 법령</div><div class="hiv">교육부 입법예고안</div></div>
+        <div><div class="hil">배포구분</div><div class="hiv">대내 참고 (외부유출 엄금)</div></div>
+      </div>
+      <div class="htoc">
+        <a href="#s3a">SCQA</a><a href="#s3b">시행령 구조</a>
+        <a href="#s3c">3대 핵심</a><a href="#s3d">Q&amp;A</a><a href="#s3e">2트랙 전략</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="scqa-wrap" id="s3a">
+    <div class="con cw">
+      <div class="scqa-grid">
+        <div class="sc sc-s"><div class="scl">SITUATION</div><h4>법적 근거의 격상</h4><p>교육부가 2026년 4월 20일, 앵커(RISE) 사업의 법적 근거를 완성하는 시행령(대통령령) 제정안을 공식 입법예고했습니다.</p></div>
+        <div class="sc sc-c"><div class="scl">COMPLICATION</div><h4>엄격한 사후 평가 도입</h4><p>성과 평가 결과 공개 의무화, 예산 차등 배분 장치 법제화로 충북 대학 간 생존 경쟁이 가속됩니다.</p></div>
+        <div class="sc sc-q"><div class="scl">QUESTION</div><h4>중원대의 사활적 로드맵</h4><p>"9월 연차점검 수성과 수십억 대 국가 재정 확보를 위해 우리는 어떤 즉각적 조치를 밟아야 하는가?"</p></div>
+        <div class="sc sc-a"><div class="scl">ANSWER</div><h4>입체적 2트랙 기동</h4><p>트랙1(기존 RISE 수성 및 집행률 극대화)과 트랙2(초광역 인재육성 컨소시엄 독립 수주) 동시 실행.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <main class="ms">
+    <div class="con cw">
+
+      <section class="sb" id="s3b">
+        <div class="slbl">Part I</div>
+        <h2 class="st">앵커(Anchor) 시행령 제정안 구조도 (7장 22개 조문)</h2>
+        <p class="sd">2026년 8월 11일 시행 확정 예정. 2월 고등교육법 개정이 완료되었고, 이번 시행령은 그 법을 실제로 집행하기 위한 세부 규칙을 담은 것입니다.</p>
+        <div class="tw"><table>
+          <thead><tr><th>구분(장)</th><th>장별 세부 법적 규정사항 및 입법 골자</th></tr></thead>
+          <tbody>
+            <tr><td><strong>제 1장 총칙</strong></td><td>용어의 명확한 정의 설정 (지역혁신대학지원체계, 시도-대학 간 상호 협력 상호규약 등)</td></tr>
+            <tr><td><strong>제 2장 지역단위</strong></td><td>시도별 지역혁신대학지원위원회 구성 및 전담기관(RISE센터) 법적 지정 요건 마련 — 공동위원장(시도지사+대학 총장), 교육 관계자 위원 1/2 이상 의무화</td></tr>
+            <tr><td><strong>제 3장 초광역단위</strong></td><td>복수 시도가 참여하는 초광역 협업위원회 구성 및 초광역 전담기관 지정 표준 정립, 상호규약(행정협약) 체결 의무</td></tr>
+            <tr><td><strong>제 4장 중앙단위</strong></td><td>대학·지역 동반성장 지원위원회 신설, 범부처(고용노동부·재정경제부·<strong>법무부</strong>) 전문기관 지정 범위 명문화</td></tr>
+            <tr><td><strong>제 5장 성과평가</strong></td><td>1단계: 시도 자체평가(사업 종료 후 3개월 내) → 2단계: 교육부 종합평가. 결과 대외 공개 의무화, 평가 결과를 예산 차등배분·가감점 부여에 직접 반영</td></tr>
+            <tr><td><strong>제 6장 규제특례</strong></td><td>정기 신청: 매년 9월 말까지 신청 → 다음 해 1월 1일 적용 원칙. 성과 미흡 또는 조건 불이행 시 취소 가능</td></tr>
+            <tr><td><strong>제 7장 보칙</strong></td><td>업무의 외부 위탁 근거 조문 등 명시</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+
+      <div class="dvd"></div>
+
+      <section class="sb" id="s3c">
+        <div class="slbl">Part II</div>
+        <h2 class="st">시행령 제정안 3대 파괴적 핵심 포인트</h2>
+        <div class="ag">
+          <div class="ac ac1"><div class="acn">CORE 1</div><h4>지역·초광역·중앙 3단계 체계 법제화</h4><p>시도지사와 총장이 공동위원장을 맡는 '지역혁신위원회'를 법제화하고, 중앙 위원회에 <strong>법무부</strong>를 범부처 핵심 기관으로 공식 편입했습니다. 이는 유학생 비자 발급 등 이민 행정과 RISE의 직결을 뜻합니다.</p><div class="acef">🔑 K-유학생 정주화 전략(F-2-R 비자 전환 지원)에 법무부와의 협력 근거가 법령 수준으로 마련됨</div></div>
+          <div class="ac ac2"><div class="acn">CORE 2</div><h4>평가 환류 및 예산 차등배분 법제화</h4><p>시도 자체평가 완료 후 교육부가 최종 종합평가를 벌여 결과를 외부에 전면 강제 공개합니다. 등급에 따라 지자체에 배정되는 가용 예산이 가차 없이 깎이거나 늘어나는 패널티 체계가 명시되었습니다.</p><div class="acef">⚠️ 우리 대학의 집행률(64.8%) 부진이 공개될 경우, 다음 해 수십억 원의 수입 감소가 자동 처리</div></div>
+          <div class="ac ac3"><div class="acn">CORE 3</div><h4>규제특례 정기·수시 청구 표준화</h4><p>매년 9월 말까지 기획하여 규제특례를 정식으로 신청하면, 이듬해 1월 1일 자로 즉시 전폭 완화 혜택이 주어집니다. 단, 계획 수립 대비 이행도가 극히 저조할 시 특례 지정을 소급 취소하는 규정도 신설되었습니다.</p><div class="acef">🎯 마이크로디그리 학점 인정 범위 확대, 유학생 대상 비학위 과정 운영 방식 변경, 스마트농림 계약학과 이수 조건 완화 등 신청 가능</div></div>
+        </div>
+      </section>
+
+      <div class="dvd"></div>
+
+      <section class="sb" id="s3d">
+        <div class="slbl">Part III</div>
+        <h2 class="st">시행령에 관한 중원대 핵심 행정 Q&amp;A</h2>
+        <p class="sd">교육 행정 및 대학 보직자 참고용 입체 백서 (입법예고 기간: ~2026년 6월 1일)</p>
+        <div class="ah" onclick="tog(this)"><span>Q1. 이게 우리 중원대학교와 어떻게 직접적으로 관련이 있나요?</span><span class="aha">▼</span></div>
+        <div class="ab">직접 관련됩니다. 이 시행령은 우리 대학이 지금 수행 중인 RISE(앵커) 사업 전체의 운영 규칙을 <strong>법령 수준으로 확정하는 문서</strong>입니다. 지금까지는 교육부훈령(제553호)이라는 상대적으로 낮은 단계의 규정으로 운영되었는데, 8월부터는 대통령령으로 격상됩니다.</div>
+        <div class="ah" onclick="tog(this)"><span>Q2. 8월에 시행되면 현재 연도 사업 도중에 규칙이 바뀌는 건가요?</span><span class="aha">▼</span></div>
+        <div class="ab">사업의 방향이 바뀌는 것은 아닙니다. 이미 4월 13일 설명회에서 교육부가 앵커 추진방안을 공식 발표했고, 그 내용을 법령으로 뒷받침하는 것이 이 시행령입니다. 다만 <strong>8월 이후부터는 성과평가와 규제특례 절차가 이 시행령에 따라 공식적으로 진행되므로, 9월 연차점검 시 이 시행령의 기준이 그대로 적용됩니다.</strong></div>
+        <div class="ah" onclick="tog(this)"><span>Q3. '규제특례' 조항을 중원대학교는 어떤 용도로 써야 할까요?</span><span class="aha">▼</span></div>
+        <div class="ab">규제특례는 특성화 지방대학이나 시도지사가 현행 교육 규정으로는 시도하기 어려운 혁신적 교육과정·학사제도를 교육부에 신청하여 예외를 인정받는 제도입니다. 예를 들어 <strong>마이크로디그리 학점 인정 범위 확대, 유학생 대상 비학위 과정 운영 방식 변경, 스마트농림 계약학과 관련 이수 조건 완화</strong> 등을 신청할 수 있습니다. 정기 신청 기한이 매년 9월 말이므로, 2026년 9월 전에 신청하면 2027년 1월 1일부터 적용받을 수 있습니다.</div>
+        <div class="ah" onclick="tog(this)"><span>Q4. 성과 평가 결과가 전 대중에게 의무적으로 공개된다는 게 어떤 의미인가요?</span><span class="aha">▼</span></div>
+        <div class="ab">충북 내 대학 간 상대적 성과 순위가 외부에 드러난다는 뜻입니다. <strong>우리 대학의 집행률(64.8%)이나 정주 데이터 부재가 공개 자료에서 낮은 등급으로 표시될 경우, 대학의 대외 이미지와 다음 해 예산 배분에 영향을 미칩니다.</strong> 공개 전에 수치를 개선해야 하는 이유가 하나 더 생긴 것입니다.</div>
+        <div class="ah" onclick="tog(this)"><span>Q5. 왜 추진단 중앙위원회에 '법무부'가 범정부 파트너로 결합한 걸까요?</span><span class="aha">▼</span></div>
+        <div class="ab">법무부가 중앙 추진체계에 공식 편입된다는 것은, <strong>광역형 비자(유학생 D-2 인턴활동 허용) 등 출입국 관련 정책이 앵커 체계의 공식 협력 채널 안으로 들어온다는 의미</strong>입니다. 우리 대학이 추진하려는 K-유학생 정주화 전략(F-2-R 비자 전환 지원)에 대해 법무부와의 협력 근거가 법령 수준으로 마련된 것입니다.</div>
+        <div class="ah" onclick="tog(this)"><span>Q6. 입법예고 기간(~6월 1일)에 우리 대학이 할 수 있는 것이 있나요?</span><span class="aha">▼</span></div>
+        <div class="ab">입법예고는 의견 제출이 가능한 기간입니다. 인구 소멸 위험 구역(괴산) 내 소규모 사립대가 거점 국립대와의 정량 경쟁에서 불이익을 당하지 않도록 규격 보정이 필요함을 충북 RISE 센터를 통해 건의해야 합니다. <strong>규제특례 기한 연장 및 비수도권 군 단위 사립대에 대한 평가 보정 점수 도입</strong> 등을 연합 의견서 형식으로 피드해야 합니다.</div>
+      </section>
+
+      <div class="dvd"></div>
+
+      <section class="sb" id="s3e">
+        <div class="slbl">Part IV</div>
+        <h2 class="st">향후 제안: 2트랙을 동시에 운영하는 전략</h2>
+        <p class="sd">거점 대학(충북대)의 수혜 대상 하부 참여대학 지위(연 37억 수준)에 안주할 것인가, 초광역 독립 모델로 도약할 것인가의 이정표입니다.</p>
+        <div class="two">
+          <div class="ac ac1"><div class="acn">TRACK 1 · 기존 RISE 수성</div><h4>9월 연차점검 완전 통과 (약 37억원 국비 사수)</h4><p>현재 진행되고 있는 충북 RISE 1차년도 사업의 잔존 사업비를 정직하고 기민하게 집행하여, 집행률(현재 64.8%)을 마지노선 이상으로 제고해야 합니다.</p><ul><li><strong>집행률 회복</strong>: 이월 예산 집중 투자, 성과 미흡 과제 과감히 통폐합</li><li><strong>정주 증빙 빅데이터</strong>: 졸업생 충북 지역 기업 정주 증명 데이터베이스 조기 확립</li><li><strong>21개 과제 압축</strong>: 세부 과제들을 고유 특화 영역으로 통폐합하여 지표 수성</li></ul><div class="acef">🎯 집행률 64.8% → 마지노선(80%) 이상 회복, 연차점검 통과</div></div>
+          <div class="ac ac2"><div class="acn">TRACK 2 · 초광역 독자 수주</div><h4>초광역 성장엔진 인재사업 도전 (연 100~150억 확보)</h4><p>거점대를 제외한 초광역 성장엔진 인재육성 사업(800억원, 모델당 연 100~150억원)에 중원대학교가 충북 내 사립대·전문대와 컨소시엄을 구성해 독립 신청하는 것입니다.</p><ul><li><strong>괴산 특화 자원</strong>: 대전·세종에 없는 산림·유기농·바이오 특화 카드를 컨소시엄 기획 주축으로 배치</li><li><strong>복수 시도 공동</strong>: 충북+대전, 또는 충북+세종처럼 인접 시도와 공동 모델 필수 (가산점)</li></ul><div class="acef">🎯 현재 충북 RISE 예산의 3배(100~150억원) 규모 독립 확보</div></div>
+        </div>
+        <div class="hb hb-r" style="margin-top:20px"><h5>🚨 성과감사실의 명확한 경고</h5><p>기존 RISE 사업 수성(Track 1)만 고집할 경우, 거점대에 국책 예산 1,000억 원이 편중되는 종속적 피지배 관계가 고착되어 격차가 돌이킬 수 없이 벌어집니다. <strong>상반기 연차점검 통과를 전제한 하반기 초광역 컨소시엄 구성을 동시 병행하는 입체적 2트랙 기동이 우리 중원대의 생존 방정식입니다.</strong></p></div>
+      </section>
+
+    </div>
+  </main>
+</div>
+<!-- ip-i3 END -->
+
+<!-- ============================================================
+  02호 이슈 패널 — 직업계고 일반대 첫 추월
+============================================================ -->
+<div id="ip-i2" class="ip">
+  <div class="hero">
+    <div class="hvol">02</div>
+    <div class="con"><div class="cw">
+      <div class="hm">
+        <span class="bd bdv">ISSUE BRIEF 2026-02</span>
+        <span class="bd bdc">보건계열 특성화 · 학사 유연화 / 대입 장벽 완화</span>
+        <span class="hdt">2026. 04. 09</span>
+      </div>
+      <h1>비수도권 직업계고 '일반대 &gt; 전문대'<br><em>첫 추월 현황 분석 및 우리 대학 대응 전략</em></h1>
+      <p class="hsub">대입 골든크로스 현상 규명 • JWU 간호학과 신규 유입 실증 • 대전대 보수 장벽 대조 • Nursing Bridge &amp; 스킬 스왑 로드맵</p>
+      <div class="hinfo">
+        <div><div class="hil">작성부서</div><div class="hiv">성과감사실</div></div>
+        <div><div class="hil">보고일자</div><div class="hiv">2026. 04. 09</div></div>
+        <div><div class="hil">출처 통계</div><div class="hiv">한국직업능력연구원 / 세계일보</div></div>
+        <div><div class="hil">배포구분</div><div class="hiv">대내 참고 (배포 금지)</div></div>
+      </div>
+      <div class="htoc">
+        <a href="#s2a">SCQA</a><a href="#s2b">골든크로스</a>
+        <a href="#s2c">실증 데이터</a><a href="#s2d">대전대 사례</a><a href="#s2e">Nursing Bridge</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="scqa-wrap" id="s2a">
+    <div class="con cw">
+      <div class="scqa-grid">
+        <div class="sc sc-s"><div class="scl">SITUATION</div><h4>4년제 진학률 첫 역전</h4><p>비수도권 직업계고 졸업생의 일반대 진학률(24.6%)이 전문대(23.5%)를 사상 최초로 앞섰습니다 (2025년 기준).</p></div>
+        <div class="sc sc-c"><div class="scl">COMPLICATION</div><h4>기초학능 결손 리스크</h4><p>보통교과(수학·과학) 이수 부족 상태에서 간호학과 진학 후 전공 부적응 및 국가고시 리스크가 따릅니다.</p></div>
+        <div class="sc sc-q"><div class="scl">QUESTION</div><h4>중원대 보완 방정식</h4><p>"특성화고 유입 급증이라는 양적 호재를, 국가고시 100% 합격이라는 질적 결실로 연착륙시킬 해법은?"</p></div>
+        <div class="sc sc-a"><div class="scl">ANSWER</div><h4>Bridge &amp; 스킬스왑</h4><p>입학 전 K-MOOC 선이수 학점 연동 'Nursing Bridge' 과정 및 재학 중 수평형 피어 멘토링 'Skill-Swap' 가동.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <main class="ms">
+    <div class="con cw">
+
+      <section class="sb" id="s2b">
+        <div class="slbl">Part I</div>
+        <h2 class="st">직업계고 일반대 진학 첫 추월 3대 원인</h2>
+        <p class="sd">세계일보 2026년 4월 9일 보도 및 한국직업능력연구원 보고서(2025.12)를 기반으로, 학령인구 감소와 지방 일자리 공백이 엮어낸 다차원적 진학 심리를 진단합니다.</p>
+        <div class="cg">
+          <div class="card"><div class="ci ci-b">📉</div><h4>01. 지방대 입학 문턱 하락</h4><p>비수도권 학령인구의 급감으로 4년제 일반대학의 미달 정원이 증가하며, 직업계고 학생들이 특별전형 혹은 일반전형으로도 수월하게 일반대학에 진입할 수 있는 환경이 조성되었습니다. "학령인구 감소로 4년제 대학 입학 정원이 못 채워지다 보니 학생들을 대학으로 유도하는 계기"가 되고 있습니다.</p></div>
+          <div class="card"><div class="ci ci-y">💼</div><h4>02. 임금 및 사회적 인식 격차</h4><p>고교 졸업 후 즉각적 구직전선에 동참 시 직면하는 급여 및 승진 테이블 상의 냉혹한 한계, 그리고 "일반대 4년제 졸업장" 획득을 통해 사회적 신분을 향상하고자 하는 학부모 세대의 강력한 지지 심리가 작용했습니다.</p></div>
+          <div class="card"><div class="ci ci-r">🏭</div><h4>03. 지방 양질의 일자리 소멸</h4><p>최근 10년간 국내 신규 취업 증가분의 <strong>46.8%(150만 명)</strong>가 수도권에 집중되었습니다. 비수도권 안정적 일자리 고갈에 처한 지방 고교생들은 일찌감치 구직을 체념하고 대학 진학을 대안으로 선택하고 있습니다.</p></div>
+        </div>
+      </section>
+
+      <div class="dvd"></div>
+
+      <section class="sb" id="s2c">
+        <div class="slbl">Part II</div>
+        <h2 class="st">대입 골든크로스 및 의약·보건 계열 쏠림 데이터</h2>
+        <p class="sd">한국직업능력연구원 및 JWU 간호학과 내부 학생 등록 데이터 분석</p>
+        <div class="sg">
+          <div class="stc"><div class="stn snr">24.6<span class="stu">%</span></div><div class="stl">비수도권 직업계고<br>일반대 진학률 (2025)<br>역대 첫 역전</div></div>
+          <div class="stc"><div class="stn snm">23.5<span class="stu">%</span></div><div class="stl">비수도권 직업계고<br>전문대 진학률 (2025)<br>처음으로 역전당함</div></div>
+          <div class="stc"><div class="stn sng">15<span class="stu">명</span></div><div class="stl">JWU 간호학과<br>특성화고 등록생 (2026)<br>4명→9명→15명 성장</div></div>
+          <div class="stc"><div class="stn sny">54.5<span class="stu">%</span></div><div class="stl">고교 전공 불일치<br>전향 진학률<br>보건계열 쏠림</div></div>
+        </div>
+        <div class="tw"><table>
+          <thead><tr><th>구분</th><th>2023년</th><th>2024년</th><th>2025년</th><th>추세</th></tr></thead>
+          <tbody>
+            <tr><td><strong>비수도권 일반대 진학률</strong></td><td>21.4%</td><td>23.6%</td><td>24.4%</td><td style="color:#16a34a;font-weight:700">▲ 상승</td></tr>
+            <tr><td><strong>비수도권 전문대 진학률</strong></td><td>25.4%</td><td>23.5%</td><td>23.3%</td><td style="color:var(--R);font-weight:700">▼ 하락</td></tr>
+            <tr><td><strong>JWU 간호학과 특성화고 등록</strong></td><td>4명</td><td>9명</td><td>15명</td><td style="color:#16a34a;font-weight:700">▲ 급증</td></tr>
+            <tr><td><strong>비수도권 특성화고 유입</strong></td><td>0명</td><td>4명</td><td>6명</td><td style="color:#16a34a;font-weight:700">▲ 신규 유입</td></tr>
+          </tbody>
+        </table></div>
+        <div class="hb hb-b"><h5>📊 수도권 vs 비수도권 대조</h5><p>비수도권은 일반대로 쏠린 반면, <strong>수도권은 여전히 전문대학 선호 추세 유지(전문대 30.1%, 일반대 20.8%)</strong>. 지역적 차이가 극명하며, 이 구조적 전환은 지속될 전망입니다.</p></div>
+      </section>
+
+      <div class="dvd"></div>
+
+      <section class="sb" id="s2d">
+        <div class="slbl">Part III</div>
+        <h2 class="st">대전대학교 간호학과 — 특성화고 특별전형 제한 분석</h2>
+        <p class="sd">대전대학교 간호학과의 경우 특성화고교졸업자 전형을 '정원외 이월 인원 발생 시'에만 극소수로 선발하며, 동시에 <strong>수능최저기준(2개 영역 합 6등급)</strong>을 철저히 고수하고 있습니다.</p>
+        <div class="hb hb-r"><h5>🔒 장벽 설정의 배경 사유 (출처: 대전대학교 2026학년도 수시 모집요강)</h5><p>직업계고 학생들은 보통교과(수학, 과학 등) 이수 단위가 일반고의 절반 수준에 불과해, 입학 후 전공 기초(생물, 화학) 학습에 큰 어려움을 겪고 <strong>중도 탈락하거나 국가고시 합격률을 저하시킬 수 있다는 우려</strong> 때문입니다. <strong>중원대는 이를 기회로 선점해야 합니다.</strong></p></div>
+        <div class="tw"><table>
+          <thead><tr><th>구분</th><th>대전대학교</th><th>중원대학교 (현황)</th><th>중원대 강화 방향</th></tr></thead>
+          <tbody>
+            <tr><td><strong>특성화고 전형</strong></td><td>정원외 이월 시만 극소수 선발</td><td>적극적 유입 추진</td><td>유입 확대 + 질 관리 병행</td></tr>
+            <tr><td><strong>수능최저기준</strong></td><td>2개 영역 합 6등급 (엄격)</td><td>기준 완화 적용</td><td>Nursing Bridge로 학능 보완</td></tr>
+            <tr><td><strong>입학 후 지원</strong></td><td>별도 보완 과정 없음</td><td>초기 단계</td><td>Skill-Swap 멘토링 정례화</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+
+      <div class="dvd"></div>
+
+      <section class="sb" id="s2e">
+        <div class="slbl">Part IV</div>
+        <h2 class="st">중원대학교 간호 및 일반학과 5대 대응 대책</h2>
+        <p class="sd">직업계고 출신 학생의 기초 학능 부족 리스크(88.4% 취약 진단)를 교육 특화 및 질적 도약의 계기로 전환하는 5가지 핵심 로드맵입니다.</p>
+
+        <div class="ah" onclick="tog(this)"><span>🌐 1) 입학 전: K-MOOC 기반 'Nursing Bridge' 온라인 선이수 학점제</span><span class="aha">▼</span></div>
+        <div class="ab"><p><strong>전략</strong>: '의학용어 하드 랜딩' 방지 및 학습 재미 부여를 위해 '브리지(Bridge) 학습 단계' 도입.</p><br><p><strong>실행</strong>: 합격 후 입학 전까지 의학용어를 '영어'가 아닌 <strong>'어원 블록(Lego) 놀이'와 '비주얼 매핑(Visual Mapping)'</strong>으로 접근하는 특화 콘텐츠 제공. 간호학 필수 기초 과목에 대한 온라인강좌를 이수하게 하고, 이를 입학 후 학점으로 선인정.</p></div>
+
+        <div class="ah" onclick="tog(this)"><span>🤝 2) 입학 후: 수평적 협동 멘토링 '스킬 스왑(Skill-Swap)' 소모임 구성</span><span class="aha">▼</span></div>
+        <div class="ab"><p><strong>문제점</strong>: 직업계고 출신은 실무 경험은 우수하나 서술식 평가와 이론 학습에 취약함.</p><br><p><strong>모델</strong>: 가르치고 배우는 수직 관계가 아닌, <strong>서로의 강점을 교환하는 피어 그룹(Peer Group)</strong> 구성.</p><br><p><strong>역할 분담</strong>: 인문계 학생(의학용어 어원 및 이론 요약 지원) ↔ 직업계 학생(실무 술기 노하우 전수)</p></div>
+
+        <div class="ah" onclick="tog(this)"><span>🏡 3) 일반학과: 계약학과 확대 및 괴산군 'Local Stay' 지역정주 연계</span><span class="aha">▼</span></div>
+        <div class="ab"><p>단순 졸업장 수여를 넘어, <strong>산업체 맞춤형 계약학과를 확대</strong>하거나 실무 중심의 융복합 전공을 개발하여 "4년제 수준의 직무 전문성" 확보. 지역 기업과 연계한 <strong>'지역 정주형 인재 양성 트랙'</strong>을 구축하여 대학 진학이 지역 내 양질의 일자리와 연결된다는 확신 부여.</p></div>
+
+        <div class="ah" onclick="tog(this)"><span>💻 4) 야간·하이브리드 온라인 교과 개편 및 학사 유연화</span><span class="aha">▼</span></div>
+        <div class="ab"><p>선취업 후진학 및 학업-일 병행 학생들을 배려해 <strong>야간·주말 강의실 오픈 및 K-MOOC 보충강좌 비중을 자율 조정</strong>하며, 전공 적성 불일치를 겪는 학생을 위해 부전공 및 전과 제도를 활성화하여 중도 탈락 방지.</p></div>
+
+        <div class="ah" onclick="tog(this)"><span>💙 5) 장기 전략: 심리적 자존감 중심의 '정서적 소프트 랜딩' 지원</span><span class="aha">▼</span></div>
+        <div class="ab"><p>직업계고 학생들의 유입을 대학의 양적 성장을 넘어 질적 도약의 계기로 삼기 위해, 단순 지식 전달이 아닌 <strong>'실무 자신감 회복'에 초점을 맞춘 맞춤형 적응 프로그램</strong>을 체계화합니다.</p></div>
+
+        <div class="hb hb-g" style="margin-top:20px"><h5>🎯 핵심 기회: 대전대가 막은 문을 중원대가 연다</h5><p>대전대학교 등 인근 대학들이 특성화고 학생들에게 보수적 장벽을 설정하는 상황에서, 중원대학교가 체계적인 Bridge 프로그램으로 유입을 적극 수용하되 국가고시 합격률을 100% 유지하는 전략은 <strong>충북 지역 간호 인재 양성의 독점적 지위를 선점하는 기회</strong>입니다.</p></div>
+      </section>
+
+    </div>
+  </main>
+</div>
+<!-- ip-i2 END -->
+
+<!-- ============================================================
+  01호 이슈 패널 — RISE에서 ANCHOR로 대전환
+============================================================ -->
+<div id="ip-i1" class="ip">
+  <div class="hero">
+    <div class="hvol">01</div>
+    <div class="con"><div class="cw">
+      <div class="hm">
+        <span class="bd bdv">ISSUE BRIEF 2026-01 · 창간호</span>
+        <span class="bd bdc">지역성장 인재양성체계 대전환 / 국가재정환류통제</span>
+        <span class="hdt">2026. 04. 08</span>
+      </div>
+      <h1>RISE에서 ANCHOR로:<br><em>지역성장 인재양성체계 대전환</em></h1>
+      <p class="hsub">교육부 지역혁신중심 대학지원체계 재구조화 가이드라인 해부 • 1차년도 성과(집행률 65%) 복구 • ANCHOR Class 대응책 • 데이터 기반 성과관리(IR) 고도화</p>
+      <div class="hinfo">
+        <div><div class="hil">작성부서</div><div class="hiv">성과감사실</div></div>
+        <div><div class="hil">보고일자</div><div class="hiv">2026. 04. 08</div></div>
+        <div><div class="hil">전체 예산</div><div class="hiv">47.7억 원 규모</div></div>
+        <div><div class="hil">배포구분</div><div class="hiv">대내 참고 (배포 금지)</div></div>
+      </div>
+      <div class="htoc">
+        <a href="#s1a">SCQA</a><a href="#s1b">1차년도 분석</a>
+        <a href="#s1c">3대 위기</a><a href="#s1d">정책 과제</a><a href="#s1e">결론</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="scqa-wrap" id="s1a">
+    <div class="con cw">
+      <div class="scqa-grid">
+        <div class="sc sc-s"><div class="scl">SITUATION</div><h4>ANCHOR 체제 개편</h4><p>정부 대학 지원 패러다임이 RISE(혁신)에서 ANCHOR(정주 정착)로 전격 재구조화되며 2.14조 원 예산 규모로 시행됩니다.</p></div>
+        <div class="sc sc-c"><div class="scl">COMPLICATION</div><h4>강력한 차등 배분 도입</h4><p>4,000억 원 규모의 성과 인센티브가 도입되어 정주율 및 예산 집행률에 따라 시도별 예산 차등 환류가 전면 가동됩니다.</p></div>
+        <div class="sc sc-q"><div class="scl">QUESTION</div><h4>중원대 보완 과제</h4><p>"1차년도 집행률(65%) 부진을 극복하고, 차기 연도 예산 수성 및 독자 ANCHOR 모델을 어떻게 설계할 것인가?"</p></div>
+        <div class="sc sc-a"><div class="scl">ANSWER</div><h4>질적 성과 고도화</h4><p>취업 확약형 계약학과 및 트랙제로의 전격 리포지셔닝, 14.2억 원 이월 예산의 학생 체감형 집중 투자 이행.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <main class="ms">
+    <div class="con cw">
+
+      <section class="sb" id="s1b">
+        <div class="slbl">Part I</div>
+        <h2 class="st">중원대학교 1차년도 사업 성과 영역별 진단</h2>
+        <p class="sd">교육부 추진 방향에 따른 대조 정량·정성 평가 일람 — 체계 개편 핵심: 명칭 변경(RISE→ANCHOR), 예산 규모 2.14조 원, 성과 환류 인센티브 4,000억 원 도입</p>
+        <div class="tw"><table>
+          <thead><tr><th>교육부 핵심 추진 방향</th><th>중원대학교 1차년도 추진 현황</th><th>자체 평가</th></tr></thead>
+          <tbody>
+            <tr><td><strong>① 초광역·초연결 거버넌스 (5극 3특 체제)</strong></td><td>충북 PRIDE 공유대학(이차전지, 바이오, 반도체)에 적극 참여 중. 충북 내 타 대학과의 연합형 공동 과제(13개) 비중 우수하게 관리됨.</td><td><strong style="color:#16a34a">우수</strong></td></tr>
+            <tr><td><strong>② 대학 구조 재구조화 (학과 통폐합 등)</strong></td><td>전략산업(BBC) 및 괴산 특화산업(스마트농림) 중심으로 교육과정 개편 및 학사 운영 시스템 유지보수(35.3백만 원) 추진.</td><td><strong style="color:#d97706">보통</strong></td></tr>
+            <tr><td><strong>③ 취업·정주 성과 중심 평가 &amp; ④ 지산학연 협력단지(앵커) 조성</strong></td><td>K-유학생 525명 유치(175% 달성) 및 현장실습 400% 달성. 괴산군과 협력한 '충북생활연구소' 및 '공동연구센터' 운영. 1차년도 기술이전 5건. 단, 실제 '지역 기업 취업 확정' 데이터는 보완 필요.</td><td><strong style="color:#2563eb">양호/우수</strong></td></tr>
+            <tr><td><strong>⑤ 평생직업교육의 학위 연계</strong></td><td>'오세유' 프로젝트(참여 3,457명) 등 비학위 과정은 활발하나, 이를 학위 과정으로 흡수하는 '재구조화' 모델은 초기 단계.</td><td><strong style="color:var(--R)">보완 필요</strong></td></tr>
+          </tbody>
+        </table></div>
+        <div class="sg">
+          <div class="stc"><div class="stn snm">47.7<span class="stu">억</span></div><div class="stl">중원대 RISE 사업<br>전체 예산 규모</div></div>
+          <div class="stc"><div class="stn snr">65<span class="stu">%</span></div><div class="stl">1차년도 전체<br>집행률 (목표: 85%+)</div></div>
+          <div class="stc"><div class="stn sny">14.2<span class="stu">억</span></div><div class="stl">이월 예산<br>집중 투자 필요</div></div>
+          <div class="stc"><div class="stn sng">525<span class="stu">명</span></div><div class="stl">K-유학생 유치<br>목표 175% 달성</div></div>
+        </div>
+      </section>
+
+      <div class="dvd"></div>
+
+      <section class="sb" id="s1c">
+        <div class="slbl">Part II</div>
+        <h2 class="st">ANCHOR 전환에 따른 3대 구조적 위험 요인</h2>
+        <p class="sd">교육부의 재구조화 가이드라인은 '예산 나눠먹기' 근절과 '실질적 정주'를 강력히 요구하고 있습니다. 단순 인재 양성을 넘어 지역 내 취업과 정착이 연계되지 않을 경우, 차기 년도 예산 삭감 및 구조조정의 대상이 될 수 있습니다.</p>
+        <div class="cg">
+          <div class="card"><div class="ci ci-r">📊</div><h4>위험 01. 성과 연동형 예산 차등 리스크</h4><ul><li>교육부는 전체 예산 중 <strong>4,000억 원을 성과 평가 인센티브</strong>로 별도 편성</li><li>성과 미흡 과제 전면 폐지 권고 및 신규 과제 참여 제한</li><li>1차년도 집행률(65%)이 타 대학 대비 낮을 경우 불이익 우려</li><li>단순 교육 운영 실적보다 기업 연계 및 취업 확약 비중 강화 요구</li></ul></div>
+          <div class="card"><div class="ci ci-y">🌐</div><h4>위험 02. '5극 3특' 초광역 거버넌스 소외</h4><ul><li>충북 지역 단독 사업에서 '5극 3특' 초광역 단위 협업 체계로 거버넌스 중심축 이동</li><li>초광역 단위 사업 예산 <strong>2,000억 원 신설</strong>에 따른 개별 대학의 대응력 한계</li><li>거점 국립대 중심의 '공유대학' 모델에서 사립대의 역할 축소 가능성</li></ul></div>
+          <div class="card"><div class="ci ci-b">🏠</div><h4>위험 03. 정주 중심 지표 관리의 질적 전환 부담</h4><ul><li>기존 RISE가 '혁신 역량'에 집중했다면, ANCHOR는 <strong>'지역 정착'이라는 최종 결과물</strong>에 강조</li><li>단기 인턴십 위주 사업에서 '계약학과' 및 '장기 직무실습'으로의 체질 개선 필요</li><li>기업 협업 만족도 및 실질 고용 승계 데이터의 엄격한 증빙 요구</li></ul></div>
+        </div>
+      </section>
+
+      <div class="dvd"></div>
+
+      <section class="sb" id="s1d">
+        <div class="slbl">Part III</div>
+        <h2 class="st">우리 대학의 정책 과제와 대응 방안 (3대 TASK)</h2>
+        <p class="sd">1차년도의 양적 성과를 ANCHOR 체계에 맞게 질적 성과로 재포장하고, 2차년도 사업 계획을 정주 중심으로 전면 재구조화해야 합니다.</p>
+        <div class="ag">
+          <div class="ac ac1"><div class="acn">TASK 1 · 핵심</div><h4>정주 연계 교육 모델 'ANCHOR Class' 도입</h4><p><strong>기존 RISE 한계</strong>: 일반 전공 교육 및 단기 특강 위주 운영, 3대 전략산업 핵심인재 양성, 창업 동아리 및 시제품 제작</p><ul><li><strong>취업 확약형 계약학과 및 트랙제 전환</strong>: 지역 기업 연계 '채용연계형 인턴십' 의무화</li><li><strong>괴산 스마트농산림·바이오 앵커 기업 매칭</strong></li><li><strong>K-유학생 통합 지원</strong>: 주거-취업-비자(F-2-R 등)를 통합한 '괴산형 정주 패키지' 모델 브랜드화</li></ul><div class="acef">🎯 정주율 미측정 → 전체 졸업생의 35% 이상 달성</div></div>
+          <div class="ac ac2"><div class="acn">TASK 2 · 성장</div><h4>초광역 공유대학 네트워크 주도적 참여</h4><ul><li>충청권 5극 3특 '성장엔진' 중 중원대 강점 분야(스마트농산림, 바이오, 레저, 돌봄사업 등) 발굴</li><li>타 대학과의 자원 공유를 통한 '공동 학위제' 및 '교차 수강' 인프라 구축</li><li>권역별 공동연구센터 사업 신청 → <strong>2,000억 원 초광역 예산 확보 전략</strong> 수립</li></ul><div class="acef">🎯 기업 협업 공동 R&D 15건, 계약학과 학생수 80명 확보</div></div>
+          <div class="ac ac3"><div class="acn">TASK 3 · IR 고도화</div><h4>데이터 기반 성과관리 시스템(IR) 고도화</h4><ul><li>'RISE 사업 참여 학생의 지역 취업 인원', '대학 지원 후 지역 기업의 매출 증가분' 등 경제적 파급 효과 데이터 선제 확보</li><li>이월금 14.2억 원: 3D프린터 등 첨단 장비 확충, 시군대응자금 2.1억 원: 괴산군 인프라 연계</li><li>정부 인센티브 타겟팅: 취업 확약 인원 2배수 상향</li></ul><div class="acef">🎯 2차년도 중간보고 시점에 경제적 파급 효과 데이터 선제 제시</div></div>
+        </div>
+      </section>
+
+      <div class="dvd"></div>
+
+      <section class="sb" id="s1e">
+        <div class="slbl">Part IV</div>
+        <h2 class="st">시사점 및 결론: 우리 대학의 생존을 위한 ANCHOR 전략</h2>
+        <p class="sd">ANCHOR 체제로의 개편은 단순한 명칭 변경이 아닌 <strong>사립대 구조조정의 가시화된 신호탄</strong>입니다.</p>
+        <div class="cg">
+          <div class="card"><div class="ci ci-b">📍</div><h4>전략 1. 정주(Settlement) 중심의 성과 서사(Narrative) 구축</h4><p>교육부는 대학이 얼마나 많은 인재를 양성했는지보다, <strong>얼마나 많은 인재를 지역에 남겼는지</strong>를 평가합니다. 우리 대학은 '인구소멸 최전방 대학'의 상징성을 유지하되, 이를 <strong>'늘봄학교+K-유학생 정주+스마트 농업'이라는 3각 편대</strong>로 체계화, 선순환 구조의 수치를 매 분기 데이터화해야 합니다.</p></div>
+          <div class="card"><div class="ci ci-g">🔒</div><h4>전략 2. 초광역 네트워크 내 독점적 영역 확보</h4><p>충청권 공유대학 체제에서 거점 국립대와 경쟁하기보다는, 중원대만이 제공할 수 있는 특화 인프라(<strong>스마트농산림, 바이오, 돌봄, 레저</strong> 등)를 기반으로 초광역 권역의 '성장엔진' 한 축을 담당해야 합니다. 이는 향후 2,000억 원 규모의 초광역 예산 확보의 관건입니다.</p></div>
+          <div class="card"><div class="ci ci-y">📈</div><h4>전략 3. 데이터 기반 성과 관리 (IR기반 성과관리시스템)</h4><p>'RISE 사업 참여 학생의 지역 취업 인원', '대학 지원 후 지역 기업의 매출 증가분' 등 경제적 파급 효과 데이터를 <strong>2차년도 중간보고 시점에 선제적으로 확보하고 제시</strong>해야 합니다. 성과감사실의 2026년 최고 목표인 <strong>IR기반 성과관리시스템 구축</strong>이 이를 가능하게 합니다.</p></div>
+        </div>
+        <div class="tw" style="margin-top:24px"><table>
+          <thead><tr><th>핵심 지표</th><th>1차년도 현황</th><th>ANCHOR 목표 (2차년도)</th><th>비고</th></tr></thead>
+          <tbody>
+            <tr><td><strong>지역 정주율</strong></td><td>미측정/낮음</td><td>전체 졸업생의 35% 이상</td><td style="color:var(--R);font-weight:700">핵심 지표</td></tr>
+            <tr><td><strong>기업 협업 과제</strong></td><td>단순 자문 위주</td><td>공동 R&D 및 기술사업화 15건</td><td>인센티브 직결</td></tr>
+            <tr><td><strong>계약학과 학생수</strong></td><td>기초 단계</td><td>스마트농산림/바이오 등 80명 확보</td><td>정부 가이드라인</td></tr>
+            <tr><td><strong>예산 집행률</strong></td><td>65% (부진)</td><td>85% 이상 (목표치)</td><td style="color:var(--R);font-weight:700">긴급 복구 필요</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+
+    </div>
+  </main>
+</div>
+<!-- ip-i1 END -->
+
+<!-- ============================================================
+  07호 이슈 패널 — 'JX 시대'가 바꾸는 고교생 전공 선택
+============================================================ -->
+<div id="ip-i7" class="ip on">
+  <div class="hero">
+    <div class="hvol">07</div>
+    <div class="con"><div class="cw">
+      <div class="hm">
+        <span class="bd bdv">ISSUE BRIEF 2026-07</span>
+        <span class="bd bdc">AI·산업동향 입학전략 / 2027학년도 모집단위 반영판</span>
+        <span class="bd bdn">LATEST</span>
+        <span class="hdt">2026. 06. 01</span>
+      </div>
+      <h1>'JX 시대'가 바꾸는<br><em>고교생 전공 선택 대전환</em></h1>
+      <p class="hsub">매일경제 AI·JX 조사 결과 분석 • 어문·회계 기피 vs 반도체·간호·스마트농산림 부상 • 2027학년도 모집단위 구조조정 교차 분석 • 중원대 6대 전략 제언</p>
+      <div class="hinfo">
+        <div><div class="hil">작성부서</div><div class="hiv">성과감사실</div></div>
+        <div><div class="hil">발행일자</div><div class="hiv">2026. 06. 01</div></div>
+        <div><div class="hil">원출처</div><div class="hiv">매일경제 A25면 (이용익 기자)</div></div>
+        <div><div class="hil">배포구분</div><div class="hiv">내부 참고 (배포 금지)</div></div>
+      </div>
+      <div class="htoc">
+        <a href="#s7a">SCQA</a><a href="#s7b">JX 조사 데이터</a>
+        <a href="#s7c">모집단위 구조조정</a><a href="#s7d">학과 심층 분석</a>
+        <a href="#s7e">대응 매트릭스</a><a href="#s7f">6대 제언</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="scqa-wrap" id="s7a">
+    <div class="con cw">
+      <div class="scqa-grid">
+        <div class="sc sc-s"><div class="scl">SITUATION</div><h4>JX 트렌드 공론화</h4><p>매일경제가 입시전문기관과 함께 실시한 고교생 1,058명 조사(2026.6.1)에서 AI·자동화 직업 대전환(JX)이 전공 선택 기준을 근본적으로 변화시키고 있음이 확인되었습니다.</p></div>
+        <div class="sc sc-c"><div class="scl">COMPLICATION</div><h4>기피 학과·선호 학과 양극화</h4><p>어문계열·회계·세무·금융 등은 AI 대체 우려로 기피되고, 반도체·의약·간호·스마트농산림은 선호도가 급등하는 양극화가 심화되고 있습니다.</p></div>
+        <div class="sc sc-q"><div class="scl">QUESTION</div><h4>중원대의 구조적 대응</h4><p>"2027학년도 모집단위 구조조정이 JX 트렌드와 얼마나 정합하는가? 부족한 부분은 어떻게 보완해야 하는가?"</p></div>
+        <div class="sc sc-a"><div class="scl">ANSWER</div><h4>6대 행동과제 즉시 실행</h4><p>간호 클러스터 강화, AI융합대학 브랜딩, 기피 학과 커리큘럼 재설계, 국제대학 유학생 유치, 신설 학과 홍보, IR 기반 KPI 체계 구축을 즉시 실행합니다.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <main class="ms">
+    <div class="con cw">
+
+      <section class="sb" id="s7b">
+        <div class="slbl">Part I</div>
+        <h2 class="st">핵심 조사 결과 — AI·JX 트렌드 수치 (n=1,058)</h2>
+        <p class="sd">매일경제·입시전문기관 공동 조사(2026.6.1), 고교생 1,058명 대상. 이 수치는 향후 수험생의 전공 선택 행동을 예측하는 가장 최신의 실증 데이터입니다.</p>
+        <div class="sg" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr))">
+          <div class="stc"><div class="stn snm">76.1<span class="stu">%</span></div><div class="stl">AI가 전공 선택에<br>영향 미쳤다 응답</div></div>
+          <div class="stc"><div class="stn snr">14.6<span class="stu">%</span></div><div class="stl">기피 전공 1위<br>어문계열 (영문·중문 포함)</div></div>
+          <div class="stc"><div class="stn snr">12.9<span class="stu">%</span></div><div class="stl">기피 전공 2위<br>회계·세무·금융</div></div>
+          <div class="stc"><div class="stn sng">30.7<span class="stu">%</span></div><div class="stl">AI 안정 전공 1위<br>반도체</div></div>
+          <div class="stc"><div class="stn sng">25.3<span class="stu">%</span></div><div class="stl">AI 안정 전공 2위<br>의·치·한·약·수 계열</div></div>
+          <div class="stc"><div class="stn snr">51.5<span class="stu">%</span></div><div class="stl">전공 기피 이유 1위<br>"AI가 해당 업무 대체 가능"</div></div>
+        </div>
+        <div class="hb hb-b" style="margin-top:4px">
+          <h5>📊 AI 선호 전공 순위 전체 (n=1,058)</h5>
+          <div class="tw" style="margin-top:10px"><table>
+            <thead><tr><th>순위</th><th>선호 전공 분야</th><th>응답 비율</th><th>중원대 연계 학과</th></tr></thead>
+            <tbody>
+              <tr><td><strong>1위</strong></td><td>반도체</td><td><strong style="color:#16a34a">30.7%</strong></td><td>전기반도체컴퓨터공학과 (30명)</td></tr>
+              <tr><td><strong>2위</strong></td><td>의·치·한·약·수 계열</td><td><strong style="color:#16a34a">25.3%</strong></td><td>간호학과 (163명), 임상병리학과 (50명)</td></tr>
+              <tr><td><strong>3위</strong></td><td>컴퓨터·SW·AI</td><td><strong style="color:#16a34a">16.5%</strong></td><td>전기반도체컴퓨터공학과 (컴퓨터전공)</td></tr>
+              <tr><td><strong>4위</strong></td><td>기계·로봇·드론</td><td><strong style="color:#16a34a">14.4%</strong></td><td>기계공학과 (25명), 드론봇군사학과 (20명)</td></tr>
+              <tr><td><strong>5위</strong></td><td>전기·전자·통신</td><td><strong style="color:#16a34a">11.5%</strong></td><td>전기반도체컴퓨터공학과 (전자전공)</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+        <div class="hb hb-r">
+          <h5>⚠️ 기피 전공 분야 — 중원대 관련 학과 주의</h5>
+          <p>어문계열(14.6%) 기피 1위 → <strong>종교문화학부(한국어교육문화 포함)</strong> 직접 해당. 수험생 인식 개선 없이는 충원율 하락 위험이 현실화될 수 있습니다. AI·문화콘텐츠 융합 트랙 신설이 시급합니다.</p>
+        </div>
+      </section>
+
+      <div class="dvd"></div>
+
+      <section class="sb" id="s7c">
+        <div class="slbl">Part II</div>
+        <h2 class="st">2027학년도 모집단위 구조조정 개요</h2>
+        <p class="sd">중원대학교는 2027학년도부터 전체 입학정원을 809명(+8명)으로 확대하고, <strong>AI융합대학을 신설</strong>하는 등 JX 트렌드에 선제적으로 대응하는 구조조정을 단행하였습니다.</p>
+        <div class="tw"><table>
+          <thead><tr><th>단과대학</th><th>2026 정원</th><th>2027 정원</th><th>증감</th><th>주요 변경사항</th></tr></thead>
+          <tbody>
+            <tr><td><strong>사회문화교양대학</strong></td><td>127명</td><td>132명</td><td style="color:#16a34a;font-weight:700">+5</td><td>AI드라마제작학과 신설(+20), AI융합디자인학부 개편(+5), 체육→스포츠이동</td></tr>
+            <tr><td><strong>체육대학</strong></td><td>177명</td><td>150명</td><td style="color:var(--R);font-weight:700">▼27</td><td>운동레저·골프과학·스포츠지도 등 학부제 통합·감축</td></tr>
+            <tr><td><strong>의료보건대학</strong></td><td>311명</td><td>291명</td><td style="color:var(--R);font-weight:700">▼20</td><td>바이오산업→AI융합대학 이동(-20명), 기존 보건계열 유지</td></tr>
+            <tr><td><strong>항공대학</strong></td><td>150명</td><td>95명</td><td style="color:var(--R);font-weight:700">▼55</td><td>기계·전기반도체·스마트농산림·드론봇→AI융합대학/항공대 이동</td></tr>
+            <tr><td><strong style="color:var(--M)">AI융합대학 (신설)</strong></td><td>—</td><td><strong style="color:var(--M)">105명</strong></td><td style="color:#16a34a;font-weight:700">신설</td><td>기계(25)+바이오융합(30)+전기반도체(30)+스마트농산림(20) 통합 신설</td></tr>
+            <tr><td><strong>평생학습대학</strong></td><td>36명</td><td>36명</td><td>±0</td><td>글로컬인재대학→평생학습대학 개편, NewStart학과 전환</td></tr>
+            <tr><td><strong style="color:var(--M)">국제대학</strong></td><td>정원외</td><td>정원외</td><td style="color:#16a34a;font-weight:700">확대</td><td>9개 전담학과 신설, 스마트농산림·보건 등 국제학과 신설</td></tr>
+            <tr style="background:rgba(25,47,114,.07)"><td><strong>합 계</strong></td><td>801명</td><td><strong>809명</strong></td><td style="color:#16a34a;font-weight:700"><strong>+8</strong></td><td>대학원 8명 → 학부 환원</td></tr>
+          </tbody>
+        </table></div>
+        <div class="hb hb-b">
+          <h5>🔑 핵심 포인트</h5>
+          <p><strong>AI융합대학 신설(105명)</strong>으로 기계·바이오·전기반도체·스마트농산림 학과를 한 단과대학으로 통합하여 AI 기반 공학 교육 클러스터를 구축하였습니다. <strong>국제대학에 9개 외국인유학생 전담학과를 신설</strong>하여 글로벌 모집 기반을 완성하였습니다.</p>
+        </div>
+      </section>
+
+      <div class="dvd"></div>
+
+      <section class="sb" id="s7d">
+        <div class="slbl">Part III</div>
+        <h2 class="st">핵심 학과 심층 분석</h2>
+        <p class="sd">JX 인식 변화와 2027학년도 구조조정 결과를 교차 분석하여, 학과별 기회·위험 요소와 대응 방향을 도출합니다.</p>
+
+        <div class="ah" onclick="tog(this)"><span>① 간호학과 (163명) — AI 기피 최저·지원 선호 최강 학과</span><span class="aha">▼</span></div>
+        <div class="ab">
+          <p>의·치·한·약·수 계열이 'AI 안정 전공' 2위(25.3%)를 기록하면서 간호학과의 선호도는 구조적으로 더욱 강화될 전망입니다. 중원대 전체 학과 중 가장 많은 정원(163명)을 유지하며 5~7등급 수험생 진학 수요의 핵심 견인차 역할을 합니다.</p>
+          <ul>
+            <li><strong>임상 실습 기관 다양화</strong> 및 AI 기반 간호 시뮬레이션 교육 도입</li>
+            <li><strong>지역 의료기관 MOU 확대</strong> → 취업률·국시 합격률 데이터를 입시 홍보 핵심 지표로 활용</li>
+            <li>국제대학 내 간호학 관련 전공 없음 → <strong>의료·보건 계열 글로벌 트랙 개설 검토</strong></li>
+          </ul>
+        </div>
+
+        <div class="ah" onclick="tog(this)"><span>② 스마트농산림학과 (20명, AI융합대학) — 앵커 특성화 핵심 학과</span><span class="aha">▼</span></div>
+        <div class="ab">
+          <p>2027학년도부터 AI융합대학 소속으로 이동하고, 국제대학에도 스마트농산림학과(정원외)를 동시 운영합니다. 기계·자동차·로봇(AI 안정 전공 4위, 14.4%)과 전기·전자·통신(5위, 11.5%) 분야를 포괄하는 <strong>'스마트팜 ICT + 드론 + 농기계 자동화'</strong> 융합 전공으로 재포지셔닝이 가능합니다.</p>
+          <ul>
+            <li>"흙을 만지는 농업" → <strong>"데이터·AI·로봇이 주도하는 첨단농업"</strong>으로 홍보 언어 전환</li>
+            <li>AI융합대학 내 전기반도체컴퓨터공학과(30명)·기계공학과(25명)와 <strong>융합 교육과정 설계</strong></li>
+            <li>국제대학 스마트농산림학과(정원외): <strong>동남아·중앙아시아 농업 국가 유학생 유치 특화</strong></li>
+            <li>정부 앵커사업 + 교육부 특성화 사업 연계로 재정 지원 극대화</li>
+          </ul>
+        </div>
+
+        <div class="ah" onclick="tog(this)"><span>③ AI융합대학 신설 (105명) — JX 대응 핵심 클러스터</span><span class="aha">▼</span></div>
+        <div class="ab">
+          <p>기계공학(25)·바이오융합(30)·전기반도체컴퓨터공학(30)·스마트농산림(20)으로 구성. 바이오융합은 대학원→학부 환원 8명 + 자체조정 2명으로 <strong>10명 증원</strong>하는 등 성장 동력을 강화했습니다.</p>
+          <ul>
+            <li>4개 학과 융합 프로젝트 수업·공동실험실 구축 → <strong>AI융합 특화 브랜드화</strong></li>
+            <li>반도체·AI 계열 수험생 선호(AI 안정 전공 1·3위)와 정확히 맞닿은 학과 구성</li>
+            <li>바이오융합학과: <strong>AI 신약개발·바이오데이터분석</strong> 커리큘럼으로 차별화</li>
+          </ul>
+        </div>
+
+        <div class="ah" onclick="tog(this)"><span>④ 기피 위험 학과군 — 어문·인문 계열 대응 방향</span><span class="aha">▼</span></div>
+        <div class="ab">
+          <p>종교문화학부(어문 포함, 정원 15명·유보 10명)는 인문·어문 계열로 AI 기피 전공 상위에 해당합니다. 체육대학도 스포츠과학부(-29명)·스포츠산업학부 학부제 전환으로 정원이 감축되어 충원 관리가 필요합니다.</p>
+          <ul>
+            <li>종교문화학부: <strong>AI리터러시·문화콘텐츠 융합 트랙 신설</strong>로 취업 경쟁력 보완</li>
+            <li>스포츠과학부: 학부제 통합 이후 충원율 추이 집중 모니터링</li>
+            <li>유보 정원(종교문화학부 10명, 바이오융합 5명, 전기반도체 6명)의 전략적 활용 방안 검토</li>
+          </ul>
+        </div>
+
+        <div class="ah" onclick="tog(this)"><span>⑤ 국제대학 — 10개 외국인유학생 전담학과 신설</span><span class="aha">▼</span></div>
+        <div class="ab">
+          <p>2027학년도 국제대학 신설 학과(정원외·외국인유학생 전담): 한국어학과 / 경영학과 / 항공서비스학과 / 기계공학과 / 전기전자공학과 / 뷰티메디컬학과 / 생명공학과 / 교육학과 / 스마트농산림학과 / 보건복지학과 (총 10개 학과)</p>
+          <ul>
+            <li>스마트농산림학과(국제대학): <strong>동남아·중앙아시아 타겟</strong>, '첨단 농업 기술 이전' 교육 포지셔닝</li>
+            <li>보건복지학과(국제대학): 개발도상국 보건의료 인력 양성 수요 연계, <strong>KOICA 협력 추진</strong></li>
+            <li>교육부 Study Korea 3.0 사업 연계 장학 프로그램 설계</li>
+            <li>비자 관리·생활 지원·한국어 교육 인프라 선행 구축 필요</li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="dvd"></div>
+
+      <section class="sb" id="s7e">
+        <div class="slbl">Part IV</div>
+        <h2 class="st">AI 기피·선호 전공 대비 — 중원대 학과 대응 매트릭스</h2>
+        <p class="sd">수험생 인식(AI 기피·선호 전공)과 중원대 2027학년도 모집단위를 교차하여 위험도 및 전략 방향을 종합합니다.</p>
+        <div class="tw"><table>
+          <thead><tr><th>수험생 인식</th><th>AI 기피·선호 전공</th><th>중원대 관련 학과</th><th>위험도</th><th>전략 방향</th></tr></thead>
+          <tbody>
+            <tr><td><strong>★ 기피 1위</strong></td><td>어문계열 (14.6%)</td><td>종교문화학부(한국어교육문화)</td><td><span style="color:var(--R);font-weight:700">🔴 높음</span></td><td>AI·문화콘텐츠 융합 트랙 신설</td></tr>
+            <tr><td><strong>★ 기피 2위</strong></td><td>회계·세무·금융 (12.9%)</td><td>해당 학과 없음 (타 대학 사례 참조)</td><td><span style="color:#d97706;font-weight:700">🟡 낮음</span></td><td>AI 세무 자동화 커리큘럼 벤치마킹</td></tr>
+            <tr><td><strong>★ 선호 1위</strong></td><td>반도체 (30.7%)</td><td>전기반도체컴퓨터공학과 (30명)</td><td><span style="color:#16a34a;font-weight:700">🟢 낮음</span></td><td>AI·반도체 특화 강화, 홍보 전면화</td></tr>
+            <tr><td><strong>★ 선호 2위</strong></td><td>의·치·한·약·수 (25.3%)</td><td>간호학과 (163명)</td><td><span style="color:#16a34a;font-weight:700">🟢 낮음</span></td><td>현 강점 유지·심화, 실습 네트워크 확대</td></tr>
+            <tr><td><strong>★ 선호 3위</strong></td><td>컴퓨터·SW·AI (16.5%)</td><td>전기반도체컴퓨터공학과(컴퓨터전공)</td><td><span style="color:#16a34a;font-weight:700">🟢 낮음</span></td><td>AI 소프트웨어 교육 강화, 산학 연계</td></tr>
+            <tr><td><strong>★ 선호 4위</strong></td><td>기계·로봇·드론 (14.4%)</td><td>기계공학과(25명)·드론봇군사학과(20명)</td><td><span style="color:#16a34a;font-weight:700">🟢 낮음</span></td><td>스마트농기계·군용드론 특화 브랜딩</td></tr>
+            <tr><td><strong>★ 신성장</strong></td><td>AI 콘텐츠·디자인</td><td>AI드라마제작학과(20명)·AI융합디자인학부(25명)</td><td><span style="color:#16a34a;font-weight:700">🟢 낮음</span></td><td>생성형 AI 창작 실습 중심 커리큘럼 구축</td></tr>
+            <tr><td><strong>★ 유망</strong></td><td>바이오·생명과학</td><td>바이오융합학과 (30명, +10명)</td><td><span style="color:#16a34a;font-weight:700">🟢 낮음</span></td><td>AI 신약·데이터 분석 융합 특화</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+
+      <div class="dvd"></div>
+
+      <section class="sb" id="s7f">
+        <div class="slbl">Part V</div>
+        <h2 class="st">6대 전략 과제</h2>
+        <p class="sd">JX 인식 변화 데이터와 2027학년도 모집단위 구조조정 결과를 종합한 6대 전략 과제를 제언드립니다.</p>
+        <div class="ag">
+          <div class="ac ac1"><div class="acn">제언 1 · 최우선</div><h4>간호학과 경쟁력 심화 — 보건의료 클러스터 구축</h4><p>임상 실습 기관 다양화·AI 간호 시뮬레이션 교육 도입·지역 의료기관 MOU 확대. 163명 정원 유지 속 교육 품질 차별화에 집중합니다.</p><ul><li><strong>취업률·국시 합격률 데이터</strong>를 입시 홍보 핵심 지표화</li><li>국제대학 의료·보건 계열 글로벌 트랙 개설 검토</li></ul><div class="acef">🎯 AI 안정 전공 선호도 상승 구조를 최대한 활용</div></div>
+          <div class="ac ac2"><div class="acn">제언 2 · 우선</div><h4>AI융합대학·스마트농산림 앵커 특성화 — 'AI 농업·공학 브랜딩'</h4><p>AI융합대학(105명) 4개 학과 융합 교육과정 및 공동실험실 구축. 스마트농산림학과를 '데이터·AI·드론 주도 첨단농업' 브랜드로 전환합니다.</p><ul><li>교육부 앵커·특성화 사업 연계로 <strong>재정 지원 극대화</strong></li><li>국제대학 스마트농산림학과 동남아·중앙아시아 타겟 운영</li></ul><div class="acef">🎯 괴산 특화 자원 + AI 트렌드 = 중원대 독점 브랜드</div></div>
+          <div class="ac ac3"><div class="acn">제언 3 · 중요</div><h4>기피 학과 커리큘럼 재설계 — AI 융합 트랙 신설</h4><p>종교문화학부(한국어교육문화 포함)에 AI리터러시·문화콘텐츠 융합 과목 필수 편성. 스포츠과학부 학부제 통합 이후 충원율 집중 모니터링.</p><ul><li>유보 정원(총 21명) 해소 방안을 연도별 로드맵으로 수립</li><li><strong>AI 기피 전공 이미지 탈피</strong>를 위한 수험생 대상 소통 강화</li></ul><div class="acef">🎯 충원율 하락 위험 선제 차단</div></div>
+          <div class="ac ac4"><div class="acn">제언 4 · 중요</div><h4>국제대학 외국인 유학생 유치 로드맵 수립</h4><p>동남아·중앙아시아 파트너 대학 협약, 교육부 Study Korea 3.0 사업 신청, 한·영 이중 교육과정 설계를 단계적으로 추진합니다.</p><ul><li>비자·생활 지원·언어 교육 인프라 구축 계획 성과감사실 주관 수립</li><li>KOICA 협력 프로그램 연계 → <strong>총장 보고 체계 확립</strong></li></ul><div class="acef">🎯 국제대학 10개 학과 활성화 → RISE 정주 지표 연동</div></div>
+          <div class="ac ac1"><div class="acn">제언 5 · 중요</div><h4>AI드라마제작·AI융합디자인 신규 학과 홍보 전략 지원</h4><p>신설·개편 학과에 대한 수험생 인지도 제고를 위해 SNS·숏폼 중심의 홍보 전략을 지원합니다.</p><ul><li>생성형 AI 창작 실습 영상·포트폴리오를 <strong>입시 마케팅 핵심 콘텐츠</strong>로 활용</li><li>JX 트렌드 인식 고교생 타겟 학과 홍보 자료 제작 지원</li></ul><div class="acef">🎯 신설 학과 조기 인지도 확보 → 충원율 선제 관리</div></div>
+          <div class="ac ac2"><div class="acn">제언 6 · 장기</div><h4>IR 기반 성과관리 연계 — 모집단위별 KPI 체계 구축</h4><p>JX 인식 변화 데이터·학과별 지원율·충원율·취업률을 IR 시스템에 통합 관리합니다. 2027학년도 신규 구조조정 효과를 측정하는 KPI를 학과별로 설정하고 연 1회 이상 총장 보고 체계를 확립합니다.</p><ul><li><strong>2026년 최고 목표 프로젝트(IR기반 성과관리시스템)</strong>와 직접 연동</li><li>이번 브리프를 정기 발행 체계의 공식 시작으로 선언</li></ul><div class="acef">🎯 데이터 기반 입학전략 → 대학 생존 경쟁력 강화</div></div>
+        </div>
+        <div class="cbox">
+          <h3>🎯 핵심 결론: JX 트렌드와 구조조정의 정합도는 높다 — 하지만 실행이 관건</h3>
+          <p>중원대학교의 2027학년도 모집단위 구조조정은 AI융합대학 신설, 스마트농산림 이동, AI드라마제작학과 신설 등으로 JX 트렌드와 높은 정합도를 보이고 있습니다. 그러나 구조조정 자체보다 <strong>① 홍보 언어의 전환, ② AI 융합 커리큘럼 실질 구현, ③ 기피 학과의 이미지 리포지셔닝</strong>이 성패를 가릅니다.</p>
+          <ul>
+            <li><strong>단기(2026년 하반기)</strong>: 6대 행동과제 실행 계획 총장 보고, 입시 홍보 자료 AI 중심 전면 재편</li>
+            <li><strong>중기(2027년)</strong>: AI융합대학 융합 교육과정 가동, 국제대학 10개 학과 첫 신입생 유치 성과 점검</li>
+            <li><strong>장기(2028년)</strong>: IR기반 성과관리시스템 학과별 KPI 대시보드 완성, JX 인식 변화 모니터링 상시 체계 확립</li>
+          </ul>
+        </div>
+        <p style="font-size:12px;color:var(--mu);margin-top:18px;line-height:1.75">※ 참고자료: ① 매일경제 2026년 6월 1일 A25면(이용익 기자) / ② 2027학년도 모집단위 구조조정 결과(중원대학교 교무처 내부문서)<br>※ 본 자료는 대내 전략 수립 목적의 내부 참고 자료이며 외부 배포를 목적으로 하지 않습니다. | 작성: 중원대학교 성과감사실 | 2026. 06. 01</p>
+      </section>
+
+    </div>
+  </main>
+</div>
+<!-- ip-i7 END -->
+
+
+</div>
+<!-- tab-issues END -->
+
+<!-- ============================================================
+     아카이브 탭
+============================================================ -->
+<div id="tab-archive" class="tp">
+  <div style="background:linear-gradient(135deg,#0f1f50,var(--M));color:#fff;padding:44px 0 36px">
+    <div class="con">
+      <h2 style="font-size:28px;font-weight:800;margin-bottom:6px">🗂 이슈브리프 아카이브</h2>
+      <p style="font-size:13.5px;color:rgba(255,255,255,.65)">중원대학교 성과감사실이 발행한 모든 이슈 분석 보고서</p>
+    </div>
+  </div>
+  <div style="background:var(--sf);border-bottom:1px solid var(--bd);padding:18px 0">
+    <div class="con">
+      <div style="display:flex;gap:30px;flex-wrap:wrap;align-items:center">
+        <div style="text-align:center"><div style="font-size:26px;font-weight:900;color:var(--M)">7</div><div style="font-size:12px;color:var(--mu)">총 발행 호수</div></div>
+        <div style="text-align:center"><div style="font-size:20px;font-weight:900;color:var(--M)">2026.04~</div><div style="font-size:12px;color:var(--mu)">발행 시작</div></div>
+        <div style="text-align:center"><div style="font-size:26px;font-weight:900;color:var(--M)">수시</div><div style="font-size:12px;color:var(--mu)">발행 주기</div></div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:32px 0 72px">
+    <div class="con">
+      <div class="arch-grid">
+        <div class="acard latest" onclick="goIssue('i7')">
+          <div class="athumb" style="background:linear-gradient(135deg,#1a0f2e,#3d1a6e)"><div class="avol">07</div><span class="avbdg" style="background:var(--Y);color:var(--M)">VOL.7</span><span class="anew">✨ NEW</span></div>
+          <div class="abody"><div class="adt">2026년 6월 1일 · 최신호</div><div class="attl">'JX 시대'가 바꾸는 고교생 전공 선택 — 2027학년도 모집단위 구조조정 반영판</div><div class="asum">AI·자동화로 인한 직업 대전환(JX)이 수험생의 전공 선택 기준을 근본적으로 변화시키고 있다. 중원대 2027학년도 모집단위 구조조정 결과와 교차 분석하여 학과별 대응 전략을 제안한다.</div></div>
+          <div class="aft"><span class="atag">AI전공선택·입학전략</span><span style="color:var(--M);font-weight:700">→</span></div>
+        </div>
+        <div class="acard" onclick="goIssue('i6')">
+          <div class="athumb at6"><div class="avol">06</div><span class="avbdg" style="background:rgba(255,255,255,.2);color:#fff">VOL.6</span></div>
+          <div class="abody"><div class="adt">2026년 5월 28일</div><div class="attl">미국 명문대 신뢰 위기와 한국 대학에의 함의 — Yale 신뢰위원회 보고서 분석</div><div class="asum">예일대학교 신뢰·평판 위원회 보고서를 중심으로 미국 고등교육의 5대 구조적 병폐를 분석하고, 20대 권고안과 중원대 선제 대응 4대 전략을 제시한다.</div></div>
+          <div class="aft"><span class="atag">대학신뢰·거버넌스</span><span style="color:var(--M);font-weight:700">→</span></div>
+        </div>
+        <div class="acard" onclick="goIssue('i5')">
+          <div class="athumb at5"><div class="avol">05</div><span class="avbdg" style="background:rgba(255,255,255,.2);color:#fff">VOL.5</span></div>
+          <div class="abody"><div class="adt">2026년 5월 21일</div><div class="attl">게으른 교수를 거르는 것도 개혁이다 — 교원 인사·업적평가 제도 혁신 방안</div><div class="asum">한국일보 칼럼 기반 지방대 교원 인사제도의 구조적 문제를 진단하고, 중원대학교 규정 정밀 대조를 통한 4대 Action Plan을 제시한다.</div></div>
+          <div class="aft"><span class="atag">교원인사·업적평가</span><span style="color:var(--M);font-weight:700">→</span></div>
+        </div>
+        <div class="acard" onclick="goIssue('i4')">
+          <div class="athumb at4"><div class="avol">04</div><span class="avbdg" style="background:rgba(255,255,255,.2);color:#fff">VOL.4</span></div>
+          <div class="abody"><div class="adt">2026년 5월 19일</div><div class="attl">AI 시대, 교수는 무엇을 두려워하고 어떻게 바꿔야 하는가</div><div class="asum">배상훈 교수 칼럼 분석과 인지과학 실증 데이터를 기반으로 AI 시대 대학 교수법 혁신 방향과 즉시 적용 실천 가이드를 제시한다.</div></div>
+          <div class="aft"><span class="atag">AI교수법·에듀테크</span><span style="color:var(--M);font-weight:700">→</span></div>
+        </div>
+        <div class="acard" onclick="goIssue('i3')">
+          <div class="athumb at3"><div class="avol">03</div><span class="avbdg" style="background:rgba(255,255,255,.2);color:#fff">VOL.3</span></div>
+          <div class="abody"><div class="adt">2026년 4월 21일</div><div class="attl">교육부 앵커(Anchor/RISE) 시행령 제정안 전격 분석 및 중원대 대응전략</div><div class="asum">대통령령 격상, 성과 차등배분 법제화, 2트랙(RISE 수성 & 초광역 인재사업) 미래 동력 모델을 중심으로 중원대 전략을 분석한다.</div></div>
+          <div class="aft"><span class="atag">RISE·앵커·시행령</span><span style="color:var(--M);font-weight:700">→</span></div>
+        </div>
+        <div class="acard" onclick="goIssue('i2')">
+          <div class="athumb at2"><div class="avol">02</div><span class="avbdg" style="background:rgba(255,255,255,.2);color:#fff">VOL.2</span></div>
+          <div class="abody"><div class="adt">2026년 4월 9일</div><div class="attl">비수도권 직업계고 '일반대 > 전문대' 첫 추월 현황 분석 및 우리 대학 대응 전략</div><div class="asum">대입 골든크로스 현상을 규명하고, JWU 간호학과 신규 유입 실증 분석 및 Nursing Bridge·스킬 스왑 로드맵을 제시한다.</div></div>
+          <div class="aft"><span class="atag">직업계고·보건계열</span><span style="color:var(--M);font-weight:700">→</span></div>
+        </div>
+        <div class="acard" onclick="goIssue('i1')">
+          <div class="athumb at1"><div class="avol">01</div><span class="avbdg" style="background:rgba(255,255,255,.2);color:#fff">VOL.1 창간호</span></div>
+          <div class="abody"><div class="adt">2026년 4월 8일 · 창간호</div><div class="attl">RISE에서 ANCHOR로: 지역성장 인재양성체계 대전환</div><div class="asum">교육부 RISE 재구조화 가이드라인을 해부하고, 1차년도 성과(집행률 65%) 복구 방안 및 ANCHOR Class 대응책을 창간호로 제시한다.</div></div>
+          <div class="aft"><span class="atag">RISE·앵커·IR성과관리</span><span style="color:var(--M);font-weight:700">→</span></div>
+        </div>
+        <div class="acard" style="opacity:.5;cursor:default">
+          <div style="height:105px;background:#e9ecef;display:flex;align-items:center;justify-content:center;font-size:30px">🔜</div>
+          <div class="abody"><div class="adt">발행 예정</div><div class="attl" style="color:var(--mu)">제7호 — 발행 준비 중</div><div class="asum">새로운 이슈 발생 시 즉시 발행됩니다. 교육부 정책 변화 및 국내외 주요 동향을 모니터링 중입니다.</div></div>
+          <div class="aft"><span class="atag" style="opacity:.5">준비중</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- tab-archive END -->
+
+<!-- ============================================================
+     소개 탭
+============================================================ -->
+<div id="tab-intro" class="tp">
+  <div style="background:linear-gradient(135deg,#0f1f50,var(--M));color:#fff;padding:56px 0;text-align:center">
+    <div class="con">
+      <h2 style="font-size:clamp(24px,4vw,40px);font-weight:900;margin-bottom:14px">💡 웹진 소개</h2>
+      <p style="font-size:14.5px;color:rgba(255,255,255,.7);max-width:580px;margin:0 auto;line-height:1.75">중원대학교 성과감사실 이슈브리프 웹진은 교내 교육 혁신 및 대학 거버넌스 강화를 위한 전문 분석 리포트 플랫폼입니다.</p>
+    </div>
+  </div>
+  <div style="padding:48px 0 80px">
+    <div class="con cw">
+      <h3 style="font-size:20px;font-weight:800;margin-bottom:8px">발간 목적 및 방향</h3>
+      <p style="font-size:14px;color:var(--mu);margin-bottom:28px;line-height:1.75">정부 교육 정책의 급격한 변화와 국내외 주요 이슈에 선제적으로 대응하기 위해, <strong>총장 지시사항</strong>에 따라 성과감사실이 주관하여 정기·수시 이슈 브리프를 발간합니다.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:24px">
+        <div class="card"><div style="font-size:30px;margin-bottom:12px">📊</div><h4 style="color:var(--M);margin-bottom:8px">IR기반 성과관리</h4><p>2026년 핵심 프로젝트로 IR기반 성과관리시스템 구축을 목표로 분석 역량을 집중합니다.</p></div>
+        <div class="card"><div style="font-size:30px;margin-bottom:12px">🔍</div><h4 style="color:var(--M);margin-bottom:8px">재정지원사업 분석</h4><p>교육부 RISE·앵커 등 주요 재정지원사업의 정책 변화를 실시간으로 모니터링하고 대응전략을 수립합니다.</p></div>
+        <div class="card"><div style="font-size:30px;margin-bottom:12px">⚖️</div><h4 style="color:var(--M);margin-bottom:8px">감사·법무 지원</h4><p>대내외 감사 사항 및 청탁금지법, 법무 이슈에 대한 정보를 신속하게 공유합니다.</p></div>
+        <div class="card"><div style="font-size:30px;margin-bottom:12px">🌐</div><h4 style="color:var(--M);margin-bottom:8px">글로벌 벤치마킹</h4><p>국내외 주요 대학과 기관의 혁신 사례를 분석하여 중원대 맞춤형 시사점을 도출합니다.</p></div>
+        <div class="card"><div style="font-size:30px;margin-bottom:12px">📋</div><h4 style="color:var(--M);margin-bottom:8px">성과감사실 소관 사무</h4><p>대내외 평가 성과 분석 및 관리 | 대내외 감사 | 대학입학전형 공정관리대책위원회 운영 | 법무 지원 및 소송업무 | 청탁금지법 관련 업무</p></div>
+        <div class="card"><div style="font-size:30px;margin-bottom:12px">🎯</div><h4 style="color:var(--M);margin-bottom:8px">2026년 최고 목표</h4><p>IR기반 성과관리시스템 구축 프로젝트를 통해 데이터 기반 대학 거버넌스의 선도적 모델을 수립합니다.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- tab-intro END -->
+
+<!-- TOC 닷 네비게이션 -->
+<div class="toc-nav" id="tocNav">
+  <div class="tnd on" data-i="0" onclick="tcClick(0)"></div>
+  <div class="tnd" data-i="1" onclick="tcClick(1)"></div>
+  <div class="tnd" data-i="2" onclick="tcClick(2)"></div>
+  <div class="tnd" data-i="3" onclick="tcClick(3)"></div>
+  <div class="tnd" data-i="4" onclick="tcClick(4)"></div>
+</div>
+
+<!-- 푸터 -->
+<footer>
+  <div class="fi">
+    <div><div class="fbold">중원대학교 성과감사실 이슈브리프 웹진</div><div style="margin-top:4px">본 자료는 내부 참고 자료로, 외부 배포를 금지합니다.</div></div>
+    <div style="text-align:right"><div>최신호: 제7호 (2026. 06. 01)</div><div style="margin-top:4px">© 2026 JWU 성과감사실. All rights reserved.</div></div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JavaScript
+============================================================ -->
+<script>
+/* ── 섹션 맵 ── */
+const SECS = {
+  i7:['s7a','s7b','s7c','s7d','s7e','s7f'],
+  i6:['s6a','s6b','s6c','s6d','s6e'],
+  i5:['s5a','s5b','s5c','s5d','s5e'],
+  i4:['s4a','s4b','s4c','s4d','s4e'],
+  i3:['s3a','s3b','s3c','s3d','s3e'],
+  i2:['s2a','s2b','s2c','s2d','s2e'],
+  i1:['s1a','s1b','s1c','s1d','s1e']
+};
+let cur = 'i7';
+
+/* ── 메인 탭 전환 ── */
+function swTab(id, btn){
+  document.querySelectorAll('.tp').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.gtb').forEach(b => b.classList.remove('on'));
+  document.getElementById('tab-' + id).classList.add('on');
+  btn.classList.add('on');
+  /* 이슈 탭일 때만 isbar·toc 표시 */
+  const isbar = document.getElementById('isbar');
+  const toc = document.getElementById('tocNav');
+  if(isbar) isbar.classList.toggle('vis', id === 'issues');
+  if(toc) toc.style.display = id === 'issues' ? '' : 'none';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ── 이슈 서브탭 전환 ── */
+function swIssue(id, btn){
+  /* 모든 이슈 패널 숨기기 */
+  document.querySelectorAll('.ip').forEach(p => p.classList.remove('on'));
+  /* 모든 서브탭 버튼 비활성화 */
+  document.querySelectorAll('.itb').forEach(b => b.classList.remove('on'));
+  /* 선택된 패널 표시 */
+  const panel = document.getElementById('ip-' + id);
+  if(panel) panel.classList.add('on');
+  /* 선택된 버튼 활성화 */
+  if(btn) btn.classList.add('on');
+  cur = id;
+  updToc();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ── 아카이브 카드 클릭 → 이슈 읽기 탭으로 이동 ── */
+function goIssue(id){
+  /* 이슈 읽기 탭 활성화 */
+  const issuesBtn = document.querySelector('.gtb[onclick*="issues"]');
+  swTab('issues', issuesBtn);
+  /* 해당 이슈 서브탭 활성화 */
+  const issuBtn = document.querySelector(`.itb[onclick*="'${id}'"]`);
+  swIssue(id, issuBtn);
+}
+
+/* ── 아코디언 ── */
+function tog(h){
+  const b = h.nextElementSibling;
+  const isOpen = h.classList.contains('op');
+  h.classList.toggle('op', !isOpen);
+  if(b) b.classList.toggle('op', !isOpen);
+}
+
+/* ── 벤치마크 탭 (섹션 내부) ── */
+function swBtab(id, btn){
+  const section = btn.closest('section');
+  section.querySelectorAll('.bpanel').forEach(p => p.classList.remove('on'));
+  section.querySelectorAll('.btab').forEach(b => b.classList.remove('on'));
+  const panel = document.getElementById(id);
+  if(panel) panel.classList.add('on');
+  btn.classList.add('on');
+}
+
+/* ── TOC 닷 업데이트 ── */
+function updToc(){
+  const secs = SECS[cur] || [];
+  const dots = document.querySelectorAll('.tnd');
+  /* 현재 이슈의 섹션 수에 맞게 닷 표시 */
+  dots.forEach((d, i) => { d.style.display = i < secs.length ? '' : 'none'; });
+  /* 스크롤 위치에 따라 활성화 닷 결정 */
+  const sy = window.scrollY + 100;
+  let active = 0;
+  secs.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if(el && el.getBoundingClientRect().top + window.scrollY <= sy) active = i;
+  });
+  dots.forEach((d, i) => d.classList.toggle('on', i === active));
+}
+
+/* ── TOC 클릭 스크롤 ── */
+function tcClick(i){
+  const secs = SECS[cur] || [];
+  if(secs[i]){
+    const el = document.getElementById(secs[i]);
+    if(el) window.scrollTo({top: el.offsetTop - 110, behavior:'smooth'});
+  }
+}
+
+/* ── 읽기 진행 바 + TOC ── */
+window.addEventListener('scroll', () => {
+  const t = window.scrollY;
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  document.getElementById('rp').style.width = (h > 0 ? (t/h*100) : 0) + '%';
+  updToc();
+});
+
+/* ── 글자 크기 ── */
+let fs = 16;
+function chFont(d){
+  fs = Math.min(20, Math.max(13, fs + d));
+  document.body.style.fontSize = fs + 'px';
+}
+
+/* ── 초기화 ── */
+window.addEventListener('DOMContentLoaded', () => {
+  updToc();
+});
+</script>
 </body>
 </html>
