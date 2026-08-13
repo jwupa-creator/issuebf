@@ -5,13 +5,6 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>JWU 성과감사실 이슈브리프 웹진</title>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B00D4CE4K6"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-B00D4CE4K6');
-</script>
 <link rel="preconnect" href="https://cdn.jsdelivr.net"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"/>
 <style>
@@ -23,7 +16,7 @@ gtag('config', 'G-B00D4CE4K6');
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--fn);background:var(--bg);color:var(--tx);line-height:1.75;font-size:16px}
+body{font-family:var(--fn);background:var(--bg);color:var(--tx);line-height:1.75;font-size:16px;word-break:keep-all;overflow-wrap:break-word}
 a{text-decoration:none;color:inherit}
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-thumb{background:var(--M);border-radius:3px}
@@ -90,7 +83,7 @@ a{text-decoration:none;color:inherit}
 .scqa-wrap{background:var(--sf);padding:38px 0;border-bottom:1px solid var(--bd)}
 .scqa-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:16px}
 .sc{border-radius:var(--ra);padding:18px 18px 18px 20px;background:var(--bg);border:1px solid var(--bd);position:relative;overflow:hidden}
-.sc::before{content:"";position:absolute;top:0;left:0;width:4px;height:100%}
+.sc::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px}
 .sc-s::before{background:var(--M)}.sc-c::before{background:var(--R)}.sc-q::before{background:var(--Y)}.sc-a::before{background:#16a34a}
 .scl{font-size:9.5px;font-weight:800;letter-spacing:.1em;margin-bottom:5px;opacity:.45}
 .sc-s .scl{color:var(--M)}.sc-c .scl{color:var(--R)}.sc-q .scl{color:#b45309}.sc-a .scl{color:#15803d}
@@ -122,10 +115,10 @@ a{text-decoration:none;color:inherit}
 .hb ul{padding-left:18px;margin-top:8px}
 .hb ul li{font-size:13px;color:var(--mu);margin-bottom:5px;line-height:1.65}
 .hb ul li strong{color:var(--tx)}
-.hb-y{background:rgba(246,181,68,.1);border:1px solid rgba(246,181,68,.3);border-left:4px solid var(--Y)}
-.hb-b{background:rgba(25,47,114,.04);border:1px solid rgba(25,47,114,.12);border-left:4px solid var(--M)}
-.hb-r{background:rgba(148,36,58,.05);border:1px solid rgba(148,36,58,.12);border-left:4px solid var(--R)}
-.hb-g{background:rgba(22,163,74,.06);border:1px solid rgba(22,163,74,.16);border-left:4px solid #16a34a}
+.hb-y{background:rgba(246,181,68,.1);border:1px solid rgba(246,181,68,.3)}
+.hb-b{background:rgba(25,47,114,.04);border:1px solid rgba(25,47,114,.12)}
+.hb-r{background:rgba(148,36,58,.05);border:1px solid rgba(148,36,58,.12)}
+.hb-g{background:rgba(22,163,74,.06);border:1px solid rgba(22,163,74,.16)}
 
 /* ── 통계 ── */
 .sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:18px 0}
@@ -139,17 +132,17 @@ a{text-decoration:none;color:inherit}
 .tw{overflow-x:auto;margin:16px 0;border-radius:var(--ra);border:1px solid var(--bd);box-shadow:0 2px 12px rgba(25,47,114,.08)}
 table{width:100%;border-collapse:collapse;font-size:13px}
 thead{background:var(--M);color:#fff}
-th{padding:12px 14px;font-weight:600;text-align:left;white-space:nowrap;font-size:12px}
+th{padding:12px 14px;font-weight:600;text-align:left;font-size:12px;word-break:keep-all}
 td{padding:11px 14px;border-bottom:1px solid var(--bd);color:var(--tx);line-height:1.65;vertical-align:top}
 tbody tr:nth-child(even){background:rgba(25,47,114,.025)}
 tbody tr:last-child td{border-bottom:none}
 td strong{color:var(--M)}
 
 /* ── 인용 ── */
-.qb{border-left:4px solid var(--R);padding:14px 20px;background:rgba(148,36,58,.04);border-radius:0 var(--ra) var(--ra) 0;margin:20px 0}
+.qb{padding:14px 20px;background:rgba(148,36,58,.04);border:1px solid rgba(148,36,58,.14);border-radius:var(--ra);margin:20px 0}
 .qb p{font-size:14.5px;font-style:italic;font-weight:500;color:var(--tx);line-height:1.7}
 .qb cite{display:block;font-size:11px;color:var(--mu);margin-top:7px;font-style:normal;font-weight:600}
-.qb-b{border-left-color:var(--M);background:rgba(25,47,114,.04)}
+.qb-b{background:rgba(25,47,114,.04);border-color:rgba(25,47,114,.14)}
 
 /* ── 구분선 ── */
 .dvd{height:1px;background:var(--bd);margin:40px 0}
@@ -287,7 +280,8 @@ footer{background:var(--M);color:rgba(255,255,255,.58);padding:22px 0;font-size:
 <!-- ========== 이슈 서브탭 바 (isbar) ========== -->
 <div class="isbar vis" id="isbar">
   <div class="isbi">
-    <button class="itb on" onclick="swIssue('i9',this)">🔥 09호<span class="itnew">NEW</span></button>
+    <button class="itb on" onclick="swIssue('i10',this)">🔥 10호<span class="itnew">NEW</span></button>
+    <button class="itb" onclick="swIssue('i9',this)">🤖 09호</button>
     <button class="itb" onclick="swIssue('i8',this)">📋 08호</button>
     <button class="itb" onclick="swIssue('i7',this)">📊 07호</button>
     <button class="itb" onclick="swIssue('i6',this)">🏛️ 06호</button>
@@ -1197,7 +1191,7 @@ footer{background:var(--M);color:rgba(255,255,255,.58);padding:22px 0;font-size:
         <h2 class="st">핵심 조사 결과 — AI·JX 트렌드 수치 (n=1,058)</h2>
         <p class="sd">매일경제·입시전문기관 공동 조사(2026.6.1), 고교생 1,058명 대상. 이 수치는 향후 수험생의 전공 선택 행동을 예측하는 가장 최신의 실증 데이터입니다.</p>
         <!-- 원본 기사 이미지 박스 -->
-        <div style="background:#fffdf7;border:1px solid #e8d8a0;border-left:5px solid var(--Y);border-radius:var(--ra);padding:18px 20px;margin-bottom:22px">
+        <div style="background:#fffdf7;border:1px solid #e8d8a0;border-radius:var(--ra);padding:18px 20px;margin-bottom:22px">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid #e8d8a0">
             <span style="font-size:15px;font-weight:800;color:var(--M)">매일경제</span>
             <span style="font-size:11.5px;color:var(--mu)">2026년 6월 1일 월요일 A25면 사회 | 이용익 기자</span>
@@ -1432,7 +1426,7 @@ footer{background:var(--M);color:rgba(255,255,255,.58);padding:22px 0;font-size:
         <div class="slbl">Part I</div>
         <h2 class="st">기사 원문 분석 — 조명석 교수의 30년 실험</h2>
         <p class="sd">동아일보 2026년 6월 2일 A30면 오피니언 「광화문에서」 — 이유종 정책사회부 차장 기고를 중심으로 핵심 내용을 분석합니다.</p>
-        <div style="background:#fff8f0;border:1px solid #f0d0b0;border-left:5px solid #d97706;border-radius:var(--ra);padding:18px 20px;margin-bottom:22px">
+        <div style="background:#fff8f0;border:1px solid #f0d0b0;border-radius:var(--ra);padding:18px 20px;margin-bottom:22px">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid #f0d0b0">
             <span style="font-size:15px;font-weight:800;color:#92400e">東亞日報</span>
             <span style="font-size:11.5px;color:var(--mu)">2026년 6월 2일 화요일 A30면 오피니언 광화문에서 | 이유종 정책사회부 차장</span>
@@ -1658,7 +1652,7 @@ footer{background:var(--M);color:rgba(255,255,255,.58);padding:22px 0;font-size:
 <!-- ============================================================
   09호 이슈 패널 — 대학 AI 전면 도입의 조건
 ============================================================ -->
-<div id="ip-i9" class="ip on">
+<div id="ip-i9" class="ip">
   <div class="hero">
     <div class="hvol">09</div>
     <div class="con"><div class="cw">
@@ -1930,6 +1924,352 @@ footer{background:var(--M);color:rgba(255,255,255,.58);padding:22px 0;font-size:
   </div>
 </div>
 <!-- ip-i9 END -->
+<!-- ============================================================
+  10호 이슈 패널 — 벼랑 끝의 사립대학
+============================================================ -->
+<div id="ip-i10" class="ip on">
+  <div class="hero">
+    <div class="hvol">10</div>
+    <div class="con"><div class="cw">
+      <div class="hm">
+        <span class="bd bdv">ISSUE BRIEF 2026-10</span>
+        <span class="bd bdc">일본 사례 · 정원 미달 대응 / 생존 전략</span>
+        <span class="bd bdn">LATEST</span>
+        <span class="hdt">2026. 08. 12</span>
+      </div>
+      <h1>'벼랑 끝의 사립대학':<br><em>정원 미달 59.2% 시대의 생존 대학 해부</em></h1>
+      <p class="hsub">아사히신문 「일본의 대학을 연다」 취재반 단행본 심층 분석 • 일본 사립대 정원 미달 59.2% 충격<br>미야자키국제대·가나자와공대·무사시대·후쿠오카공대 등 6개 생존 대학 벤치마킹 • 중원대 6대 전략 과제</p>
+      <div class="hinfo">
+        <div><div class="hil">작성부서</div><div class="hiv">성과감사실</div></div>
+        <div><div class="hil">발행일자</div><div class="hiv">2026. 08. 12</div></div>
+        <div><div class="hil">분석 대상</div><div class="hiv">아사히신문 취재반 단행본</div></div>
+        <div><div class="hil">배포구분</div><div class="hiv">내부 참고 (배포 금지)</div></div>
+      </div>
+      <div class="htoc">
+        <a href="#sXa">SCQA</a><a href="#sXb">위기 진단</a>
+        <a href="#sXc">6개 생존 대학</a><a href="#sXd">성공 공식</a>
+        <a href="#sXe">중원대 대조</a><a href="#sXf">6대 전략 과제</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="scqa-wrap" id="sXa">
+    <div class="con cw"><div class="scqa-grid">
+      <div class="sc sc-s"><div class="scl">SITUATION</div><h4>일본 사립대 정원 미달 59.2%</h4><p>2024년 일본 사립대학의 정원 미달 비율이 59.2%로 역대 최악을 기록했습니다. 2020년 31.0%에서 4년 만에 약 2배 급증한 수치입니다.</p></div>
+      <div class="sc sc-c"><div class="scl">COMPLICATION</div><h4>표준점수로 측정되지 않는 생존</h4><p>그럼에도 살아남은 대학들이 있습니다. 이들의 공통점은 명성·편차치가 아니라 '돌봄의 밀도'와 '차별화된 교육 설계'였습니다.</p></div>
+      <div class="sc sc-q"><div class="scl">QUESTION</div><h4>중원대의 학습 과제</h4><p>"일본이 먼저 겪은 정원 미달 시대에서 살아남은 대학들의 어떤 요소를 중원대학교가 지금 도입해야 하는가?"</p></div>
+      <div class="sc sc-a"><div class="scl">ANSWER</div><h4>추진 전략 제언</h4><p>학생 돌봄 지표화, 데이터 기반 중도탈락 방지, 소수 세미나 확대, 해외 학위 병행, 산업 직결 특성화, 고교 관계 관리의 6대 과제를 제언드립니다.</p></div>
+    </div></div>
+  </div>
+
+  <main class="ms">
+    <div class="con cw">
+
+      <!-- Part I -->
+      <section class="sb" id="sXb">
+        <div class="slbl">Part I</div>
+        <h2 class="st">위기 진단 — 일본이 먼저 도달한 '2035년의 벼랑'</h2>
+        <p class="sd">아사히신문 「일본의 대학을 연다(ひらく 日本の大学)」 취재반이 20년 이상의 대학 취재를 축적하여 2026년 발간한 단행본 『崖っぷちの私立大学(벼랑 끝의 사립대학)』의 핵심 데이터를 분석합니다.</p>
+
+        <div class="hb hb-y" style="margin-bottom:22px">
+          <h5>📕 원자료: 『崖っぷちの私立大学 — 偏差値で測れない価値をどう見抜くか』</h5>
+          <p>朝日新聞「ひらく 日本の大学」取材班 저 | 朝日新書 1063 | 265페이지 | 2026. 6월 발간<br>
+          <span style="font-size:12.5px;color:var(--mu)">부제: "표준점수로 측정할 수 없는 가치를 어떻게 간파할 것인가"</span></p>
+        </div>
+
+        <div class="sg">
+          <div class="stc"><div class="stn snr">59.2<span class="stu">%</span></div><div class="stl">2024년 일본 사립대<br>정원 미달 비율<br>(역대 최악)</div></div>
+          <div class="stc"><div class="stn snm">31.0<span class="stu">%</span></div><div class="stl">2020년 정원 미달 비율<br>4년 만에 약 2배 급증</div></div>
+          <div class="stc"><div class="stn sny">812<span class="stu">교</span></div><div class="stl">일본 사립대 총수<br>(2025년 5월 기준)</div></div>
+          <div class="stc"><div class="stn snr">400<span class="stu">교</span></div><div class="stl">재무성 감축 주장 규모<br>(2026년 4월 재정제도분과회)</div></div>
+          <div class="stc"><div class="stn snm">100<span class="stu">만명</span></div><div class="stl">2035년 18세 인구<br>(1990년 200만 명의 절반)</div></div>
+          <div class="stc"><div class="stn sng">18<span class="stu">세</span></div><div class="stl">인구 감소가 대학 입학자<br>감소로 직결되는 구조</div></div>
+        </div>
+
+        <div class="hb hb-r">
+          <h5>🚨 핵심 충격: 재무성 vs 문부과학성의 정면 충돌</h5>
+          <p>일본 재무성은 2026년 4월 재정제도분과회에서 <strong>"18세 인구 감소에 맞춰 현재 812개교를 최대 400개교까지 감축해야 한다"</strong>고 주장했습니다. 이에 문부과학성은 <strong>"표면적 숫자만으로 모든 대학을 일률적으로 다루는 것에 반대한다"</strong>며, 지역을 지탱하는 인재 양성 등 설립 목적이 다양한 대학의 현상을 이해하고 대응을 고려해야 한다는 견해를 제시하며 정면으로 충돌했습니다.</p>
+        </div>
+
+        <div class="hb hb-b">
+          <h5>🇰🇷 한국에의 시사점 — 시차 5~7년의 예고편</h5>
+          <ul>
+            <li>일본은 2020년 정원 미달 31.0% → 2024년 59.2%로 <strong>4년 만에 2배 악화</strong>. 한국의 학령인구 감소 곡선은 일본보다 가파릅니다.</li>
+            <li>일본 정부 내에서도 <strong>'대학 수 감축론(재무성)'과 '지역 인재 양성 존치론(문부과학성)'</strong>이 충돌 — 한국의 앵커(RISE) 사업 논쟁 구도와 동일합니다.</li>
+            <li>본 단행본의 문제의식인 <strong>"표준점수로 측정할 수 없는 가치"</strong>는 정원 미달 시대에 대학이 내세울 유일한 차별화 무기가 무엇인지를 정확히 지목합니다.</li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="dvd"></div>
+
+      <!-- Part II -->
+      <section class="sb" id="sXc">
+        <div class="slbl">Part II</div>
+        <h2 class="st">6개 생존 대학 벤치마킹 — 무엇이 이들을 살렸는가</h2>
+        <p class="sd">단행본 제3장 「없애서는 안 될 대학(潰してはいけない大学)」에 수록된 대학 사례들입니다. 모두 표준점수 상위권도, 수도권 명문도 아닌 지방·중소규모 사립대라는 점이 핵심입니다. 각 항목을 클릭하면 상세 내용을 확인하실 수 있습니다.</p>
+
+        <div class="ah" onclick="tog(this)"><span>🌏 ① 미야자키국제대학 — 전 수업 영어, 외국인 교원 70% 30년 유지</span><span class="aha">▼</span></div>
+        <div class="ab">
+          <p><strong>전략의 본질</strong>: 리츠메이칸아시아태평양대(2000년)·국제교양대(2004년)보다 <strong>한 발 앞서</strong> 거의 모든 수업을 영어로 실시하는 획기적 교육을 시작했습니다. 학교법인 미야자키학원 이사장이 1970년대 미국 유학 시 받은 충격에서 출발했습니다.</p>
+          <ul>
+            <li><strong>교육 이념</strong>: "일본 문화와 외국의 언어·문화에 정통하고, 영어 능력이 뛰어난 국제인 양성"</li>
+            <li><strong>외국인 교원 비율</strong>: 30년 이상 전국 최상위 수준인 <strong>70% 전후</strong>를 지속 유지</li>
+            <li><strong>필수 해외 연수</strong>: 2학년 후기 수업이 거의 전부 영어로 진행되며, 해외 연수가 필수 과정</li>
+            <li><strong>실증 성과</strong>: 입학 시 TOEIC 300점대·중학 영어 복습부터 시작한 학생이 <strong>4년간 600점 돌파(약 400점 상승)</strong> → 항공관제관 취업 성공</li>
+            <li><strong>소수 정예 밀착</strong>: 교원 지망 클래스 7명, 인원이 많은 수업도 20명 정도. "모르는 것을 그대로 두지 않는다"는 교육 원칙</li>
+            <li><strong>지역 기여</strong>: 졸업생이 미야자키현 내 중·고교 영어교사로 대거 진출. 2014년 교육학부 개설로 현내 수십 개 초등학교에 교원 배출</li>
+          </ul>
+          <div class="hb hb-r" style="margin-top:10px"><h5>⚠️ 냉정한 현실 — 성공에도 정원은 미달</h5><p style="font-size:12.5px">이러한 선구적 교육에도 불구하고 <strong>2025년도까지 5년 연속 입학자가 정원에 미달</strong>했습니다. 교육의 질과 학생 모집의 성공이 자동으로 연결되지 않는다는 사실을 보여주는 냉정한 사례이며, <strong>'좋은 교육 + 인지도 전략'이 반드시 병행되어야 함</strong>을 시사합니다.</p></div>
+          <div class="hb hb-b" style="margin-top:10px"><h5>🎯 중원대 시사점</h5><p style="font-size:12.5px">국제대학 10개 전담학과와 AI융합대학의 차별화 지점을 '영어 강의 비중'과 '외국인 교원 비율'로 계량화하여 대외 공시하는 방안. 다만 미야자키 사례처럼 교육 품질만으로는 충원이 해결되지 않으므로 <strong>고교 접점 관리(⑥ 사례)와 반드시 세트로 추진</strong>해야 합니다.</p></div>
+        </div>
+
+        <div class="ah" onclick="tog(this)"><span>🏅 ② 가나자와공업대학 — '돌봄 좋은 대학' 21년 연속 일본 1위</span><span class="aha">▼</span></div>
+        <div class="ab">
+          <p><strong>전략의 본질</strong>: 이시카와현 노노이치시 소재. <strong>2005년 제1회부터 21년 연속</strong> 「面倒見が良い大学(돌봄이 좋은 대학)」 랭킹 1위를 한 번도 내주지 않았습니다. 이 랭킹은 <strong>전국 약 3,200개 고교의 진로지도 교사</strong>가 표준점수에 좌우되지 않는 대학 선택 지표로 추천 대학 5개를 지목해 집계한 것입니다.</p>
+          <ul>
+            <li><strong>규모</strong>: 재학생 약 6,000명, 그중 <strong>약 75%가 현외 출신</strong> — 돌봄 평판이 광역 모집력으로 직결</li>
+            <li><strong>전 도도부현 고교 담당 직원 배치</strong>: 직원을 전국 47개 도도부현 전체에 '고교 담당'으로 배치. 연 2회 각 고교를 방문해 <strong>재학 중인 그 고교 출신 학생의 수업 태도·성장 상황을 모교와 공유</strong></li>
+            <li><strong>AI 수학 내비게이션</strong>: '수학 사전처럼 써 달라'는 독자 시스템. 고교 수학~대학 1·2학년 수학 공식을 동영상 앱으로 망라, AI 튜터링과 창구 상담을 결합</li>
+            <li><strong>48시간 내 응답 원칙</strong>: 스마트폰·휴대전화로 받은 학생 질문에 <strong>48시간 이내 회신</strong></li>
+            <li><strong>약 800개 항목 데이터 분석</strong>: 학생별 성적·습숙도 데이터를 약 800개 항목으로 해석. 수학 지도 4주째 소테스트 시작, <strong>8주째 출석률 악화 학생을 빅데이터로 포착</strong>해 퇴학 방지</li>
+            <li><strong>학부모 포털·전국 56개 회장 간담회</strong>: 출석 상황과 성적을 학부모가 확인 가능한 포털 구축. 매년 전국 56개 회장에서 교직원·학생 스태프와 학부모 간담회 개최</li>
+            <li><strong>2,000개 맨션·기숙사 제휴</strong>: 병원·학내 진료소 연계까지 포함해 '대학과 지역 전체가 학생을 키우는 구조' 완성</li>
+            <li><strong>포지티브 심리학 필수과목</strong>: 2023년 호주 멜버른대 교원에게 배워 전 학부 필수화. "문제를 발견해 해결하는 교육만이 아니라, 좋은 점을 어떻게 늘릴 것인가"</li>
+          </ul>
+          <div class="qb qb-b" style="margin-top:12px"><p>"유명한 연구 내용은 훌륭하지만, 학생은 마음대로 성장해 주면 된다는 생각으로는 대학이 성립하지 않는다. 우리가 내거는 것은 <strong>'교육 부가가치 일본 1위'</strong>다."</p><cite>— 오사와 사토시(大澤敏) 가나자와공업대학 학장</cite></div>
+          <div class="hb hb-b" style="margin-top:10px"><h5>🎯 중원대 시사점 — 본 호 최대 벤치마킹 대상</h5><p style="font-size:12.5px"><strong>CMP(생애지도전담교수) 제도의 완성형 모델</strong>입니다. 8호에서 진단한 CMP 4대 취약점(면담 강도·성과 측정·데이터 연동·동문 네트워크)이 가나자와공대에서는 모두 시스템으로 해결되어 있습니다. 특히 <strong>800개 항목 데이터 분석 + 8주차 위험군 자동 포착</strong>은 IR기반 성과관리시스템의 구체적 설계 청사진이 됩니다.</p></div>
+        </div>
+
+        <div class="ah" onclick="tog(this)"><span>📚 ③ 무사시대학 — '제미(세미나)의 무사시', 1학년부터 소수 세미나 필수</span><span class="aha">▼</span></div>
+        <div class="ab">
+          <p><strong>전략의 본질</strong>: 도쿄 네리마구 소재, 경제·인문·사회·국제교양 4학부 약 5,000명의 중규모 대학. 도쿄 지하철 출입문에 붙은 녹색 스티커에 <strong>「ゼミの武蔵(제미의 무사시)」</strong>라는 단 한 줄의 캐치프레이즈로 브랜드를 각인시켰습니다.</p>
+          <ul>
+            <li><strong>1학년부터 세미나 필수</strong>: 주 1회 세미나에 1학년부터 십수 명 규모로 참여. 개설 세미나 수 <strong>400개 초과</strong></li>
+            <li><strong>정체성 형성 효과</strong>: "입학 때부터 소수 인원으로, 자신의 거처(居場所)나 안착할 장소가 되고 있다"(다카하시 도쿠유키 학장)</li>
+            <li><strong>운영 원칙의 의도적 비효율</strong>: 교원이 담당하는 주 5코마 수업 중 주로 4코마가 세미나 형식. 대교실 일제 수업이 경영 효율은 높지만, <strong>"입학 후부터 소수 인원 학생과 마주하는 형태를 무너뜨리지 않는다"</strong>는 경영 판단</li>
+            <li><strong>역사적 뿌리</strong>: 1922년(다이쇼 11년) 구제(旧制) 고교 개학 시부터 이어진 세미나 전통</li>
+            <li><strong>실증 효과</strong>: "1학년부터 세미나에서 테마 설정하고 발표를 반복. 3학년이 되어 <strong>내용에 따라 발표하지 않으면 통하지 않는다</strong>는 것을 알게 됐다"(학생 인터뷰)</li>
+          </ul>
+          <div class="hb hb-y" style="margin-top:10px"><h5>🇬🇧 병행 전략: 런던대 학위 동시 취득(PDP)</h5><p style="font-size:12.5px">무사시대학의 또 하나의 간판은 국제교양학부의 <strong>패러렐 디그리 프로그램(PDP)</strong>입니다. 2015년도부터 시작되어 무사시대학에 다니면서 영국 런던대학의 강의도 병행 이수, <strong>양 대학 학위를 모두 취득</strong>할 수 있습니다. 런던대 산하 LSE(London School of Economics)는 2024년 노벨경제학상 수상자 대런 아세모글루 MIT 교수를 배출한 세계 최고 수준 기관입니다. 입학 직후 4월부터 영어 집중 연수를 실시하며, IELTS 평균 5.5 이상·각 섹션 5.0 이상을 기준으로 합니다. <strong>실제로 LSE 대학원 합격자를 배출</strong>했습니다.</p></div>
+          <div class="hb hb-b" style="margin-top:10px"><h5>🎯 중원대 시사점</h5><p style="font-size:12.5px">① <strong>단일 캐치프레이즈 브랜딩</strong>: '제미의 무사시'처럼 중원대만의 한 줄 정체성 확립 필요(예: 스마트농산림·간호 특화). ② <strong>소수 세미나 필수화</strong>: CMP 제도와 결합하면 '1학년부터 소속감'을 제공하는 중도탈락 방지 장치가 됩니다. ③ <strong>해외 대학 병행 학위</strong>: 8호에서 제언한 글로벌 진로 트랙의 구체적 실행 모델입니다.</p></div>
+        </div>
+
+        <div class="ah" onclick="tog(this)"><span>🔬 ④ 후쿠오카공업대학 — 중퇴 방지 데이터베이스와 반도체 국제 협업</span><span class="aha">▼</span></div>
+        <div class="ab">
+          <p><strong>전략의 본질</strong>: 후쿠오카시 히가시구 JR 가고시마본선 연선에 위치. 3학부 약 4,000명 규모. 지원자의 90%가 규슈 지역 고교생이며, 그중 70%가 후쿠오카현 출신인 <strong>철저한 지역 밀착형 대학</strong>입니다.</p>
+          <ul>
+            <li><strong>취업률 99.9%</strong>: 2025년도 취업률. 진학자를 포함한 실취업률은 <strong>98.3%로 과거 최고치</strong></li>
+            <li><strong>지원자 3배 증가</strong>: 20년 전 대비 지원자 3배. 2026년 봄 입학 약 1,000명 중 여성이 역대 최다 203명(전년 25명 상회), 이과계 종합형 선발에서 30명 신규 합격</li>
+            <li><strong>퇴학 방지 데이터베이스</strong>: 입학~졸업까지 데이터에 <strong>알림(Alert) 시스템 내장</strong>. 출석·학점 취득 상황에 따라 황신호·적신호가 표시되어 직원이 면담·카운슬링·지원으로 연결</li>
+            <li><strong>상급생 수업 서포트</strong>: 1~2학년 대상으로 대학원생·학부 상급생이 교원 어시스턴트로 참여. 수학·물리·프로그래밍 학습 방법과 실험 리포트 작성법 지도. <strong>공업고교 출신 학생이 2학년 진급 시 성적이 크게 향상</strong></li>
+            <li><strong>취업 이동 교통비 지원</strong>: 채용 시험·인턴십을 위해 자택에서 100km 이상 이동 시 <strong>연 3회 교통비 보조</strong>. "자신이 나아가고 싶은 길을 넓히게 한다"</li>
+            <li><strong>교직원 40명 연 4회 고교 방문</strong>: 규슈 각현·야마구치현 고교를 순회하며 졸업생 근황·졸업 후 모습을 보고. 퇴학 정보까지 전달하는 <strong>투명한 관계 관리</strong></li>
+            <li><strong>반도체 국제 협업</strong>: 세계 최대 반도체 수탁제조 기업 <strong>TSMC의 구마모토현 진출</strong>에 대응. 대만 <strong>윈린과기대(雲林科技大学)</strong>와 연계하여 최첨단 반도체 제조설비를 갖춘 협동 프로그램 운영. 학생은 <strong>3학년 2학기~4학년에 대만 유학</strong>하여 현지 반도체 산업 실무를 습득</li>
+          </ul>
+          <div class="hb hb-b" style="margin-top:10px"><h5>🎯 중원대 시사점</h5><p style="font-size:12.5px">① <strong>알림 시스템 즉시 도입</strong>: 출석·학점 기반 황신호/적신호 자동 표시는 IR시스템의 최우선 구현 기능입니다. ② <strong>산업 직결 국제 협업</strong>: TSMC 진출 → 대만 대학 연계라는 공식은 중원대 AI융합대학·스마트농산림학과가 지역 앵커 기업과 해외 대학을 연결하는 모델로 직접 이식 가능합니다. ③ <strong>취업 이동 교통비 지원</strong>은 재정지원사업 예산으로 즉시 실행 가능한 저비용·고체감 시책입니다.</p></div>
+        </div>
+
+        <div class="ah" onclick="tog(this)"><span>🎤 ⑤ 산업능률대학 — 고교 교사가 졸업생 성장에 놀라는 대학</span><span class="aha">▼</span></div>
+        <div class="ab">
+          <p><strong>전략의 본질</strong>: 지명도는 전국구가 아니지만, <strong>고교 교사와 입시학원 강사의 추천</strong>으로 알려지는 대학입니다. 직원이 고교를 방문할 때 학생 근황을 전하면, 고교 교사들이 <strong>졸업생의 성장에 놀라 후배에게 추천</strong>하는 선순환이 작동합니다.</p>
+          <ul>
+            <li><strong>"대학 수업이 재미있다"</strong>: 타 대학 진학 친구들이 "이런 발표 자료를 만들 수 있게 됐다", "적극적으로 제안했다" 같은 말을 하지 못하는 것과 대비되는 학생 성장</li>
+            <li><strong>오픈캠퍼스가 자극</strong>: "저런 선배가 되고 싶다"고 동경하여 입학을 결정하는 학생이 대부분</li>
+            <li><strong>1년차 학습법의 차이</strong>: 산업능률대 학생들은 1학년 학습 방식 자체가 타 대학과 다르다는 것을 재학 중 인지</li>
+          </ul>
+          <div class="hb hb-b" style="margin-top:10px"><h5>🎯 중원대 시사점</h5><p style="font-size:12.5px">가나자와공대의 '전 도도부현 고교 담당 직원'과 동일한 원리입니다. <strong>졸업생·재학생의 성장을 출신 고교에 되돌려 보고하는 구조</strong>가 가장 저비용·고효율의 학생 모집 전략입니다. 중원대 입학처는 <strong>충북·충남·경기권 주요 고교에 '재학생 성장 리포트'를 정기 발송</strong>하는 체계를 구축할 수 있습니다.</p></div>
+        </div>
+
+        <div class="ah" onclick="tog(this)"><span>🇺🇸 ⑥ 쇼와여자대학 — 미국 대학 캠퍼스를 교내에 유치</span><span class="aha">▼</span></div>
+        <div class="ab">
+          <p><strong>전략의 본질</strong>: 쇼와여자대학은 <strong>미국 템플대학 일본캠퍼스(TUJ)를 자기 대학 부지 안에 유치</strong>하여, 학생이 국내에 있으면서 미국 대학의 환경을 일상적으로 접하게 만들었습니다. TUJ 장학금과 쇼와여대 수업 이수만으로 <strong>양 대학 학위 취득이 가능</strong>합니다.</p>
+          <ul>
+            <li><strong>추진 주체</strong>: 하버드대 유학 경험이 있고 『女性の品格』(PHP신서, 2006년 밀리언셀러) 저자로 알려진 <strong>반도 마리코(坂東眞理子) 총장</strong>. 전 관료로 남녀공동참획국장 등을 역임</li>
+            <li><strong>기대 효과</strong>: "교육 분야에서 협력하여, 미국 대학의 존재 방식·교원의 존재 방식·학생의 존재 방식을 가까이에서 보고 자극을 받음으로써 <strong>우리 자신도 글로벌 기준의 대학이 될 수 있다</strong>"</li>
+            <li><strong>학생 의식 전환</strong>: "입학하면 졸업이 당연하다고 생각하는 학생이 많지만, <strong>입학식에서 신입생에게 '졸업할 때 성장했다고 실감하고, 졸업해서 좋았다고 말해 주세요'라고 호소</strong>한다"</li>
+          </ul>
+          <div class="hb hb-b" style="margin-top:10px"><h5>🎯 중원대 시사점</h5><p style="font-size:12.5px">캠퍼스 유치는 대규모 투자가 필요하나, <strong>'해외 대학 파트너를 캠퍼스 안으로 들여온다'</strong>는 발상 자체는 저비용으로 변형 가능합니다. 국제대학 10개 전담학과를 활용해 <strong>해외 파트너 대학 교원의 상주형 공동 강의(Joint Faculty in Residence)</strong>를 운영하면 유사한 자극 효과를 낼 수 있습니다.</p></div>
+        </div>
+      </section>
+
+      <div class="dvd"></div>
+
+      <!-- Part III -->
+      <section class="sb" id="sXd">
+        <div class="slbl">Part III</div>
+        <h2 class="st">성공 공식 도출 — 5개 공통 DNA</h2>
+        <p class="sd">6개 생존 대학의 사례를 교차 분석하면, 표준점수·명성과 무관하게 작동하는 <strong>5개의 공통 성공 DNA</strong>가 도출됩니다.</p>
+        <div class="hb hb-y" style="margin-bottom:18px"><h5>📝 편집자 주 — 일본 용어의 한국어 대응</h5><p style="font-size:12.5px">본 호에서 인용한 일본 원자료의 <strong>「面倒見(면도미)」</strong>는 학생 개개인을 세심하게 돌보고 챙기는 대학의 지도 역량을 뜻하며, 본문에서는 <strong>'학생 돌봄'</strong>으로 옮겼습니다. 또한 <strong>「偏差値(편차치)」</strong>는 일본의 대입 상대평가 지표로 한국의 <strong>표준점수·수능 등급</strong>에 해당하는 개념이며, 본문에서는 <strong>'표준점수'</strong>로 통일하여 표기하였습니다.</p></div>
+
+        <div class="ag">
+          <div class="ac ac1"><div class="acn">DNA 01 · 돌봄의 계량화</div><h4>'학생 돌봄'을 감성이 아닌 지표로 관리</h4><p>가나자와공대는 48시간 내 응답, 800개 항목 데이터 분석, 4주차 소테스트, 8주차 위험군 포착 등 <strong>돌봄을 전부 수치와 주기로 표준화</strong>했습니다. 후쿠오카공대도 황신호·적신호 알림 시스템으로 동일 원리를 구현했습니다.</p><div class="acef">🔑 "돌봄이 좋다"는 평판은 감성이 아니라 데이터 시스템의 산물</div></div>
+
+          <div class="ac ac2"><div class="acn">DNA 02 · 의도적 비효율</div><h4>경영 효율을 희생한 소수 인원 접촉 유지</h4><p>무사시대학은 대교실 일제 수업이 경영상 유리함을 알면서도 <strong>주 5코마 중 4코마를 세미나 형식으로 유지</strong>했습니다. 미야자키국제대도 최대 20명 수준의 소규모 클래스를 고수합니다. 이 '의도적 비효율'이 곧 차별화 자산입니다.</p><div class="acef">🔑 규모의 경제를 포기한 지점에서 중소규모 대학의 경쟁력이 발생</div></div>
+
+          <div class="ac ac3"><div class="acn">DNA 03 · 고교와의 상시 관계</div><h4>모집이 아니라 '성장 보고'로 접촉</h4><p>가나자와공대는 전 도도부현에 고교 담당 직원을 배치해 연 2회 방문, 후쿠오카공대는 교직원 40명이 연 4회 순회하며 <strong>퇴학 정보까지 투명하게 공유</strong>합니다. 산업능률대는 고교 교사의 놀라움이 곧 추천으로 이어집니다.</p><div class="acef">🔑 홍보비보다 강력한 것은 고교 진로교사의 실증된 신뢰</div></div>
+
+          <div class="ac ac4"><div class="acn">DNA 04 · 산업·해외 직결</div><h4>지역 산업 변화에 대학 커리큘럼을 즉시 연동</h4><p>후쿠오카공대는 TSMC 구마모토 진출에 맞춰 대만 윈린과기대와 반도체 협동 프로그램을 즉시 구축했습니다. 무사시대는 런던대 병행 학위, 쇼와여대는 미국 템플대 캠퍼스 유치로 <strong>학위 자체를 글로벌화</strong>했습니다.</p><div class="acef">🔑 지역 앵커 기업의 변화가 곧 학과 개편의 신호</div></div>
+
+          <div class="ac ac1"><div class="acn">DNA 05 · 성장 서사의 브랜딩</div><h4>'표준점수'가 아닌 '성장 폭'을 내세우는 언어 전환</h4><p>가나자와공대는 <strong>"교육 부가가치 일본 1위"</strong>를, 무사시대는 <strong>"제미의 무사시"</strong>라는 단 한 줄을 내걸었습니다. 미야자키국제대는 "TOEIC 300점대 입학생이 600점 돌파"라는 구체적 성장 서사로 승부합니다.</p><div class="acef">🔑 입학 성적이 아닌 졸업 시 변화량을 대학의 정체성으로 선언</div></div>
+        </div>
+      </section>
+
+      <div class="dvd"></div>
+
+      <!-- Part IV -->
+      <section class="sb" id="sXe">
+        <div class="slbl">Part IV</div>
+        <h2 class="st">중원대학교 현황 대조 — 무엇이 있고 무엇이 없는가</h2>
+        <p class="sd">5개 성공 DNA를 중원대학교의 현행 제도·자원과 대조하여 격차와 즉시 실행 가능 영역을 판별합니다.</p>
+
+        <div class="tw"><table style="table-layout:fixed;width:100%">
+          <colgroup><col style="width:20%"><col style="width:31%"><col style="width:35%"><col style="width:14%"></colgroup>
+          <thead><tr><th>성공 DNA</th><th>일본 생존 대학 실행 수준</th><th>중원대학교 현황</th><th style="white-space:nowrap">격차</th></tr></thead>
+          <tbody>
+            <tr>
+              <td style="white-space:nowrap"><strong>① 돌봄의 계량화</strong></td>
+              <td>48시간 내 응답, 800개 항목 데이터, 8주차 위험군 자동 포착, 황·적신호 알림</td>
+              <td>CMP 규정 존재. 단 <strong>학기 1회 대면 상담이 사실상 상한</strong>, 면담 결과만 시스템 입력</td>
+              <td style="color:var(--R);font-weight:700;white-space:nowrap">🔴 높음</td>
+            </tr>
+            <tr>
+              <td style="white-space:nowrap"><strong>② 의도적 비효율</strong></td>
+              <td>주 5코마 중 4코마 세미나, 최대 20명 클래스 고수</td>
+              <td>학과별 상이. <strong>1학년 필수 소수 세미나 제도 없음</strong></td>
+              <td style="color:var(--R);font-weight:700;white-space:nowrap">🔴 높음</td>
+            </tr>
+            <tr>
+              <td style="white-space:nowrap"><strong>③ 고교 상시 관계</strong></td>
+              <td>전 도도부현 담당 직원 배치, 연 2~4회 방문, 재학생 성장·퇴학 정보까지 공유</td>
+              <td>입학처 고교 방문 실시. <strong>재학생 성장 데이터 역송 체계는 미구축</strong></td>
+              <td style="color:#d97706;font-weight:700;white-space:nowrap">🟡 중간</td>
+            </tr>
+            <tr>
+              <td style="white-space:nowrap"><strong>④ 산업·해외 직결</strong></td>
+              <td>TSMC 진출 → 대만 대학 연계 즉시 구축, 런던대 병행 학위, 미국 대학 캠퍼스 유치</td>
+              <td>AI융합대학·스마트농산림학과 신설, 국제대학 10개 전담학과 보유. <strong>해외 대학 병행 학위 트랙 부재</strong></td>
+              <td style="color:#d97706;font-weight:700;white-space:nowrap">🟡 중간</td>
+            </tr>
+            <tr>
+              <td style="white-space:nowrap"><strong>⑤ 성장 서사 브랜딩</strong></td>
+              <td>"교육 부가가치 일본 1위", "제미의 무사시" 등 단일 문장 정체성</td>
+              <td>앵커(RISE) 사업 특성화 진행 중. <strong>대외 각인용 단일 캐치프레이즈 부재</strong></td>
+              <td style="color:var(--R);font-weight:700;white-space:nowrap">🔴 높음</td>
+            </tr>
+          </tbody>
+        </table></div>
+
+        <div class="hb hb-g" style="margin-top:16px">
+          <h5>✅ 중원대학교가 이미 보유한 강점 — 출발선이 낮지 않다</h5>
+          <ul>
+            <li><strong>CMP(생애지도전담교수) 규정</strong>: 가나자와공대식 돌봄 시스템의 <strong>법적 근거가 이미 존재</strong>합니다. 운영 밀도만 올리면 됩니다.</li>
+            <li><strong>IR기반 성과관리시스템</strong>: 2026년 최고 목표 프로젝트로 추진 중 — 800개 항목 분석·알림 시스템의 <strong>구현 플랫폼이 준비 단계</strong>입니다.</li>
+            <li><strong>국제대학 10개 전담학과</strong>: 해외 대학 병행 학위·공동 강의를 얹을 <strong>제도적 그릇이 이미 마련</strong>되어 있습니다.</li>
+            <li><strong>앵커(RISE) 사업 예산</strong>: 후쿠오카공대식 취업 교통비 지원, 어학 캠프 등 <strong>학생 체감형 시책의 재원</strong>이 확보되어 있습니다.</li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="dvd"></div>
+
+      <!-- Part V -->
+      <section class="sb" id="sXf">
+        <div class="slbl">Part V</div>
+        <h2 class="st">6대 전략 과제</h2>
+        <p class="sd">일본 생존 대학의 5개 성공 DNA와 중원대학교 현황 대조 결과를 종합한 6대 전략 과제를 제언드립니다.</p>
+
+        <div class="ag">
+          <div class="ac ac1"><div class="acn">전략 01 · 최우선</div><h4>CMP 돌봄 지표화 — '48시간 응답·4주 점검' 원칙 도입</h4>
+            <p>가나자와공대의 돌봄 시스템을 CMP 제도에 이식합니다. 감성적 '관심'이 아니라 <strong>응답 시간·점검 주기·위험군 판정 기준을 수치로 규정</strong>합니다.</p>
+            <ul>
+              <li>CMP 학생 질의 <strong>48시간 내 회신 원칙</strong> 운영지침 신설</li>
+              <li>전공 진입 학기 <strong>4주차 소테스트·8주차 출석 점검</strong> 정례화</li>
+              <li>학사경고·중도탈락 위험 학생에 대한 <strong>추가 면담 의무화</strong>(8호 제언 연계)</li>
+            </ul>
+            <div class="acef">🎯 '돌봄 좋은 대학' 브랜드의 계량적 근거 확보 → 고교 진로교사 신뢰 축적</div>
+          </div>
+
+          <div class="ac ac2"><div class="acn">전략 02 · 최우선</div><h4>IR 알림 시스템 구축 — 황신호·적신호 자동 판정</h4>
+            <p>후쿠오카공대의 알림 시스템을 <strong>IR기반 성과관리시스템의 1차 구현 기능</strong>으로 확정합니다. 출석·학점 데이터가 자동으로 위험 신호를 발생시키는 구조입니다.</p>
+            <ul>
+              <li>출석률·학점 취득률 기준 <strong>황신호/적신호 자동 표시</strong> 대시보드 개발</li>
+              <li>알림 발생 시 CMP·학생처·학습지원 부서로 <strong>자동 통보·면담 연계</strong></li>
+              <li>학과별 중도탈락 위험 지수를 <strong>분기 1회 총장 보고</strong> 체계화</li>
+            </ul>
+            <div class="acef">🎯 중도탈락률 직접 개선 → 충원율·재학생 유지율 동시 방어</div>
+          </div>
+
+          <div class="ac ac3"><div class="acn">전략 03 · 우선</div><h4>1학년 소수 세미나 필수화 — '거처(居場所)' 만들기</h4>
+            <p>무사시대학의 '제미의 무사시' 모델을 도입합니다. 1학년 1학기부터 <strong>10~15명 규모 세미나를 필수 배정</strong>하여 입학 직후 소속감을 형성합니다.</p>
+            <ul>
+              <li>1학년 전원 <strong>소수 세미나 필수 이수</strong> 학사 규정 개정 검토</li>
+              <li>세미나 담당 교원을 해당 학생의 <strong>CMP와 일치</strong>시켜 지도 연속성 확보</li>
+              <li>상급생 학습 서포터(후쿠오카공대 모델) 배치 — 수학·기초과목 지원</li>
+            </ul>
+            <div class="acef">🎯 1학년 이탈 차단 + 학과 정체성 조기 형성</div>
+          </div>
+
+          <div class="ac ac4"><div class="acn">전략 04 · 우선</div><h4>고교 관계 관리 — '재학생 성장 리포트' 정기 역송</h4>
+            <p>가나자와공대·후쿠오카공대·산업능률대의 공통 전략입니다. 모집 홍보가 아니라 <strong>이미 보낸 학생이 어떻게 성장했는지를 출신 고교에 돌려주는</strong> 관계 관리로 전환합니다.</p>
+            <ul>
+              <li>충북·충남·경기권 주요 고교별 <strong>담당 직원 지정</strong>, 연 2회 방문</li>
+              <li>출신 고교별 재학생 학업·활동 성장 리포트 <strong>정기 발송</strong></li>
+              <li>졸업생 취업·진학 현황을 고교 진로교사에게 <strong>투명 공유</strong></li>
+            </ul>
+            <div class="acef">🎯 홍보비 대비 최고 효율 — 진로교사 추천이 곧 지원자 유입</div>
+          </div>
+
+          <div class="ac ac1"><div class="acn">전략 05 · 중요</div><h4>산업·해외 직결 트랙 — 앵커 기업 연계 국제 공동 프로그램</h4>
+            <p>후쿠오카공대의 'TSMC 진출 → 대만 대학 연계' 공식을 중원대 특성화 분야에 적용합니다. <strong>지역 앵커 기업의 변화를 학과 커리큘럼 개편 신호로 즉시 전환</strong>합니다.</p>
+            <ul>
+              <li>스마트농산림·AI융합 분야 <strong>해외 파트너 대학 공동 프로그램</strong> 개발</li>
+              <li>국제대학 10개 전담학과를 활용한 <strong>병행 학위·공동 강의 트랙</strong> 설계</li>
+              <li>재정지원사업 예산으로 <strong>취업·인턴십 이동 교통비 연 3회 지원</strong> 도입</li>
+            </ul>
+            <div class="acef">🎯 앵커(RISE) 정주 지표와 글로벌 역량 강화를 동시 달성</div>
+          </div>
+
+          <div class="ac ac2"><div class="acn">전략 06 · 중요</div><h4>성장 서사 브랜딩 — '입학 성적'이 아닌 '성장 폭' 공시</h4>
+            <p>가나자와공대의 <strong>"교육 부가가치 일본 1위"</strong> 선언처럼, 중원대학교도 표준점수·수능 등급이 아닌 <strong>재학 중 성장량을 대학 정체성으로 전환</strong>합니다.</p>
+            <ul>
+              <li>입학~졸업 간 <strong>어학 성적·자격증·역량 진단 향상치</strong>를 IR 지표로 측정·공시</li>
+              <li>학과별 <strong>단일 캐치프레이즈</strong> 개발 — 대외 홍보 언어 통일</li>
+              <li>미야자키국제대 사례의 교훈: <strong>교육 품질만으로는 충원이 해결되지 않으므로 전략 04(고교 관계)와 반드시 세트로 추진</strong></li>
+            </ul>
+            <div class="acef">🎯 5~7등급 지원자 풀에 대한 '성장 가능성' 소구력 확보</div>
+          </div>
+        </div>
+
+        <div class="cbox" style="margin-top:24px">
+          <h3>🎯 핵심 결론: 일본의 오늘은 한국의 5년 뒤다</h3>
+          <p>일본 사립대의 정원 미달은 2020년 31.0%에서 2024년 59.2%로 4년 만에 두 배가 되었습니다. 재무성이 <strong>812개교를 400개교로 감축하라</strong>고 요구하는 상황에서도 살아남은 대학들의 공통점은 명성이나 표준점수가 아니라, <strong>돌봄을 데이터로 관리하고, 소수 접촉을 의도적으로 유지하며, 고교와 상시 관계를 맺고, 산업 변화에 즉각 반응하며, 성장 폭을 브랜드로 선언한 것</strong>이었습니다. 중원대학교는 CMP 규정·IR시스템·국제대학·앵커 사업이라는 <strong>네 개의 그릇을 이미 갖추고 있습니다. 남은 것은 밀도를 올리는 일입니다.</strong></p>
+          <ul>
+            <li><strong>단기(2026년 하반기)</strong>: CMP 48시간 응답 원칙 운영지침 신설, IR 알림 시스템 설계 착수, 고교별 담당 직원 지정 및 성장 리포트 양식 개발</li>
+            <li><strong>중기(2027년)</strong>: 1학년 소수 세미나 필수화 학사 규정 개정, 황·적신호 알림 시스템 시범 가동, 해외 파트너 대학 공동 프로그램 1건 이상 체결</li>
+            <li><strong>장기(2028년)</strong>: '성장 폭' 지표 대외 공시 체계 완성, 학과별 캐치프레이즈 기반 통합 브랜딩 전개, 중도탈락률·충원율 개선 성과를 대학기관평가인증 자료로 활용</li>
+          </ul>
+        </div>
+
+        <p style="font-size:12px;color:var(--mu);margin-top:18px;line-height:1.75">
+          ※ 참고자료: 朝日新聞「ひらく 日本の大学」取材班, 『崖っぷちの私立大学 — 偏差値で測れない価値をどう見抜くか』, 朝日新書 1063, 2026 / 日本私立学校振興·共済事業団 정원 충족률 집계 / 文部科学省 18세 인구 추계
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <div style="background:#f8f9fb;border-top:1px solid var(--bd);padding:18px 0">
+    <div class="con cw">
+      <p style="font-size:11.5px;color:var(--mu);line-height:1.8;text-align:center">
+        본 이슈브리프는 중원대학교 성과감사실의 분석 의견이며, 중원대학교의 공식 입장을 대표하지 않습니다.<br>
+        <span style="font-size:10.5px;opacity:.8">This Issue Brief reflects the analytical views of the Office of Performance Audit, Jungwon University, and does not represent the official position of the university.</span>
+      </p>
+    </div>
+  </div>
+</div>
+<!-- ip-i10 END -->
+
 </div>
 <!-- tab-issues END -->
 
@@ -1946,7 +2286,7 @@ footer{background:var(--M);color:rgba(255,255,255,.58);padding:22px 0;font-size:
   <div style="background:var(--sf);border-bottom:1px solid var(--bd);padding:18px 0">
     <div class="con">
       <div style="display:flex;gap:30px;flex-wrap:wrap;align-items:center">
-        <div style="text-align:center"><div style="font-size:26px;font-weight:900;color:var(--M)">9</div><div style="font-size:12px;color:var(--mu)">총 발행 호수</div></div>
+        <div style="text-align:center"><div style="font-size:26px;font-weight:900;color:var(--M)">10</div><div style="font-size:12px;color:var(--mu)">총 발행 호수</div></div>
         <div style="text-align:center"><div style="font-size:20px;font-weight:900;color:var(--M)">2026.04~</div><div style="font-size:12px;color:var(--mu)">발행 시작</div></div>
         <div style="text-align:center"><div style="font-size:26px;font-weight:900;color:var(--M)">수시</div><div style="font-size:12px;color:var(--mu)">발행 주기</div></div>
       </div>
@@ -1955,8 +2295,13 @@ footer{background:var(--M);color:rgba(255,255,255,.58);padding:22px 0;font-size:
   <div style="padding:32px 0 72px">
     <div class="con">
       <div class="arch-grid">
-        <div class="acard latest" onclick="goIssue('i9')">
-          <div class="athumb" style="background:linear-gradient(135deg,#1a0a30,#4a1a80)"><div class="avol">09</div><span class="avbdg" style="background:var(--Y);color:var(--M)">VOL.9</span><span class="anew">✨ NEW</span></div>
+        <div class="acard latest" onclick="goIssue('i10')">
+          <div class="athumb" style="background:linear-gradient(135deg,#2e1000,#7a3410)"><div class="avol">10</div><span class="avbdg" style="background:var(--Y);color:var(--M)">VOL.10</span><span class="anew">✨ NEW</span></div>
+          <div class="abody"><div class="adt">2026년 8월 12일 · 최신호</div><div class="attl">'벼랑 끝의 사립대학': 일본 정원 미달 59.2% 시대의 생존 대학 해부</div><div class="asum">아사히신문 취재반 단행본 분석. 미야자키국제대·가나자와공대·무사시대·후쿠오카공대 등 6개 생존 대학의 성공 요인을 해부하고 중원대 6대 전략 과제를 제언한다.</div></div>
+          <div class="aft"><span class="atag">일본사례·정원미달대응</span><span style="color:var(--M);font-weight:700">→</span></div>
+        </div>
+        <div class="acard" onclick="goIssue('i9')">
+          <div class="athumb" style="background:linear-gradient(135deg,#1a0a30,#4a1a80)"><div class="avol">09</div><span class="avbdg" style="background:rgba(255,255,255,.2);color:#fff">VOL.9</span></div>
           <div class="abody"><div class="adt">2026년 6월 11일 · 최신호</div><div class="attl">대학 AI 전면 도입의 조건: 밥슨 칼리지 사례와 글로벌 벤치마크</div><div class="asum">CIO 100 수상 밥슨 칼리지 'EduAI Revolution' 전략 해부, 미국·일본·중국 대학 AI 모범사례 비교 분석, 중원대학교 AI 도입 로드맵 5대 제언.</div></div>
           <div class="aft"><span class="atag">AI전략·글로벌벤치마크</span><span style="color:var(--M);font-weight:700">→</span></div>
         </div>
@@ -2051,7 +2396,7 @@ footer{background:var(--M);color:rgba(255,255,255,.58);padding:22px 0;font-size:
 <footer>
   <div class="fi">
     <div><div class="fbold">중원대학교 성과감사실 이슈브리프 웹진</div><div style="margin-top:4px">본 자료는 내부 참고 자료로, 외부 배포를 금지합니다.</div></div>
-    <div style="text-align:right"><div>최신호: 제9호 (2026. 06. 11)</div><div style="margin-top:4px">© 2026 JWU 성과감사실. All rights reserved.</div></div>
+    <div style="text-align:right"><div>최신호: 제10호 (2026. 08. 12)</div><div style="margin-top:4px">© 2026 JWU 성과감사실. All rights reserved.</div></div>
   </div>
 </footer>
 
@@ -2061,6 +2406,7 @@ footer{background:var(--M);color:rgba(255,255,255,.58);padding:22px 0;font-size:
 <script>
 /* ── 섹션 맵 ── */
 const SECS = {
+  i10:['sXa','sXb','sXc','sXd','sXe','sXf'],
   i9:['s9a','s9b','s9c','s9d','s9e','s9f'],
   i8:['s8a','s8b','s8c','s8d','s8e'],
   i7:['s7a','s7b','s7c','s7d','s7e','s7f'],
@@ -2071,7 +2417,7 @@ const SECS = {
   i2:['s2a','s2b','s2c','s2d','s2e'],
   i1:['s1a','s1b','s1c','s1d','s1e']
 };
-let cur = 'i9';
+let cur = 'i10';
 
 /* ── 메인 탭 전환 ── */
 function swTab(id, btn){
