@@ -2448,7 +2448,7 @@ function swTab(id, btn){
 }
 
 /* ── 이슈 서브탭 전환 ── */
-function swIssue(id, btn){
+function swIssue(id, btn, skipHash){
   /* 모든 이슈 패널 숨기기 */
   document.querySelectorAll('.ip').forEach(p => p.classList.remove('on'));
   /* 모든 서브탭 버튼 비활성화 */
@@ -2459,6 +2459,8 @@ function swIssue(id, btn){
   /* 선택된 버튼 활성화 */
   if(btn) btn.classList.add('on');
   cur = id;
+  /* URL 해시 갱신 — 외부에서 #i10 형태로 바로 진입 가능 */
+  if(!skipHash && history.replaceState) history.replaceState(null, '', '#' + id);
   updToc();
   window.scrollTo({top:0,behavior:'smooth'});
 }
@@ -2531,8 +2533,26 @@ function chFont(d){
   document.body.style.fontSize = fs + 'px';
 }
 
+/* ── 해시 딥링크 진입 처리 ── */
+/* 메일·게시판에서 '주소#i9' 형태로 접속하면 해당 호가 바로 열립니다 */
+function openFromHash(){
+  const m = (location.hash || '').match(/^#(i\d+)$/);
+  if(!m) return false;
+  const id = m[1];
+  const panel = document.getElementById('ip-' + id);
+  if(!panel) return false;
+  const btn = document.querySelector(`.itb[onclick*="'${id}'"]`);
+  const gtb = document.querySelector('.gtb[onclick*="issues"]');
+  swTab('issues', gtb);
+  swIssue(id, btn, true);
+  return true;
+}
+
+window.addEventListener('hashchange', openFromHash);
+
 /* ── 초기화 ── */
 window.addEventListener('DOMContentLoaded', () => {
+  openFromHash();
   updToc();
 });
 </script>
